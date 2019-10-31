@@ -3,6 +3,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Check out the [demos](https://farnaz-kakhsaz.github.io/Slideshow) from a mobile device (real or emulated). The Slideshow can have pagination(dots) or arrow for changing screens.
 
+![Untitled-1](https://user-images.githubusercontent.com/37678729/67991199-a0162d00-fc4d-11e9-9f8b-324fdd248d6b.jpg)
+
+![Untitled-2](https://user-images.githubusercontent.com/37678729/67991205-a5737780-fc4d-11e9-9f34-740ef17c8a44.jpg)
+
+![Untitled-3](https://user-images.githubusercontent.com/37678729/67991212-aad0c200-fc4d-11e9-8780-1100c9996593.jpg)
+
 ## Available Scripts
 
 In the project directory, you can run:
