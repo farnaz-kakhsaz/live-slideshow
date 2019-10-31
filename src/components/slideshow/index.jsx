@@ -17,7 +17,7 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
     setActiveStep(step);
   }
 
-  const handleClick = (position) => (event) => {
+  const handleArrowClick = (position) => (event) => {
     if (position === "right") {
       const step = activeStep + 1 > options.length - 1 ? 0 : activeStep + 1
       setActiveStep(step)
@@ -27,7 +27,7 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
     }
   }
 
-  const onHandleClick = (step) => (event) => {
+  const handleDotClick = (step) => (event) => {
     setActiveStep(step)
   }
 
@@ -36,7 +36,7 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
       <Box position="relative" maxWidth="100%">
         {
           showArrow && (
-            <Arrow handleClick={handleClick} />
+            <Arrow handleArrowClick={handleArrowClick} />
           )
         }
         <AutoPlaySwipeableViews
@@ -68,7 +68,7 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
           <Pagination
             dots={options.length}
             activeStep={activeStep}
-            onHandleClick={onHandleClick}
+            handleDotClick={handleDotClick}
           />
         </Box>
       }
@@ -78,7 +78,6 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
 
 Slideshow.propTypes = {
   children: PropTypes.func.isRequired,
-  customComponent: PropTypes.element,
   options: PropTypes.array.isRequired,
   showDots: PropTypes.bool,
   showArrow: PropTypes.bool,

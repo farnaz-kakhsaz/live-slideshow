@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 // Components
 import PaginationDot from "./PaginationDot";
 
-export default function Pagination({ dots, activeStep, onHandleClick }) {
+export default function Pagination({ dots, activeStep, handleDotClick }) {
   const children = [];
 
   for (let i = 0; i < dots; i += 1) {
@@ -12,7 +12,7 @@ export default function Pagination({ dots, activeStep, onHandleClick }) {
         key={i}
         index={i}
         active={i === activeStep}
-        onHandleClick={onHandleClick}
+        handleDotClick={handleDotClick}
       />
     );
   }
@@ -23,5 +23,5 @@ export default function Pagination({ dots, activeStep, onHandleClick }) {
 Pagination.propTypes = {
   dots: PropTypes.number.isRequired,
   activeStep: PropTypes.number.isRequired,
-  onHandleClick: PropTypes.func.isRequired
+  handleDotClick: PropTypes.func.isRequired
 };

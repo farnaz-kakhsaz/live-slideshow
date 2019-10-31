@@ -20,14 +20,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function PaginationDot({ active, index, onHandleClick }) {
+export default function PaginationDot({ active, index, handleDotClick }) {
   const classes = useStyles();
 
   return (
     <button
       type="button"
       className={clsx(classes.dot, active ? classes.activeDot : "")}
-      onClick={onHandleClick(index)}
+      onClick={handleDotClick(index)}
     />
   );
 }
@@ -35,5 +35,5 @@ export default function PaginationDot({ active, index, onHandleClick }) {
 PaginationDot.propTypes = {
   active: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
-  onHandleClick: PropTypes.func.isRequired
+  handleDotClick: PropTypes.func.isRequired
 };

@@ -19,20 +19,20 @@ const useStyles = makeStyles(theme => ({
   leftArrow: { left: 0 }
 }))
 
-export default function Arrow({ handleClick }) {
+export default function Arrow({ handleArrowClick }) {
   const classes = useStyles()
   return (
     <div className={classes.root}>
       <div className={classes.rightArrow}
-        onClick={handleClick("right")}
+        onClick={handleArrowClick("right")}
       >&#8250;</div>
       <div className={classes.leftArrow}
-        onClick={handleClick("left")}
+        onClick={handleArrowClick("left")}
       >&#8249;</div>
     </div >
   )
 }
 
 Arrow.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleArrowClick: PropTypes.func.isRequired
 }
