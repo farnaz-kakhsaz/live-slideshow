@@ -86,10 +86,10 @@ function Section5({ width }) {
 
   return (
     <section>
-      <Box bgcolor="rgb(21, 32, 43)" py={8}>
+      <Box bgcolor="rgb(21, 32, 43)" py={10}>
         <Container maxWidth="xl">
           <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
-           fontSize={36} textAlign="center" mb={2}>
+            lineHeight={1} fontSize={36} textAlign="center" mb={3}>
             Simple Slideshow
           </Box>
           <Slideshow
@@ -110,7 +110,7 @@ function Section5({ width }) {
           </Slideshow>
 
           <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
-           fontSize={36} textAlign="center" mt={5} mb={2}>
+            lineHeight={1} fontSize={36} textAlign="center" mt={8} mb={3}>
             Slideshow with Dots
           </Box>
           <Slideshow
@@ -132,7 +132,7 @@ function Section5({ width }) {
           </Slideshow>
 
           <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
-           fontSize={36} textAlign="center" mt={5} mb={2}>
+            lineHeight={1} fontSize={36} textAlign="center" mt={8} mb={3}>
             Slideshow with Dots and Arrow
           </Box>
           <Slideshow

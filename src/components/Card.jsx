@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   image: {
     width: 400,
     borderRadius: 10,
-    marginBottom: theme.spacing(0.5)
+    marginBottom: theme.spacing(1)
   }
 }))
 
