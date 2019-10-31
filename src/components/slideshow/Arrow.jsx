@@ -6,13 +6,14 @@ import makeStyles from "@material-ui/core/styles/makeStyles"
 const useStyles = makeStyles(theme => ({
   root: {
     "& $rightArrow, & $leftArrow": {
-      color: theme.palette.divider,
+      color: theme.palette.grey[400],
       fontSize: 120,
       position: "absolute",
       top: "50%",
       transform: "translateY(-50%)",
       zIndex: 1,
-      cursor: "pointer"
+      cursor: "pointer",
+      fontFamily: "'Courier New', monospace"
     },
   },
   rightArrow: { right: 0 },

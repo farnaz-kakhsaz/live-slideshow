@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 // Components
 import Arrow from "./Arrow"
-import Pagination from "./Pagination";
+import PaginationDot from "./PaginationDot";
 // Material-UI
-import { Box } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
@@ -33,43 +34,52 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
 
   return (
     <>
+
       <Box position="relative" maxWidth="100%">
         {
           showArrow && (
             <Arrow handleArrowClick={handleArrowClick} />
           )
         }
-        <AutoPlaySwipeableViews
-          axis={"x"}
-          index={activeStep}
-          onChangeIndex={handleStepChange}
-          enableMouseEvents
-          interval={6000}
-          springConfig={{
-            duration: "1s",
-            easeFunction: "ease-in-out",
-            delay: "0s"
-          }}
-        >
+        <Container>
+          <AutoPlaySwipeableViews
+            axis={"x"}
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            enableMouseEvents
+            interval={6000}
+            springConfig={{
+              duration: "1s",
+              easeFunction: "ease-in-out",
+              delay: "0s"
+            }}
+          >
 
-          {options.map((item, index) => {
-            return (
-              <Box display="flex" justifyContent="center" key={index}>
-                {Math.abs(activeStep - index) <= 2 ? children(item) : null}
-              </Box>
-            );
-          })}
+            {options.map((item, index) => {
+              return (
+                <Box display="flex" justifyContent="center" key={index}>
+                  {Math.abs(activeStep - index) <= 2 ? children(item) : null}
+                </Box>
+              );
+            })}
 
-        </AutoPlaySwipeableViews>
+          </AutoPlaySwipeableViews>
+        </Container>
       </Box>
       {
         showDots &&
         <Box display="flex" justifyContent="center" mt={dotMarginTop}>
-          <Pagination
-            dots={options.length}
-            activeStep={activeStep}
-            handleDotClick={handleDotClick}
-          />
+          {
+            options.map((item, index) =>
+              <PaginationDot
+                dots={options.length}
+                activeDot={index === activeStep}
+                index={index}
+                handleDotClick={handleDotClick}
+                key={index}
+              />
+            )
+          }
         </Box>
       }
     </>

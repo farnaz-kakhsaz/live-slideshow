@@ -86,79 +86,68 @@ function Section5({ width }) {
 
   return (
     <section>
-      <Box bgcolor="common.white" py={8}>
-        <Container>
-          <Box fontSize={36} mb={2}>
+      <Box bgcolor="rgb(21, 32, 43)" py={8}>
+        <Container maxWidth="xl">
+          <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
+           fontSize={36} textAlign="center" mb={2}>
             Simple Slideshow
           </Box>
           <Slideshow
             options={isWidthDown("md", width) ? moblieArray : CARDS}
-            dotMarginTop={{ xs: 3, lg: 5 }}
+            dotMarginTop={{ xs: 3 }}
           >
             {item =>
               isWidthDown("md", width) ? (
-
                 <Card image={item.image} text={item.text} />
-
               ) : (
                   <Grid container justify="space-between">
                     {item.map((item, index) => (
-
                       <Card image={item.image} text={item.text} key={index} />
-
                     ))}
                   </Grid>
                 )
             }
           </Slideshow>
 
-          <Box fontSize={36} mt={4} mb={2}>
+          <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
+           fontSize={36} textAlign="center" mt={5} mb={2}>
             Slideshow with Dots
           </Box>
-
           <Slideshow
             options={isWidthDown("md", width) ? moblieArray : CARDS}
-            dotMarginTop={{ xs: 3, lg: 5 }}
+            dotMarginTop={{ xs: 3 }}
             showDots
           >
             {item =>
               isWidthDown("md", width) ? (
-
                 <Card image={item.image} text={item.text} />
-
               ) : (
                   <Grid container justify="space-between">
                     {item.map((item, index) => (
-
                       <Card image={item.image} text={item.text} key={index} />
-
                     ))}
                   </Grid>
                 )
             }
           </Slideshow>
 
-          <Box fontSize={36} mt={4} mb={2}>
+          <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
+           fontSize={36} textAlign="center" mt={5} mb={2}>
             Slideshow with Dots and Arrow
           </Box>
-
           <Slideshow
             options={isWidthDown("md", width) ? moblieArray : CARDS}
-            dotMarginTop={{ xs: 3, lg: 5 }}
+            dotMarginTop={{ xs: 3 }}
             showDots
             showArrow
           >
             {item =>
               isWidthDown("md", width) ? (
-
                 <Card image={item.image} text={item.text} />
-
               ) : (
                   <Grid container justify="space-between">
                     {item.map((item, index) => (
-
                       <Card image={item.image} text={item.text} key={index} />
-
                     ))}
                   </Grid>
                 )
