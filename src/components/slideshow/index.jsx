@@ -34,7 +34,6 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
 
   return (
     <>
-
       <Box position="relative" maxWidth="100%">
         {
           showArrow && (
