@@ -1,5 +1,5 @@
 import React from 'react';
-import Slideshow from "./components/index"
+import HomePage from "./components"
 // Material-UI
 import CssBaseline from "@material-ui/core/CssBaseline"
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <Slideshow />
+      <HomePage />
     </>
   )
 }

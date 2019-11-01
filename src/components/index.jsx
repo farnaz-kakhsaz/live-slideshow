@@ -15,7 +15,6 @@ import Image9 from "../assets/images/image-9.jpg";
 import Image10 from "../assets/images/image-10.jpg";
 import Image11 from "../assets/images/image-11.jpg";
 import Image12 from "../assets/images/image-12.jpg";
-
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
@@ -81,7 +80,7 @@ const CARDS = [
   ],
 ];
 
-function Section5({ width }) {
+function HomePage({ width }) {
   let moblieArray = [].concat.apply([], CARDS);
 
   return (
@@ -159,4 +158,4 @@ function Section5({ width }) {
   );
 }
 
-export default withWidth()(Section5);
+export default withWidth()(HomePage);

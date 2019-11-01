@@ -7,7 +7,8 @@ import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles(theme => ({
   image: {
-    width: 400,
+    maxWidth: 400,
+    width:"100%",
     borderRadius: 10,
     marginBottom: theme.spacing(1)
   }
