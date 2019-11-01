@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Arrow({ handleArrowClick }) {
   const classes = useStyles()
+  
   return (
     <div className={classes.root}>
       <div className={classes.rightArrow}
