@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 // Material-UI
-import  makeStyles from "@material-ui/core/styles/makeStyles";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles(theme => ({
   dot: {
@@ -24,8 +24,7 @@ export default function PaginationDot({ activeDot, index, handleDotClick }) {
   const classes = useStyles();
 
   return (
-    <button
-      type="button"
+    <div
       className={clsx(classes.dot, activeDot ? classes.activeDot : "")}
       onClick={handleDotClick(index)}
     />
