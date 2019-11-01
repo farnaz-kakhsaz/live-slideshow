@@ -53,7 +53,6 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
               delay: "0s"
             }}
           >
-
             {options.map((item, index) => {
               return (
                 <Box display="flex" justifyContent="center" key={index}>
@@ -61,7 +60,6 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
                 </Box>
               );
             })}
-
           </AutoPlaySwipeableViews>
         </Container>
       </Box>
@@ -91,5 +89,4 @@ Slideshow.propTypes = {
   showDots: PropTypes.bool,
   showArrow: PropTypes.bool,
   dotMarginTop: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
-
 };
