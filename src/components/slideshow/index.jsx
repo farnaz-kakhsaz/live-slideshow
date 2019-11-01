@@ -56,7 +56,7 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
             {options.map((item, index) => {
               return (
                 <Box display="flex" justifyContent="center" key={index}>
-                  {Math.abs(activeStep - index) <= 2 ? children(item) : null}
+                  {children(item)}
                 </Box>
               );
             })}
