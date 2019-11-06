@@ -12,7 +12,7 @@ import { autoPlay } from "react-swipeable-views-utils";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-export default function Slideshow({ children, options, showDots, showNumbers, showArrow, dotMarginTop }) {
+export default function Slideshow({ children, options, showDots, showNumbers, showArrow, paginationMarginTop }) {
   const [activeStep, setActiveStep] = useState(0);
 
   function handleStepChange(step) {
@@ -66,7 +66,7 @@ export default function Slideshow({ children, options, showDots, showNumbers, sh
       </Box>
       {
         (showDots || showNumbers) &&
-        <Box display="flex" justifyContent="center" mt={dotMarginTop}>
+        <Box display="flex" justifyContent="center" mt={paginationMarginTop}>
           {
             showDots &&
             options.map((item, index) =>
@@ -98,5 +98,5 @@ Slideshow.propTypes = {
   showDots: PropTypes.bool,
   showNumbers: PropTypes.bool,
   showArrow: PropTypes.bool,
-  dotMarginTop: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
+  paginationMarginTop: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
 };

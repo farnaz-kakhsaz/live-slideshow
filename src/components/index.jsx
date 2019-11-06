@@ -87,14 +87,12 @@ function HomePage({ width }) {
     <section>
       <Box bgcolor="rgb(21, 32, 43)" py={10}>
         <Container maxWidth="xl">
+
           <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
             lineHeight={1} fontSize={36} textAlign="center" mb={3}>
             Simple Slideshow
           </Box>
-          <Slideshow
-            options={isWidthDown("md", width) ? moblieArray : CARDS}
-            dotMarginTop={{ xs: 3 }}
-          >
+          <Slideshow options={isWidthDown("md", width) ? moblieArray : CARDS} >
             {item =>
               isWidthDown("md", width) ? (
                 <Card image={item.image} text={item.text} />
@@ -114,7 +112,7 @@ function HomePage({ width }) {
           </Box>
           <Slideshow
             options={isWidthDown("md", width) ? moblieArray : CARDS}
-            dotMarginTop={{ xs: 3 }}
+            paginationMarginTop={{ xs: 3 }}
             showNumbers
           >
             {item =>
@@ -136,7 +134,7 @@ function HomePage({ width }) {
           </Box>
           <Slideshow
             options={isWidthDown("md", width) ? moblieArray : CARDS}
-            dotMarginTop={{ xs: 3 }}
+            paginationMarginTop={{ xs: 3 }}
             showDots
           >
             {item =>
@@ -158,7 +156,7 @@ function HomePage({ width }) {
           </Box>
           <Slideshow
             options={isWidthDown("md", width) ? moblieArray : CARDS}
-            dotMarginTop={{ xs: 3 }}
+            paginationMarginTop={{ xs: 3 }}
             showDots
             showArrow
           >
