@@ -6,9 +6,11 @@ import Box from "@material-ui/core/Box";
 export default function PaginationNumber({ totalNumber, activeStep }) {
   return (
     <>
-      <Box color="grey.400" fontSize={16} letterSpacing={5}>
+      <Box color="grey.400" fontSize={16} >
         {activeStep}
+        &#8239;
         /
+        &#8239;
         {totalNumber}
       </Box>
     </>
