@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 // Components
 import Arrow from "./Arrow"
+import PaginationNumber from "./PaginationNumber";
 import PaginationDot from "./PaginationDot";
 // Material-UI
 import Container from "@material-ui/core/Container";
@@ -11,7 +12,7 @@ import { autoPlay } from "react-swipeable-views-utils";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-export default function Slideshow({ children, options, showDots, showArrow, dotMarginTop }) {
+export default function Slideshow({ children, options, showDots, showNumbers, showArrow, dotMarginTop }) {
   const [activeStep, setActiveStep] = useState(0);
 
   function handleStepChange(step) {
@@ -64,9 +65,10 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
         </Container>
       </Box>
       {
-        showDots &&
+        (showDots || showNumbers) &&
         <Box display="flex" justifyContent="center" mt={dotMarginTop}>
           {
+            showDots &&
             options.map((item, index) =>
               <PaginationDot
                 dots={options.length}
@@ -76,6 +78,13 @@ export default function Slideshow({ children, options, showDots, showArrow, dotM
                 key={index}
               />
             )
+          }
+          {
+            showNumbers &&
+            <PaginationNumber
+              totalNumber={options.length}
+              activeStep={activeStep + 1}
+            />
           }
         </Box>
       }
@@ -87,6 +96,7 @@ Slideshow.propTypes = {
   children: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
   showDots: PropTypes.bool,
+  showNumbers: PropTypes.bool,
   showArrow: PropTypes.bool,
   dotMarginTop: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
 };

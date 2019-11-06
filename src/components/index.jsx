@@ -110,6 +110,28 @@ function HomePage({ width }) {
 
           <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
             lineHeight={1} fontSize={36} textAlign="center" mt={8} mb={3}>
+            Slideshow with Numbers
+          </Box>
+          <Slideshow
+            options={isWidthDown("md", width) ? moblieArray : CARDS}
+            dotMarginTop={{ xs: 3 }}
+            showNumbers
+          >
+            {item =>
+              isWidthDown("md", width) ? (
+                <Card image={item.image} text={item.text} />
+              ) : (
+                  <Grid container justify="space-between">
+                    {item.map((item, index) => (
+                      <Card image={item.image} text={item.text} key={index} />
+                    ))}
+                  </Grid>
+                )
+            }
+          </Slideshow>
+
+          <Box fontFamily="'Segoe UI', sans-serif" color="grey.400"
+            lineHeight={1} fontSize={36} textAlign="center" mt={8} mb={3}>
             Slideshow with Dots
           </Box>
           <Slideshow
