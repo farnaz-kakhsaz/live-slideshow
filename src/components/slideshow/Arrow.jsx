@@ -1,13 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 // Material-UI
-import makeStyles from "@material-ui/core/styles/makeStyles"
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     "& $rightArrow, & $leftArrow": {
       "&:hover": {
-        color: theme.palette.grey[700]
+        color: theme.palette.grey[700],
       },
       color: theme.palette.grey[400],
       fontSize: 120,
@@ -17,28 +17,34 @@ const useStyles = makeStyles(theme => ({
       zIndex: 1,
       cursor: "pointer",
       fontFamily: "'Courier New', monospace",
-      transition:"all 0.5s ease-in-out"
+      transition: "all 0.5s ease-in-out",
+      // Disable text selection highlighting
+      MozUserSelect: "none",
+      KhtmlUserSelect: "none",
+      WebkitUserSelect: "none",
+      MsUserSelect: "none",
+      userUelect: "none",
     },
   },
   rightArrow: { right: 0 },
-  leftArrow: { left: 0 }
-}))
+  leftArrow: { left: 0 },
+}));
 
 export default function Arrow({ handleArrowClick }) {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <div className={classes.rightArrow}
-        onClick={handleArrowClick("right")}
-      >&#8250;</div>
-      <div className={classes.leftArrow}
-        onClick={handleArrowClick("left")}
-      >&#8249;</div>
-    </div >
-  )
+      <div className={classes.rightArrow} onClick={handleArrowClick("right")}>
+        &#8250;
+      </div>
+      <div className={classes.leftArrow} onClick={handleArrowClick("left")}>
+        &#8249;
+      </div>
+    </div>
+  );
 }
 
 Arrow.propTypes = {
-  handleArrowClick: PropTypes.func.isRequired
-}
+  handleArrowClick: PropTypes.func.isRequired,
+};

@@ -8,6 +8,8 @@ import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 function HomePage({ width }) {
   let moblieArray = [].concat.apply([], CARDS);
@@ -18,32 +20,92 @@ function HomePage({ width }) {
   });
 
   const handleChange = (event) => {
-    const { id } = event.target;
-    setState((prevState) => ({ ...prevState, [id]: !prevState[id] }));
+    const { name } = event.target;
+    setState((prevState) => ({ ...prevState, [name]: !prevState[name] }));
+  };
+
+  const handleTitle = () => {
+    const isOneClicked = state.numbers || state.dots || state.arrows;
+
+    if (isOneClicked) {
+      let result = "";
+      const howManyClicked = state.numbers + state.dots + state.arrows;
+      const whitchOneLTR = state.numbers
+        ? "Numbers"
+        : state.dots
+        ? "Dots"
+        : state.arrows && "Arrows";
+      const whitchOneRTL = state.arrows
+        ? "Arrows"
+        : state.dots
+        ? "Dots"
+        : state.numbers && "Numbers";
+
+      switch (howManyClicked) {
+        case 1:
+          result = whitchOneLTR;
+          break;
+        case 2:
+          result = `${whitchOneLTR} and ${whitchOneRTL}`;
+          break;
+        default:
+          return "Slideshow with Numbers, Dots and Arrows";
+      }
+      return "Slidshow with " + result;
+    } else {
+      return "Simple Slideshow";
+    }
   };
 
   return (
     <section>
-      <Box py={20}>
+      <Box my={{ xs: 5, sm: 20 }}>
         <Container maxWidth="xl">
-          <input type="checkbox" id="numbers" onChange={handleChange} />
-          <label htmlFor="numbers">Slideshow with Numbers</label>
-          <input type="checkbox" id="dots" onChange={handleChange} />
-          <label htmlFor="dots">Slideshow with Dots</label>
-          <input type="checkbox" id="arrows" onChange={handleChange} />
-          <label htmlFor="arrows">Slideshow with Arrow</label>
-          <h2>{state.numbers}</h2>
-          <h2>{state.dots}</h2>
-          <h2>{state.arrows}</h2>
+          <Box textAlign="center">
+            <Box
+              textAlign={{ xs: "start", sm: "center" }}
+              mb={{ xs: "20px", sm: "40px" }}
+            >
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={state.numbers}
+                    onChange={handleChange}
+                    name="numbers"
+                  />
+                }
+                label="Slideshow with Numbers"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={state.dots}
+                    onChange={handleChange}
+                    name="dots"
+                  />
+                }
+                label="Slideshow with Dots"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={state.arrows}
+                    onChange={handleChange}
+                    name="arrows"
+                  />
+                }
+                label="Slideshow with Arrows"
+              />
+            </Box>
+          </Box>
           <Box
             fontFamily="'Segoe UI', sans-serif"
-            color="grey.400"
             lineHeight={1}
             fontSize={36}
             textAlign="center"
             mb={3}
           >
-            Simple Slideshow
+            {handleTitle()}
           </Box>
           <Slideshow
             options={isWidthDown("md", width) ? moblieArray : CARDS}
