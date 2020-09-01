@@ -1,5 +1,5 @@
 # Slideshow
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and created based on [Material-UI](https://material-ui.com) and [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views)
+> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and created based on [Material-UI](https://material-ui.com) and [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views).
 
 Check out the [demos](https://farnaz-kakhsaz.github.io/Slideshow) from a mobile device (real or emulated). The Slideshow can have pagination(dots) or arrow for changing screens.
 
