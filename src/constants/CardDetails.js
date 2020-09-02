@@ -11,7 +11,7 @@ import Image10 from "../assets/images/image-10.jpg";
 import Image11 from "../assets/images/image-11.jpg";
 import Image12 from "../assets/images/image-12.jpg";
 
-const CARDS = [
+const CARDS_DETAILS = [
   [
     {
       image: Image1,
@@ -70,4 +70,4 @@ const CARDS = [
   ],
 ];
 
-export default CARDS;
+export default CARDS_DETAILS;
