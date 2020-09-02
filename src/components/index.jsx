@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 // Components
-import Card from "./Card";
+import CARDS_DETAILS from "../constants/CardDetails";
+import Card from "./card";
 import Slideshow from "./slideshow";
-import CARDS from "../constants/CardAssets";
+import UploadImage from "./uploud-image";
+import CheckboxInput from "./checkbox-input";
+import { handleTitle } from "./handle-title";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 function HomePage({ width }) {
-  let moblieArray = [].concat.apply([], CARDS);
+  let moblieArray = [].concat.apply([], CARDS_DETAILS);
   const [state, setState] = useState({
     numbers: false,
     dots: false,
@@ -24,91 +25,47 @@ function HomePage({ width }) {
     setState((prevState) => ({ ...prevState, [name]: !prevState[name] }));
   };
 
-  const handleTitle = () => {
-    const isOneClicked = state.numbers || state.dots || state.arrows;
-
-    if (isOneClicked) {
-      let result = "";
-      const howManyClicked = state.numbers + state.dots + state.arrows;
-      const whitchOneLTR = state.numbers
-        ? "Numbers"
-        : state.dots
-        ? "Dots"
-        : state.arrows && "Arrows";
-      const whitchOneRTL = state.arrows
-        ? "Arrows"
-        : state.dots
-        ? "Dots"
-        : state.numbers && "Numbers";
-
-      switch (howManyClicked) {
-        case 1:
-          result = whitchOneLTR;
-          break;
-        case 2:
-          result = `${whitchOneLTR} and ${whitchOneRTL}`;
-          break;
-        default:
-          return "Slideshow with Numbers, Dots and Arrows";
-      }
-      return "Slidshow with " + result;
-    } else {
-      return "Simple Slideshow";
-    }
-  };
-
   return (
     <section>
       <Box my={{ xs: 5, sm: 20 }}>
         <Container maxWidth="xl">
           <Box textAlign="center">
+            <UploadImage />
             <Box
               textAlign={{ xs: "start", sm: "center" }}
               mb={{ xs: "20px", sm: "40px" }}
             >
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={state.numbers}
-                    onChange={handleChange}
-                    name="numbers"
-                  />
-                }
-                label="Slideshow with Numbers"
+              <CheckboxInput
+                value={state.numbers}
+                name="numbers"
+                text="Slideshow with Numbers"
+                handleChange={handleChange}
               />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={state.dots}
-                    onChange={handleChange}
-                    name="dots"
-                  />
-                }
-                label="Slideshow with Dots"
+              <CheckboxInput
+                value={state.dots}
+                name="dots"
+                text="Slideshow with Dots"
+                handleChange={handleChange}
               />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={state.arrows}
-                    onChange={handleChange}
-                    name="arrows"
-                  />
-                }
-                label="Slideshow with Arrows"
+              <CheckboxInput
+                value={state.arrows}
+                name="arrows"
+                text="Slideshow with Arrows"
+                handleChange={handleChange}
               />
             </Box>
           </Box>
           <Box
             fontFamily="'Segoe UI', sans-serif"
             lineHeight={1}
-            fontSize={36}
+            fontSize={{ xs: 26, sm: 36 }}
             textAlign="center"
             mb={3}
           >
-            {handleTitle()}
+            {handleTitle(state.numbers, state.dots, state.arrows)}
           </Box>
           <Slideshow
-            options={isWidthDown("md", width) ? moblieArray : CARDS}
+            options={isWidthDown("md", width) ? moblieArray : CARDS_DETAILS}
             paginationMarginTop={{ xs: 3 }}
             showNumbers={state.numbers}
             showDots={state.dots}
