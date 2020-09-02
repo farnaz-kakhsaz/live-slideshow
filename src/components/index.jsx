@@ -5,7 +5,7 @@ import Card from "./card";
 import Slideshow from "./slideshow";
 import UploadImage from "./uploud-image";
 import CheckboxInput from "./checkbox-input";
-import { handleTitle } from "./handle-title";
+import { handleTitle } from "../helper/handleTitle";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
