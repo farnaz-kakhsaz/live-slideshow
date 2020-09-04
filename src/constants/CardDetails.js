@@ -12,62 +12,57 @@ import Image11 from "../assets/images/image-11.jpg";
 import Image12 from "../assets/images/image-12.jpg";
 
 const CARDS_DETAILS = [
-  [
-    {
-      image: Image1,
-      text: "Cyberpunk 2077",
-    },
-    {
-      image: Image2,
-      text: "Tom Clancy's Rainbow Six Siege",
-    },
-    {
-      image: Image3,
-      text: "Final Fantasy 7",
-    },
-  ],
-  [
-    {
-      image: Image4,
-      text: "Mirror's Edge",
-    },
-    {
-      image: Image5,
-      text: "Hitman: Absolution",
-    },
-    {
-      image: Image6,
-      text: "Fall out 4",
-    },
-  ],
-  [
-    {
-      image: Image7,
-      text: "Call of Duty: Advanced Warfare",
-    },
-    {
-      image: Image8,
-      text: "Killzone 5",
-    },
-    {
-      image: Image9,
-      text: "Hitman: Absolution",
-    },
-  ],
-  [
-    {
-      image: Image10,
-      text: "Last of Us: Part 2",
-    },
-    {
-      image: Image11,
-      text: "Tomb Raider",
-    },
-    {
-      image: Image12,
-      text: "Watch Dogs",
-    },
-  ],
+  {
+    image: Image1,
+    text: "Cyberpunk 2077",
+  },
+  {
+    image: Image2,
+    text: "Tom Clancy's Rainbow Six Siege",
+  },
+  {
+    image: Image3,
+    text: "Final Fantasy 7",
+  },
+
+  {
+    image: Image4,
+    text: "Mirror's Edge",
+  },
+  {
+    image: Image5,
+    text: "Hitman: Absolution",
+  },
+  {
+    image: Image6,
+    text: "Fall out 4",
+  },
+
+  {
+    image: Image7,
+    text: "Call of Duty: Advanced Warfare",
+  },
+  {
+    image: Image8,
+    text: "Killzone 5",
+  },
+  {
+    image: Image9,
+    text: "Hitman: Absolution",
+  },
+
+  {
+    image: Image10,
+    text: "Last of Us: Part 2",
+  },
+  {
+    image: Image11,
+    text: "Tomb Raider",
+  },
+  {
+    image: Image12,
+    text: "Watch Dogs",
+  },
 ];
 
 export default CARDS_DETAILS;

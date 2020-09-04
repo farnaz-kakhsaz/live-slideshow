@@ -6,6 +6,7 @@ import Slideshow from "./slideshow";
 import UploadImage from "./uploud-image";
 import CheckboxInput from "./checkbox-input";
 import { handleTitle } from "../helper/handleTitle";
+import { splitToChunks } from "../helper/splitToChunks";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
@@ -13,7 +14,9 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 
 function HomePage({ width }) {
-  let moblieArray = [].concat.apply([], CARDS_DETAILS);
+  var desktopCards = splitToChunks(CARDS_DETAILS, 3);
+  let moblieCards = CARDS_DETAILS;
+
   const [state, setState] = useState({
     numbers: false,
     dots: false,
@@ -65,7 +68,7 @@ function HomePage({ width }) {
             {handleTitle(state.numbers, state.dots, state.arrows)}
           </Box>
           <Slideshow
-            options={isWidthDown("md", width) ? moblieArray : CARDS_DETAILS}
+            options={isWidthDown("md", width) ? moblieCards : desktopCards}
             paginationMarginTop={{ xs: 3 }}
             showNumbers={state.numbers}
             showDots={state.dots}

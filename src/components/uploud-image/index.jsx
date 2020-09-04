@@ -6,10 +6,7 @@ export default function UploadImage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(fileInput);
-    console.log(fileInput.current);
-    console.log(fileInput.current.files[0]);
-    console.log(fileInput.current.files[0].name);
+
     CARDS_DETAILS.push([
       { image: URL.createObjectURL(fileInput.current.files[0]), text: "hi" },
     ]);
