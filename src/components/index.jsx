@@ -30,33 +30,31 @@ function HomePage({ width }) {
 
   return (
     <section>
-      <Box my={{ xs: 5, sm: 20 }}>
+      <Box my={{ xs: 5, sm: 20 }} textAlign="center">
         <Container maxWidth="xl">
-          <Box textAlign="center">
-            <UploadImage />
-            <Box
-              textAlign={{ xs: "start", sm: "center" }}
-              mb={{ xs: "20px", sm: "40px" }}
-            >
-              <CheckboxInput
-                value={state.numbers}
-                name="numbers"
-                text="Slideshow with Numbers"
-                handleChange={handleChange}
-              />
-              <CheckboxInput
-                value={state.dots}
-                name="dots"
-                text="Slideshow with Dots"
-                handleChange={handleChange}
-              />
-              <CheckboxInput
-                value={state.arrows}
-                name="arrows"
-                text="Slideshow with Arrows"
-                handleChange={handleChange}
-              />
-            </Box>
+          <UploadImage />
+          <Box
+            textAlign={{ xs: "start", sm: "center" }}
+            mb={{ xs: "20px", sm: "40px" }}
+          >
+            <CheckboxInput
+              value={state.numbers}
+              name="numbers"
+              text="Slideshow with Numbers"
+              handleChange={handleChange}
+            />
+            <CheckboxInput
+              value={state.dots}
+              name="dots"
+              text="Slideshow with Dots"
+              handleChange={handleChange}
+            />
+            <CheckboxInput
+              value={state.arrows}
+              name="arrows"
+              text="Slideshow with Arrows"
+              handleChange={handleChange}
+            />
           </Box>
           <Box
             fontFamily="'Segoe UI', sans-serif"
