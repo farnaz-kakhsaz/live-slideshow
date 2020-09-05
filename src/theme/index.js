@@ -15,5 +15,40 @@ export const theme = createMuiTheme({
         color: "#bdbdbd",
       },
     },
+    MuiButton: {
+      root: {
+        height: "56px",
+      },
+    },
+    // Change border-bottom of input (underline)
+    MuiInput: {
+      underline: {
+        "&::before": {
+          borderBottom: "1px solid #bdbdbd",
+        },
+      },
+    },
+    // Change borderColor of input (outlined) (also in focused mode)
+    MuiOutlinedInput: {
+      // root: {
+      //   "&$focused $notchedOutline": {
+      //     borderColor: "#bdbdbd",
+      //   },
+      // },
+      // focused: {},
+      notchedOutline: {
+        borderColor: "#bdbdbd",
+      },
+    },
+    // Change placeholder (text) color of input (outlined) (also in focused mode)
+    MuiFormLabel: {
+      root: {
+        // "&$focused": {
+        //   color: "#bdbdbd",
+        // },
+        color: "#bdbdbd",
+      },
+      // focused: {},
+    },
   },
 });
