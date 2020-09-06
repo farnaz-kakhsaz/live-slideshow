@@ -30,12 +30,13 @@ function HomePage({ width }) {
 
   return (
     <section>
-      <Box my={{ xs: 5, sm: 20 }} textAlign="center">
+      <Box my={{ xs: 5, sm: 10 }} textAlign="center">
         <Container maxWidth="xl">
           <UploadImage />
           <Box
-            textAlign={{ xs: "start", sm: "center" }}
+            textAlign="center"
             mb={{ xs: "20px", sm: "40px" }}
+            mt={{ sm: "20px" }}
           >
             <CheckboxInput
               value={state.numbers}
@@ -61,7 +62,7 @@ function HomePage({ width }) {
             lineHeight={1}
             fontSize={{ xs: 26, sm: 36 }}
             textAlign="center"
-            mb={3}
+            mb={5}
           >
             {handleTitle(state.numbers, state.dots, state.arrows)}
           </Box>
