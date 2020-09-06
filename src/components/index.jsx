@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 // Components
 import CARDS_DETAILS from "../constants/CardDetails";
 import Card from "./card";
@@ -92,3 +93,7 @@ function HomePage({ width }) {
 }
 
 export default withWidth()(HomePage);
+
+HomePage.propTypes = {
+  width: PropTypes.string,
+};
