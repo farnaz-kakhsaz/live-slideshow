@@ -15,6 +15,7 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 
 function HomePage({ width }) {
+  // mobileCards array contains all objects (spread), desktopCards contains all objects in 3 split chunks
   const [state, setState] = useState({
     desktopCards: splitToChunks(CARDS_DETAILS, 3),
     moblieCards: CARDS_DETAILS,
@@ -29,14 +30,15 @@ function HomePage({ width }) {
   };
 
   const updateImagesArray = (value, name) => {
-    CARDS_DETAILS.push({
+    const newImageObj = {
       image: URL.createObjectURL(value),
-      text: name,
-    });
+      title: name,
+    };
+
     setState((prevState) => ({
       ...prevState,
-      desktopCards: splitToChunks(CARDS_DETAILS, 3),
-      moblieCards: CARDS_DETAILS,
+      desktopCards: splitToChunks([...prevState.moblieCards, newImageObj], 3),
+      moblieCards: [...prevState.moblieCards, newImageObj],
     }));
   };
 
@@ -53,19 +55,19 @@ function HomePage({ width }) {
             <CheckboxInput
               value={state.numbers}
               name="numbers"
-              text="Slideshow with Numbers"
+              title="Slideshow with Numbers"
               handleChange={handleChange}
             />
             <CheckboxInput
               value={state.dots}
               name="dots"
-              text="Slideshow with Dots"
+              title="Slideshow with Dots"
               handleChange={handleChange}
             />
             <CheckboxInput
               value={state.arrows}
               name="arrows"
-              text="Slideshow with Arrows"
+              title="Slideshow with Arrows"
               handleChange={handleChange}
             />
           </Box>
@@ -89,11 +91,11 @@ function HomePage({ width }) {
           >
             {(item) =>
               isWidthDown("md", width) ? (
-                <Card image={item.image} text={item.text} />
+                <Card image={item.image} title={item.title} />
               ) : (
                 <Grid container justify="space-evenly">
                   {item.map((item, index) => (
-                    <Card image={item.image} text={item.text} key={index} />
+                    <Card image={item.image} title={item.title} key={index} />
                   ))}
                 </Grid>
               )
