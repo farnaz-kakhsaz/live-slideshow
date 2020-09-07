@@ -1,6 +1,4 @@
 import React, { useState, useRef } from "react";
-// Components
-import CARDS_DETAILS from "../../constants/CardDetails";
 // Material-UI
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
@@ -18,24 +16,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UploadImage() {
+export default function UploadImage({ updateImagesArray }) {
   const [name, setName] = useState("");
+  const [value, setValue] = useState(null);
   const [error, setError] = useState(false);
   const fileInput = useRef();
   const classes = useStyles();
 
-  const handleChange = (event) => {
+  const handleTextChange = (event) => {
     setName(event.target.value);
+  };
+
+  const handleFileChange = () => {
+    setValue(fileInput.current.files[0]);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (fileInput.current.value && name) {
-      CARDS_DETAILS.push({
-        image: URL.createObjectURL(fileInput.current.files[0]),
-        text: name,
-      });
+
+    if (value && name) {
+      updateImagesArray(value, name);
       fileInput.current.value = null;
+      setValue(null);
       setName("");
       setError(false);
     } else {
@@ -62,6 +64,7 @@ export default function UploadImage() {
             accept="image/*"
             id="custom-file-upload"
             className={classes.input}
+            onChange={handleFileChange}
           />
           <label htmlFor="custom-file-upload">
             <Button
@@ -77,7 +80,7 @@ export default function UploadImage() {
             type="text"
             name="name"
             value={name}
-            onChange={handleChange}
+            onChange={handleTextChange}
             label="Choose a name"
             variant="outlined"
             color="secondary"
@@ -91,7 +94,7 @@ export default function UploadImage() {
             Please choose a name for the file!
           </FormHelperText>
         )}
-        {error && !fileInput.current.value && (
+        {error && !value && (
           <FormHelperText className={classes.formHelperText}>
             Please select a photo!
           </FormHelperText>

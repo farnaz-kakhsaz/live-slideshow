@@ -15,10 +15,9 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 
 function HomePage({ width }) {
-  var desktopCards = splitToChunks(CARDS_DETAILS, 3);
-  let moblieCards = CARDS_DETAILS;
-
   const [state, setState] = useState({
+    desktopCards: splitToChunks(CARDS_DETAILS, 3),
+    moblieCards: CARDS_DETAILS,
     numbers: false,
     dots: false,
     arrows: false,
@@ -29,11 +28,23 @@ function HomePage({ width }) {
     setState((prevState) => ({ ...prevState, [name]: !prevState[name] }));
   };
 
+  const updateImagesArray = (value, name) => {
+    CARDS_DETAILS.push({
+      image: URL.createObjectURL(value),
+      text: name,
+    });
+    setState((prevState) => ({
+      ...prevState,
+      desktopCards: splitToChunks(CARDS_DETAILS, 3),
+      moblieCards: CARDS_DETAILS,
+    }));
+  };
+
   return (
     <section>
       <Box my={{ xs: 5, sm: 10 }} textAlign="center">
         <Container maxWidth="xl">
-          <UploadImage />
+          <UploadImage updateImagesArray={updateImagesArray} />
           <Box
             textAlign="center"
             mb={{ xs: "20px", sm: "40px" }}
@@ -68,7 +79,9 @@ function HomePage({ width }) {
             {handleTitle(state.numbers, state.dots, state.arrows)}
           </Box>
           <Slideshow
-            options={isWidthDown("md", width) ? moblieCards : desktopCards}
+            options={
+              isWidthDown("md", width) ? state.moblieCards : state.desktopCards
+            }
             paginationMarginTop={{ xs: 3 }}
             showNumbers={state.numbers}
             showDots={state.dots}
@@ -95,5 +108,5 @@ function HomePage({ width }) {
 export default withWidth()(HomePage);
 
 HomePage.propTypes = {
-  width: PropTypes.string,
+  width: PropTypes.string.isRequired,
 };

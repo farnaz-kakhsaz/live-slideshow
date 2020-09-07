@@ -14,8 +14,8 @@ export default function CheckboxInput({ value, name, text, handleChange }) {
 }
 
 CheckboxInput.propTypes = {
-  value: PropTypes.bool,
-  name: PropTypes.string,
-  text: PropTypes.string,
-  handleChange: PropTypes.func,
+  value: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
