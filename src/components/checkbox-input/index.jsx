@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-export default function CheckboxInput({ value, name, text, handleChange }) {
+export default function CheckboxInput({ value, name, title, handleChange }) {
   return (
     <FormControlLabel
       control={<Checkbox checked={value} onChange={handleChange} name={name} />}
-      label={text}
+      label={title}
     />
   );
 }
@@ -16,6 +16,6 @@ export default function CheckboxInput({ value, name, text, handleChange }) {
 CheckboxInput.propTypes = {
   value: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };

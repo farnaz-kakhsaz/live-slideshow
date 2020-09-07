@@ -14,54 +14,54 @@ import Image12 from "../assets/images/image-12.jpg";
 const CARDS_DETAILS = [
   {
     image: Image1,
-    text: "Cyberpunk 2077",
+    title: "Cyberpunk 2077",
   },
   {
     image: Image2,
-    text: "Tom Clancy's Rainbow Six Siege",
+    title: "Tom Clancy's Rainbow Six Siege",
   },
   {
     image: Image3,
-    text: "Final Fantasy 7",
+    title: "Final Fantasy 7",
   },
 
   {
     image: Image4,
-    text: "Mirror's Edge",
+    title: "Mirror's Edge",
   },
   {
     image: Image5,
-    text: "Hitman: Absolution",
+    title: "Hitman: Absolution",
   },
   {
     image: Image6,
-    text: "Fall out 4",
+    title: "Fall out 4",
   },
 
   {
     image: Image7,
-    text: "Call of Duty: Advanced Warfare",
+    title: "Call of Duty: Advanced Warfare",
   },
   {
     image: Image8,
-    text: "Killzone 5",
+    title: "Killzone 5",
   },
   {
     image: Image9,
-    text: "Hitman: Absolution",
+    title: "Hitman: Absolution",
   },
 
   {
     image: Image10,
-    text: "Last of Us: Part 2",
+    title: "Last of Us: Part 2",
   },
   {
     image: Image11,
-    text: "Tomb Raider",
+    title: "Tomb Raider",
   },
   {
     image: Image12,
-    text: "Watch Dogs",
+    title: "Watch Dogs",
   },
 ];
 

@@ -15,18 +15,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Card({ image, text }) {
+export default function Card({ image, title }) {
   const classes = useStyles();
 
   return (
     <Box textAlign="center" color="grey.400">
-      <img className={classes.image} src={image} alt={text} />
-      <Typography>{text}</Typography>
+      <img className={classes.image} src={image} alt={title} />
+      <Typography>{title}</Typography>
     </Box>
   );
 }
 
 Card.propTypes = {
   image: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
