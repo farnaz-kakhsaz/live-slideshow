@@ -17,7 +17,7 @@ export const theme = createMuiTheme({
     },
     MuiButton: {
       root: {
-        height: "56px",
+        height: 56,
       },
     },
     // Change border-bottom of input (underline)
