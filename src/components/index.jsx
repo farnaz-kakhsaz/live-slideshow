@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 // Components
 import CARDS_DETAILS from "../constants/CardDetails";
 import Card from "./card";
+import ImagePreview from "./image-preview";
 import Slideshow from "./slideshow";
 import UploadImage from "./uploud-image";
 import CheckboxInput from "./checkbox-input";
@@ -24,7 +25,7 @@ function HomePage({ width }) {
     arrows: false,
   });
 
-  const handleChange = (event) => {
+  const handleCheckboxChange = (event) => {
     const { name } = event.target;
     setState((prevState) => ({ ...prevState, [name]: !prevState[name] }));
   };
@@ -44,9 +45,17 @@ function HomePage({ width }) {
 
   return (
     <section>
-      <Box my={{ xs: 5, sm: 10 }} textAlign="center">
+      <Box mt={{ xs: 5, sm: 10 }} mb={{ xs: 10, sm: 20 }} textAlign="center">
         <Container maxWidth="xl">
-          <UploadImage updateImagesArray={updateImagesArray} />
+          <Box
+            display="flex"
+            flexDirection={{ xs: "column", lg: "row" }}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <ImagePreview cards={state.moblieCards} />
+            <UploadImage updateImagesArray={updateImagesArray} />
+          </Box>
           <Box
             textAlign="center"
             mb={{ xs: "20px", sm: "40px" }}
@@ -56,19 +65,19 @@ function HomePage({ width }) {
               value={state.numbers}
               name="numbers"
               title="Slideshow with Numbers"
-              handleChange={handleChange}
+              handleCheckboxChange={handleCheckboxChange}
             />
             <CheckboxInput
               value={state.dots}
               name="dots"
               title="Slideshow with Dots"
-              handleChange={handleChange}
+              handleCheckboxChange={handleCheckboxChange}
             />
             <CheckboxInput
               value={state.arrows}
               name="arrows"
               title="Slideshow with Arrows"
-              handleChange={handleChange}
+              handleCheckboxChange={handleCheckboxChange}
             />
           </Box>
           <Box

@@ -9,6 +9,16 @@ import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 400,
+    width: "100%",
+    [theme.breakpoints.up("lg")]: {
+      marginLeft: 45,
+    },
+    [theme.breakpoints.down("md")]: {
+      marginTop: 45,
+    },
+  },
   input: {
     display: "none",
   },
@@ -47,16 +57,14 @@ export default function UploadImage({ updateImagesArray }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={classes.root} onSubmit={handleSubmit}>
       <FormControl component="fieldset" error={error} fullWidth>
         <Box
           display="flex"
           flexDirection="column"
           justifyContent="space-between"
-          maxWidth="400px"
           height="200px"
           textAlign="center"
-          mx="auto"
           mb="20px"
         >
           <input

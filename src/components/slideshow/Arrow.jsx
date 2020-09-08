@@ -18,12 +18,6 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
       fontFamily: "'Courier New', monospace",
       transition: "all 0.5s ease-in-out",
-      // Disable text selection highlighting
-      MozUserSelect: "none",
-      KhtmlUserSelect: "none",
-      WebkitUserSelect: "none",
-      MsUserSelect: "none",
-      userUelect: "none",
     },
   },
   rightArrow: { right: 0 },

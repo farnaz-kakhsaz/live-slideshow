@@ -10,6 +10,18 @@ export const theme = createMuiTheme({
     },
   },
   overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        html: {
+          // Disable text selection highlighting
+          MozUserSelect: "none",
+          KhtmlUserSelect: "none",
+          WebkitUserSelect: "none",
+          MsUserSelect: "none",
+          userUelect: "none",
+        },
+      },
+    },
     MuiCheckbox: {
       root: {
         color: "#bdbdbd",
