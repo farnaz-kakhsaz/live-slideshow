@@ -45,7 +45,7 @@ function HomePage({ width }) {
 
   return (
     <section>
-      <Box mt={{ xs: 5, sm: 10 }} mb={{ xs: 10, sm: 20 }} textAlign="center">
+      <Box my={{ xs: 5, sm: 10 }} textAlign="center">
         <Container maxWidth="xl">
           <Box
             display="flex"
@@ -81,9 +81,10 @@ function HomePage({ width }) {
             />
           </Box>
           <Box
-            fontFamily="'Segoe UI', sans-serif"
             lineHeight={1}
-            fontSize={{ xs: 26, sm: 36 }}
+            fontSize={{ xs: 26, sm: 36, md: 46 }}
+            fontWeight="600"
+            letterSpacing="2px"
             textAlign="center"
             mb={5}
           >

@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formHelperText: {
     textAlign: "center",
+    letterSpacing: 2,
   },
 }));
 

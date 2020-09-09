@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
       transform: "translateY(-50%)",
       zIndex: 1,
       cursor: "pointer",
-      fontFamily: "'Courier New', monospace",
       transition: "all 0.5s ease-in-out",
     },
   },
