@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UploadImage({ handleUpdateImagesArray }) {
+export default function UploadImage({ handleAddImage }) {
   const [name, setName] = useState("");
   const [value, setValue] = useState(null);
   const [error, setError] = useState(false);
@@ -47,7 +47,7 @@ export default function UploadImage({ handleUpdateImagesArray }) {
     event.preventDefault();
 
     if (value && name) {
-      handleUpdateImagesArray(value, name);
+      handleAddImage(value, name);
       fileInput.current.value = null;
       setValue(null);
       setName("");
@@ -115,5 +115,5 @@ export default function UploadImage({ handleUpdateImagesArray }) {
 }
 
 UploadImage.propTypes = {
-  handleUpdateImagesArray: PropTypes.func.isRequired,
+  handleAddImage: PropTypes.func.isRequired,
 };

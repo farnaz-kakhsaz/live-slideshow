@@ -24,6 +24,7 @@ function HomePage({ width }) {
     numbers: false,
     dots: false,
     arrows: false,
+    showError: false,
   });
 
   const handleCheckboxChange = (event) => {
@@ -39,10 +40,15 @@ function HomePage({ width }) {
         desktopCards: splitToChunks(newArray, 3),
         moblieCards: newArray,
       }));
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        showError: true,
+      }));
     }
   };
 
-  const handleUpdateImagesArray = (value, name) => {
+  const handleAddImage = (value, name) => {
     const newImageObj = {
       image: URL.createObjectURL(value),
       title: name,
@@ -52,6 +58,7 @@ function HomePage({ width }) {
       ...prevState,
       desktopCards: splitToChunks([...prevState.moblieCards, newImageObj], 3),
       moblieCards: [...prevState.moblieCards, newImageObj],
+      showError: prevState.moblieCards.length < 4 ? true : false,
     }));
   };
 
@@ -65,11 +72,23 @@ function HomePage({ width }) {
             alignItems="center"
             justifyContent="center"
           >
-            <ImagePreview
-              cards={state.moblieCards}
-              handleRemoveItem={handleRemoveItem}
-            />
-            <UploadImage handleUpdateImagesArray={handleUpdateImagesArray} />
+            <Box display="flex" flexDirection="column">
+              <ImagePreview
+                cards={state.moblieCards}
+                handleRemoveItem={handleRemoveItem}
+              />
+              {state.showError && (
+                <Box
+                  color="#f44336"
+                  letterSpacing="1px"
+                  fontSize="0.86rem"
+                  mt={3}
+                >
+                  Can't contain less than 4 items!
+                </Box>
+              )}
+            </Box>
+            <UploadImage handleAddImage={handleAddImage} />
           </Box>
           <Box
             textAlign="center"

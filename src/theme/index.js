@@ -114,6 +114,11 @@ export const theme = createMuiTheme({
         height: 56,
       },
     },
+    MuiFormHelperText: {
+      root: {
+        fontSize: "0.86rem",
+      },
+    },
     // Change border-bottom of input (underline)
     MuiInput: {
       underline: {
