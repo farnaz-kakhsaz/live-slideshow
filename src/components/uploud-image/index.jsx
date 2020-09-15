@@ -24,11 +24,11 @@ const useStyles = makeStyles((theme) => ({
   },
   formHelperText: {
     textAlign: "center",
-    letterSpacing: 2,
+    letterSpacing: 1,
   },
 }));
 
-export default function UploadImage({ updateImagesArray }) {
+export default function UploadImage({ handleUpdateImagesArray }) {
   const [name, setName] = useState("");
   const [value, setValue] = useState(null);
   const [error, setError] = useState(false);
@@ -47,7 +47,7 @@ export default function UploadImage({ updateImagesArray }) {
     event.preventDefault();
 
     if (value && name) {
-      updateImagesArray(value, name);
+      handleUpdateImagesArray(value, name);
       fileInput.current.value = null;
       setValue(null);
       setName("");
@@ -115,5 +115,5 @@ export default function UploadImage({ updateImagesArray }) {
 }
 
 UploadImage.propTypes = {
-  updateImagesArray: PropTypes.func.isRequired,
+  handleUpdateImagesArray: PropTypes.func.isRequired,
 };

@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
       zIndex: 1,
       cursor: "pointer",
       transition: "all 0.5s ease-in-out",
+      fontFamily: "none",
     },
   },
   rightArrow: { right: 0 },

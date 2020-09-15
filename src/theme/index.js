@@ -73,7 +73,7 @@ export const theme = createMuiTheme({
     ].join(","),
     fontSize: 16,
     body1: {
-      letterSpacing: 2,
+      letterSpacing: 1,
     },
   },
   palette: {
