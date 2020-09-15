@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles((theme) => ({
   gridList: {
     maxWidth: 600,
-    height: 300,
+    maxHeight: 300,
     position: "relative",
   },
   gridListTile: {
@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     transform: "scale(1)",
     left: 0,
+    top: 0,
     WebkitTransition: "all 0.5s ease-in-out",
     MozTransition: "all 0.5s ease-in-out",
     OTransition: "all 0.5s ease-in-out",
@@ -94,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ImagePreview({ cards }) {
+export default function ImagePreview({ cards, handleRemoveItem }) {
   const classes = useStyles();
 
   return (
@@ -102,7 +103,12 @@ export default function ImagePreview({ cards }) {
       {cards.map((item, index) => (
         <GridListTile className={classes.gridListTile} key={index}>
           <img className={classes.img} src={item.image} alt={item.title} />
-          <Button className={classes.button}>Delete</Button>
+          <Button
+            className={classes.button}
+            onClick={() => handleRemoveItem(index)}
+          >
+            Delete
+          </Button>
         </GridListTile>
       ))}
     </GridList>
@@ -111,4 +117,5 @@ export default function ImagePreview({ cards }) {
 
 ImagePreview.propTypes = {
   cards: PropTypes.array.isRequired,
+  handleRemoveItem: PropTypes.func.isRequired,
 };

@@ -9,6 +9,7 @@ import UploadImage from "./uploud-image";
 import CheckboxInput from "./checkbox-input";
 import { handleTitle } from "../helper/handleTitle";
 import { splitToChunks } from "../helper/splitToChunks";
+import { removeItem } from "../helper/removeItem";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
@@ -30,7 +31,18 @@ function HomePage({ width }) {
     setState((prevState) => ({ ...prevState, [name]: !prevState[name] }));
   };
 
-  const updateImagesArray = (value, name) => {
+  const handleRemoveItem = (itemIndex) => {
+    if (state.moblieCards.length > 4) {
+      const newArray = removeItem(state.moblieCards, itemIndex);
+      setState((prevState) => ({
+        ...prevState,
+        desktopCards: splitToChunks(newArray, 3),
+        moblieCards: newArray,
+      }));
+    }
+  };
+
+  const handleUpdateImagesArray = (value, name) => {
     const newImageObj = {
       image: URL.createObjectURL(value),
       title: name,
@@ -53,8 +65,11 @@ function HomePage({ width }) {
             alignItems="center"
             justifyContent="center"
           >
-            <ImagePreview cards={state.moblieCards} />
-            <UploadImage updateImagesArray={updateImagesArray} />
+            <ImagePreview
+              cards={state.moblieCards}
+              handleRemoveItem={handleRemoveItem}
+            />
+            <UploadImage handleUpdateImagesArray={handleUpdateImagesArray} />
           </Box>
           <Box
             textAlign="center"
@@ -84,7 +99,7 @@ function HomePage({ width }) {
             lineHeight={1}
             fontSize={{ xs: 26, sm: 36, md: 46 }}
             fontWeight="600"
-            letterSpacing="2px"
+            letterSpacing="1px"
             textAlign="center"
             mb={5}
           >
