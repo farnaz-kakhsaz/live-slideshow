@@ -55,7 +55,14 @@ const useStyles = makeStyles((theme) => ({
     transition: "all 0.5s ease-in-out",
   },
   button: {
+    [theme.breakpoints.down("xs")]: {
+      minWidth: 55,
+      fontSize: 14,
+    },
     "&:before": {
+      [theme.breakpoints.down("xs")]: {
+        height: 1,
+      },
       position: "absolute",
       content: "''",
       left: "50%",
@@ -91,7 +98,6 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 10,
     opacity: 0,
     outline: "none",
-    padding: 0,
   },
 }));
 

@@ -92,8 +92,8 @@ function HomePage({ width }) {
           </Box>
           <Box
             textAlign="center"
+            mt={{ lg: "40px" }}
             mb={{ xs: "20px", sm: "40px" }}
-            mt={{ sm: "20px" }}
           >
             <CheckboxInput
               value={state.numbers}

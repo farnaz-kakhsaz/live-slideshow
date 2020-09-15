@@ -119,14 +119,19 @@ export const theme = createMuiTheme({
         fontSize: "0.86rem",
       },
     },
-    // Change border-bottom of input (underline)
-    MuiInput: {
-      underline: {
-        "&::before": {
-          borderBottom: "1px solid #bdbdbd",
-        },
+    MuiInputBase: {
+      root: {
+        height: 56,
       },
     },
+    // Change border-bottom of input (underline)
+    // MuiInput: {
+    //   underline: {
+    //     "&::before": {
+    //       borderBottom: "1px solid #bdbdbd",
+    //     },
+    //   },
+    // },
     // Change borderColor of input (outlined) (also in focused mode)
     MuiOutlinedInput: {
       // root: {

@@ -10,17 +10,26 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 400,
-    width: "100%",
     [theme.breakpoints.up("lg")]: {
       marginLeft: 45,
     },
     [theme.breakpoints.down("md")]: {
-      marginTop: 45,
+      marginTop: 40,
+      marginBottom: 30,
+    },
+    maxWidth: 400,
+    width: "100%",
+  },
+  hiddenInput: {
+    display: "none",
+  },
+  btn: {
+    [theme.breakpoints.up("sm")]: {
+      width: 190,
     },
   },
-  input: {
-    display: "none",
+  resetBtn: {
+    marginTop: 20,
   },
   formHelperText: {
     textAlign: "center",
@@ -64,28 +73,17 @@ export default function UploadImage({ handleAddImage }) {
           display="flex"
           flexDirection="column"
           justifyContent="space-between"
-          height="200px"
+          height={{ xs: 205, sm: 133 }}
           textAlign="center"
-          mb="20px"
         >
           <input
             ref={fileInput}
             type="file"
             accept="image/*"
             id="custom-file-upload"
-            className={classes.input}
             onChange={handleFileChange}
+            className={classes.hiddenInput}
           />
-          <label htmlFor="custom-file-upload">
-            <Button
-              variant="contained"
-              component="span"
-              color="primary"
-              fullWidth
-            >
-              Upload
-            </Button>
-          </label>
           <TextField
             type="text"
             name="name"
@@ -95,19 +93,55 @@ export default function UploadImage({ handleAddImage }) {
             variant="outlined"
             color="secondary"
           />
-          <Button type="submit" variant="contained" color="secondary">
-            Select
-          </Button>
+          <Box
+            display="flex"
+            flexDirection={{ xs: "column", sm: "row" }}
+            justifyContent="space-between"
+            height={{ xs: 132, sm: "auto" }}
+          >
+            <label htmlFor="custom-file-upload">
+              <Button
+                variant="contained"
+                component="span"
+                fullWidth
+                className={classes.btn}
+              >
+                Find Photo
+              </Button>
+            </label>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              className={classes.btn}
+            >
+              Upload
+            </Button>
+          </Box>
         </Box>
-        {error && !name && (
-          <FormHelperText className={classes.formHelperText}>
-            Please choose a name for the file!
-          </FormHelperText>
-        )}
-        {error && !value && (
-          <FormHelperText className={classes.formHelperText}>
-            Please select a photo!
-          </FormHelperText>
+
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          fullWidth
+          className={classes.resetBtn}
+        >
+          Reset
+        </Button>
+        {error && (
+          <Box mt={2}>
+            {!name && (
+              <FormHelperText className={classes.formHelperText}>
+                Please choose a name for the file!
+              </FormHelperText>
+            )}
+            {!value && (
+              <FormHelperText className={classes.formHelperText}>
+                Please select a photo!
+              </FormHelperText>
+            )}
+          </Box>
         )}
       </FormControl>
     </form>
