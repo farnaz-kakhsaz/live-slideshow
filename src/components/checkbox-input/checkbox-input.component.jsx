@@ -1,15 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Material-UI
-import { makeStyles } from "@material-ui/core/styles";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-
-const useStyles = makeStyles((theme) => ({
-  checked: {
-    color: theme.palette.secondary.main,
-  },
-}));
+// Styles
+import { useStyles } from "./checkbox-input.styles";
 
 export default function CheckboxInput({
   value,

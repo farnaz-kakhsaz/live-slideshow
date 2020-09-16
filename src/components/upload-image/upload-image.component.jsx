@@ -1,41 +1,13 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 // Material-UI
-import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    [theme.breakpoints.up("lg")]: {
-      marginLeft: 45,
-    },
-    [theme.breakpoints.down("md")]: {
-      marginTop: 40,
-      marginBottom: 30,
-    },
-    maxWidth: 400,
-    width: "100%",
-  },
-  hiddenInput: {
-    display: "none",
-  },
-  btn: {
-    [theme.breakpoints.up("sm")]: {
-      width: 190,
-    },
-  },
-  resetBtn: {
-    marginTop: 20,
-  },
-  formHelperText: {
-    textAlign: "center",
-    letterSpacing: 1,
-  },
-}));
+// Styles
+import { useStyles } from "./upload-image.styles";
 
 export default function UploadImage({
   handleAddImage,

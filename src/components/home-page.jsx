@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 // Components
+import Card from "./card/card.component";
+import ImagePreview from "./image-preview/image-preview.component";
+import Slideshow from "./slideshow/slideshow.component";
+import UploadImage from "./upload-image/upload-image.component";
+import CheckboxInput from "./checkbox-input/checkbox-input.component";
 import CARDS_DETAILS from "../constants/CardDetails";
-import Card from "./card";
-import ImagePreview from "./image-preview";
-import Slideshow from "./slideshow";
-import UploadImage from "./uploud-image";
-import CheckboxInput from "./checkbox-input";
 import { handleTitle } from "../helper/handleTitle";
 import { splitToChunks } from "../helper/splitToChunks";
 import { removeItem } from "../helper/removeItem";

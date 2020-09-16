@@ -1,19 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Material-UI
-import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-
-const useStyles = makeStyles((theme) => ({
-  image: {
-    maxWidth: 375,
-    maxHeight: 234,
-    width: "100%",
-    borderRadius: 10,
-    marginBottom: theme.spacing(1),
-  },
-}));
+// Styles
+import { useStyles } from "./card.styles";
 
 export default function Card({ image, title }) {
   const classes = useStyles();
