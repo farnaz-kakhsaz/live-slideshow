@@ -19,7 +19,7 @@ import Box from "@material-ui/core/Box";
 function HomePage({ width }) {
   // mobileCards array contains all objects (spread), desktopCards contains all objects in 3 split chunks
   const [state, setState] = useState({
-    desktopCards: splitToChunks(CARDS_DETAILS, 3),
+    desktopCards: splitToChunks([...CARDS_DETAILS], 3),
     moblieCards: CARDS_DETAILS,
     numbers: false,
     dots: false,
@@ -34,7 +34,8 @@ function HomePage({ width }) {
 
   const handleRemoveItem = (itemIndex) => {
     if (state.moblieCards.length > 4) {
-      const newArray = removeItem(state.moblieCards, itemIndex);
+      const newArray = removeItem([...state.moblieCards], itemIndex);
+
       setState((prevState) => ({
         ...prevState,
         desktopCards: splitToChunks(newArray, 3),
@@ -59,6 +60,15 @@ function HomePage({ width }) {
       desktopCards: splitToChunks([...prevState.moblieCards, newImageObj], 3),
       moblieCards: [...prevState.moblieCards, newImageObj],
       showError: prevState.moblieCards.length < 4 ? true : false,
+    }));
+  };
+
+  const handleReset = () => {
+    setState((prevState) => ({
+      ...prevState,
+      desktopCards: splitToChunks([...CARDS_DETAILS], 3),
+      moblieCards: CARDS_DETAILS,
+      showError: false,
     }));
   };
 
@@ -88,7 +98,10 @@ function HomePage({ width }) {
                 </Box>
               )}
             </Box>
-            <UploadImage handleAddImage={handleAddImage} />
+            <UploadImage
+              handleAddImage={handleAddImage}
+              handleReset={handleReset}
+            />
           </Box>
           <Box
             textAlign="center"

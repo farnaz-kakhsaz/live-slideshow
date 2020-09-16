@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UploadImage({ handleAddImage }) {
+export default function UploadImage({ handleAddImage, handleReset }) {
   const [name, setName] = useState("");
   const [value, setValue] = useState(null);
   const [error, setError] = useState(false);
@@ -101,6 +101,7 @@ export default function UploadImage({ handleAddImage }) {
           >
             <label htmlFor="custom-file-upload">
               <Button
+                type="button"
                 variant="contained"
                 component="span"
                 fullWidth
@@ -119,12 +120,12 @@ export default function UploadImage({ handleAddImage }) {
             </Button>
           </Box>
         </Box>
-
         <Button
-          type="submit"
+          type="button"
           variant="contained"
           color="secondary"
           fullWidth
+          onClick={handleReset}
           className={classes.resetBtn}
         >
           Reset
@@ -150,4 +151,5 @@ export default function UploadImage({ handleAddImage }) {
 
 UploadImage.propTypes = {
   handleAddImage: PropTypes.func.isRequired,
+  handleReset: PropTypes.func.isRequired,
 };
