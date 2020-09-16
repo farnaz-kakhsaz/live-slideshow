@@ -37,7 +37,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UploadImage({ handleAddImage, handleReset }) {
+export default function UploadImage({
+  handleAddImage,
+  handleReset,
+  showResetBtn,
+}) {
   const [name, setName] = useState("");
   const [value, setValue] = useState(null);
   const [error, setError] = useState(false);
@@ -120,16 +124,18 @@ export default function UploadImage({ handleAddImage, handleReset }) {
             </Button>
           </Box>
         </Box>
-        <Button
-          type="button"
-          variant="contained"
-          color="secondary"
-          fullWidth
-          onClick={handleReset}
-          className={classes.resetBtn}
-        >
-          Reset
-        </Button>
+        {showResetBtn && (
+          <Button
+            type="button"
+            variant="contained"
+            color="secondary"
+            fullWidth
+            onClick={handleReset}
+            className={classes.resetBtn}
+          >
+            Reset
+          </Button>
+        )}
         {error && (
           <Box mt={2}>
             {!name && (
@@ -152,4 +158,5 @@ export default function UploadImage({ handleAddImage, handleReset }) {
 UploadImage.propTypes = {
   handleAddImage: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
+  showResetBtn: PropTypes.bool.isRequired,
 };
