@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 // Components
 import Card from "./card/card.component";
-import ImagePreview from "./image-preview/image-preview.component";
+import ImagePreviewContainer from "./image-preview/image-preview-container.component";
 import Slideshow from "./slideshow/slideshow.component";
 import UploadImage from "./upload-image/upload-image.component";
 import CheckboxInput from "./checkbox-input/checkbox-input.component";
@@ -26,6 +26,7 @@ function HomePage({ width }) {
     dots: false,
     arrows: false,
     showError: false,
+    whichOneGrow: 13,
   });
 
   const handleCheckboxChange = (event) => {
@@ -41,6 +42,7 @@ function HomePage({ width }) {
         ...prevState,
         desktopCards: splitToChunks(newArray, 3),
         moblieCards: newArray,
+        whichOneGrow: itemIndex,
       }));
     } else {
       setState((prevState) => ({
@@ -88,9 +90,10 @@ function HomePage({ width }) {
             mt={10}
           >
             <Box display="flex" flexDirection="column">
-              <ImagePreview
+              <ImagePreviewContainer
                 cards={state.moblieCards}
                 shakeIt={state.showError}
+                whichOneGrow={state.whichOneGrow}
                 handleRemoveItem={handleRemoveItem}
               />
               {state.showError && (
