@@ -10,7 +10,7 @@ import CARDS_DETAILS from "../constants/card-details";
 import { handleTitle } from "../helper/handleTitle";
 import { splitToChunks } from "../helper/splitToChunks";
 import { removeItem } from "../helper/removeItem";
-import { compareArrays } from "../helper/compareArrays";
+import { isEqual } from "../helper/isEqual";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
@@ -107,7 +107,7 @@ function HomePage({ width }) {
             <UploadImage
               handleAddImage={handleAddImage}
               handleReset={handleReset}
-              showResetBtn={compareArrays(CARDS_DETAILS, state.moblieCards)}
+              showResetBtn={isEqual(CARDS_DETAILS, state.moblieCards)}
             />
           </Box>
           <Box
