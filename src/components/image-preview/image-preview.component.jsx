@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 // Material-UI
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
@@ -7,11 +8,15 @@ import Button from "@material-ui/core/Button";
 // Styles
 import { useStyles } from "./image-previw.styles";
 
-export default function ImagePreview({ cards, handleRemoveItem }) {
+export default function ImagePreview({ cards, shakeIt, handleRemoveItem }) {
   const classes = useStyles();
 
   return (
-    <GridList className={classes.gridList} cellHeight={150} cols={4}>
+    <GridList
+      className={clsx(classes.gridList, shakeIt && classes.shakeIt)}
+      cellHeight={150}
+      cols={4}
+    >
       {cards.map((item, index) => (
         <GridListTile className={classes.gridListTile} key={index}>
           <img className={classes.img} src={item.image} alt={item.title} />
@@ -29,5 +34,6 @@ export default function ImagePreview({ cards, handleRemoveItem }) {
 
 ImagePreview.propTypes = {
   cards: PropTypes.array.isRequired,
+  shakeIt: PropTypes.bool.isRequired,
   handleRemoveItem: PropTypes.func.isRequired,
 };

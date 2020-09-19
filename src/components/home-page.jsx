@@ -75,17 +75,22 @@ function HomePage({ width }) {
 
   return (
     <section>
-      <Box my={{ xs: 5, sm: 10 }} textAlign="center">
+      <Box my={5} textAlign="center">
         <Container maxWidth="xl">
+          <Box fontSize="64px" component="h1" my="0">
+            Go ahead and add or remove photos
+          </Box>
           <Box
             display="flex"
             flexDirection={{ xs: "column", lg: "row" }}
             alignItems="center"
             justifyContent="center"
+            mt={10}
           >
             <Box display="flex" flexDirection="column">
               <ImagePreview
                 cards={state.moblieCards}
+                shakeIt={state.showError}
                 handleRemoveItem={handleRemoveItem}
               />
               {state.showError && (
