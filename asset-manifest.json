@@ -1,14 +1,19 @@
 {
   "files": {
-    "main.js": "/Slideshow/static/js/main.c17d6f53.chunk.js",
-    "main.js.map": "/Slideshow/static/js/main.c17d6f53.chunk.js.map",
-    "runtime-main.js": "/Slideshow/static/js/runtime-main.b3175772.js",
-    "runtime-main.js.map": "/Slideshow/static/js/runtime-main.b3175772.js.map",
-    "static/js/2.01d4b8fd.chunk.js": "/Slideshow/static/js/2.01d4b8fd.chunk.js",
-    "static/js/2.01d4b8fd.chunk.js.map": "/Slideshow/static/js/2.01d4b8fd.chunk.js.map",
+    "main.js": "/Slideshow/static/js/main.a73e322b.chunk.js",
+    "main.js.map": "/Slideshow/static/js/main.a73e322b.chunk.js.map",
+    "runtime-main.js": "/Slideshow/static/js/runtime-main.bacf4527.js",
+    "runtime-main.js.map": "/Slideshow/static/js/runtime-main.bacf4527.js.map",
+    "static/js/2.5ea02f4a.chunk.js": "/Slideshow/static/js/2.5ea02f4a.chunk.js",
+    "static/js/2.5ea02f4a.chunk.js.map": "/Slideshow/static/js/2.5ea02f4a.chunk.js.map",
     "index.html": "/Slideshow/index.html",
-    "precache-manifest.eeebf57d4870161aeb0a32d664102347.js": "/Slideshow/precache-manifest.eeebf57d4870161aeb0a32d664102347.js",
+    "precache-manifest.2a19eb584ff2e7b38dce74354ca31371.js": "/Slideshow/precache-manifest.2a19eb584ff2e7b38dce74354ca31371.js",
     "service-worker.js": "/Slideshow/service-worker.js",
+    "static/media/Dosis-Bold.ttf": "/Slideshow/static/media/Dosis-Bold.ccb2ab50.ttf",
+    "static/media/Dosis-Book.ttf": "/Slideshow/static/media/Dosis-Book.ba735d67.ttf",
+    "static/media/Dosis-Light.ttf": "/Slideshow/static/media/Dosis-Light.3abc8753.ttf",
+    "static/media/Dosis-Medium.ttf": "/Slideshow/static/media/Dosis-Medium.39e264b3.ttf",
+    "static/media/Dosis-Semibold.ttf": "/Slideshow/static/media/Dosis-Semibold.c2f36385.ttf",
     "static/media/image-1.jpg": "/Slideshow/static/media/image-1.4de03ef5.jpg",
     "static/media/image-10.jpg": "/Slideshow/static/media/image-10.7a3427aa.jpg",
     "static/media/image-11.jpg": "/Slideshow/static/media/image-11.d4fbd49b.jpg",
@@ -23,8 +28,8 @@
     "static/media/image-9.jpg": "/Slideshow/static/media/image-9.7c9e9798.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b3175772.js",
-    "static/js/2.01d4b8fd.chunk.js",
-    "static/js/main.c17d6f53.chunk.js"
+    "static/js/runtime-main.bacf4527.js",
+    "static/js/2.5ea02f4a.chunk.js",
+    "static/js/main.a73e322b.chunk.js"
   ]
 }

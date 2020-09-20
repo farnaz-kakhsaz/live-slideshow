@@ -1,19 +1,39 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5e5a02504aba6d25814ebed16531b888",
+    "revision": "2095faa9d340549063e205c046237555",
     "url": "/Slideshow/index.html"
   },
   {
-    "revision": "5b1fd482bce664ec4bc4",
-    "url": "/Slideshow/static/js/2.01d4b8fd.chunk.js"
+    "revision": "c8b3c6f3312c3dc86a6b",
+    "url": "/Slideshow/static/js/2.5ea02f4a.chunk.js"
   },
   {
-    "revision": "d6c6643b737eb5b7f6e4",
-    "url": "/Slideshow/static/js/main.c17d6f53.chunk.js"
+    "revision": "e59ff09c1e9fe12d8066",
+    "url": "/Slideshow/static/js/main.a73e322b.chunk.js"
   },
   {
-    "revision": "5e01027b1e74c08a71bf",
-    "url": "/Slideshow/static/js/runtime-main.b3175772.js"
+    "revision": "b2f3e3ade4ec072f2827",
+    "url": "/Slideshow/static/js/runtime-main.bacf4527.js"
+  },
+  {
+    "revision": "ccb2ab50ca7958d0cd3c8d8e47730493",
+    "url": "/Slideshow/static/media/Dosis-Bold.ccb2ab50.ttf"
+  },
+  {
+    "revision": "ba735d6750440c952c1ba0793adf7a71",
+    "url": "/Slideshow/static/media/Dosis-Book.ba735d67.ttf"
+  },
+  {
+    "revision": "3abc8753a394e3a1ab06b0a7a7f57119",
+    "url": "/Slideshow/static/media/Dosis-Light.3abc8753.ttf"
+  },
+  {
+    "revision": "39e264b36985746779360ea14f00ab63",
+    "url": "/Slideshow/static/media/Dosis-Medium.39e264b3.ttf"
+  },
+  {
+    "revision": "c2f3638510ae60347343e3335aee5795",
+    "url": "/Slideshow/static/media/Dosis-Semibold.c2f36385.ttf"
   },
   {
     "revision": "4de03ef528f97a6eed383403a53488f9",
