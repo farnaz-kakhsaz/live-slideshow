@@ -10,14 +10,14 @@ import { useStyles } from "./image-preview-item.styles";
 export default function ImagePreviewItem({
   item,
   index,
-  whichOneGrow,
+  whichOneFade,
   handleRemoveItem,
   ...rest
 }) {
   const classes = useStyles();
 
   return (
-    <Grow in={whichOneGrow === index ? false : true} timeout={700}>
+    <Grow in={whichOneFade === index ? false : true} timeout={1000}>
       <GridListTile className={classes.gridListTile} {...rest}>
         <img className={classes.img} src={item.image} alt={item.title} />
         <Button
@@ -34,6 +34,6 @@ export default function ImagePreviewItem({
 ImagePreviewItem.propTypes = {
   item: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
-  whichOneGrow: PropTypes.number.isRequired,
+  whichOneFade: PropTypes.number.isRequired,
   handleRemoveItem: PropTypes.func.isRequired,
 };

@@ -26,7 +26,8 @@ function HomePage({ width }) {
     dots: false,
     arrows: false,
     showError: false,
-    whichOneGrow: -1,
+    shakeEnd: true,
+    whichOneFade: -1,
   });
 
   const handleCheckboxChange = (event) => {
@@ -52,7 +53,7 @@ function HomePage({ width }) {
     if (state.moblieCards.length > 4) {
       setState((prevState) => ({
         ...prevState,
-        whichOneGrow: itemIndex,
+        whichOneFade: itemIndex,
       }));
 
       // 700ms is the same timeout that we set on the Grow component in the ImagePreviewItem component.
@@ -62,13 +63,14 @@ function HomePage({ width }) {
           ...prevState,
           desktopCards: splitToChunks(newArray, 3),
           moblieCards: newArray,
-          whichOneGrow: -1,
+          whichOneFade: -1,
         }));
       }, 700);
     } else {
       setState((prevState) => ({
         ...prevState,
         showError: true,
+        shakeEnd: true,
       }));
     }
   };
@@ -79,6 +81,13 @@ function HomePage({ width }) {
       desktopCards: splitToChunks([...CARDS_DETAILS], 3),
       moblieCards: CARDS_DETAILS,
       showError: false,
+    }));
+  };
+
+  const handleShakeAnimation = () => {
+    setState((prevState) => ({
+      ...prevState,
+      shakeEnd: prevState.showError ? false : true,
     }));
   };
 
@@ -99,9 +108,10 @@ function HomePage({ width }) {
             <Box display="flex" flexDirection="column">
               <ImagePreviewContainer
                 cards={state.moblieCards}
-                shakeIt={state.showError}
-                whichOneGrow={state.whichOneGrow}
+                shakeIt={state.showError && state.shakeEnd ? true : false}
+                whichOneFade={state.whichOneFade}
                 handleRemoveItem={handleRemoveItem}
+                handleShakeAnimation={handleShakeAnimation}
               />
               {state.showError && (
                 <Box

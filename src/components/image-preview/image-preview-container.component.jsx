@@ -11,8 +11,9 @@ import { useStyles } from "./image-preview-container.styles";
 export default function ImagePreviewContainer({
   cards,
   shakeIt,
-  whichOneGrow,
+  whichOneFade,
   handleRemoveItem,
+  handleShakeAnimation,
 }) {
   const classes = useStyles();
 
@@ -21,13 +22,14 @@ export default function ImagePreviewContainer({
       className={clsx(classes.gridList, shakeIt && classes.shakeIt)}
       cellHeight={150}
       cols={4}
+      onAnimationEnd={handleShakeAnimation}
     >
       {cards.map((item, index) => (
         <ImagePreviewItem
           key={index}
           item={item}
           index={index}
-          whichOneGrow={whichOneGrow}
+          whichOneFade={whichOneFade}
           handleRemoveItem={handleRemoveItem}
         />
       ))}
@@ -38,6 +40,7 @@ export default function ImagePreviewContainer({
 ImagePreviewContainer.propTypes = {
   cards: PropTypes.array.isRequired,
   shakeIt: PropTypes.bool.isRequired,
-  whichOneGrow: PropTypes.number.isRequired,
+  whichOneFade: PropTypes.number.isRequired,
   handleRemoveItem: PropTypes.func.isRequired,
+  handleShakeAnimation: PropTypes.func.isRequired,
 };
