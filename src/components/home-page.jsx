@@ -130,6 +130,7 @@ function HomePage({ width }) {
                   fontSize="0.86rem"
                   component="p"
                   mt={3}
+                  mb={0}
                 >
                   Can't contain less than 4 items!
                 </Box>
@@ -166,7 +167,6 @@ function HomePage({ width }) {
             />
           </Box>
           <Box
-            lineHeight={1}
             fontSize={{ xs: 26, sm: 36, md: 46 }}
             letterSpacing="1px"
             textAlign="center"
