@@ -26,30 +26,12 @@ function HomePage({ width }) {
     dots: false,
     arrows: false,
     showError: false,
-    whichOneGrow: 13,
+    whichOneGrow: -1,
   });
 
   const handleCheckboxChange = (event) => {
     const { name } = event.target;
     setState((prevState) => ({ ...prevState, [name]: !prevState[name] }));
-  };
-
-  const handleRemoveItem = (itemIndex) => {
-    if (state.moblieCards.length > 4) {
-      const newArray = removeItem([...state.moblieCards], itemIndex);
-
-      setState((prevState) => ({
-        ...prevState,
-        desktopCards: splitToChunks(newArray, 3),
-        moblieCards: newArray,
-        whichOneGrow: itemIndex,
-      }));
-    } else {
-      setState((prevState) => ({
-        ...prevState,
-        showError: true,
-      }));
-    }
   };
 
   const handleAddImage = (value, name) => {
@@ -64,6 +46,31 @@ function HomePage({ width }) {
       moblieCards: [...prevState.moblieCards, newImageObj],
       showError: prevState.moblieCards.length < 4 ? true : false,
     }));
+  };
+
+  const handleRemoveItem = (itemIndex) => {
+    if (state.moblieCards.length > 4) {
+      setState((prevState) => ({
+        ...prevState,
+        whichOneGrow: itemIndex,
+      }));
+
+      // 700ms is the same timeout that we set on the Grow component in the ImagePreviewItem component.
+      setTimeout(() => {
+        const newArray = removeItem([...state.moblieCards], itemIndex);
+        setState((prevState) => ({
+          ...prevState,
+          desktopCards: splitToChunks(newArray, 3),
+          moblieCards: newArray,
+          whichOneGrow: -1,
+        }));
+      }, 700);
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        showError: true,
+      }));
+    }
   };
 
   const handleReset = () => {
