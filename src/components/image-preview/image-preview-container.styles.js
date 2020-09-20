@@ -37,7 +37,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   shakeIt: {
-    animation: "$shake 0.5s ",
+    animation: "$shake 0.5s",
   },
   gridList: {
     maxWidth: 600,

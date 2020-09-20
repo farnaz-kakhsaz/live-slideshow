@@ -95,15 +95,25 @@ function HomePage({ width }) {
     <section>
       <Box my={5} textAlign="center">
         <Container maxWidth="xl">
-          <Box fontSize="64px" component="h1" my="0">
+          <Box
+            display="inline-block"
+            fontSize={{ xs: 32, sm: 42, md: 52 }}
+            fontWeight="bold"
+            component="h1"
+            borderBottom="3px solid"
+            my="0"
+          >
             Go ahead and add or remove photos
+            <span role="img" aria-label="winking face">
+              &#128521;
+            </span>
           </Box>
           <Box
             display="flex"
             flexDirection={{ xs: "column", lg: "row" }}
             alignItems="center"
             justifyContent="center"
-            mt={10}
+            mt={8}
           >
             <Box display="flex" flexDirection="column">
               <ImagePreviewContainer
@@ -118,6 +128,7 @@ function HomePage({ width }) {
                   color="#f44336"
                   letterSpacing="1px"
                   fontSize="0.86rem"
+                  component="p"
                   mt={3}
                 >
                   Can't contain less than 4 items!
@@ -157,9 +168,9 @@ function HomePage({ width }) {
           <Box
             lineHeight={1}
             fontSize={{ xs: 26, sm: 36, md: 46 }}
-            fontWeight="600"
             letterSpacing="1px"
             textAlign="center"
+            component="h2"
             mb={5}
           >
             {handleTitle(state.numbers, state.dots, state.arrows)}
