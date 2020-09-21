@@ -7,7 +7,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("md")]: {
       marginTop: 40,
-      marginBottom: 30,
     },
     maxWidth: 400,
     width: "100%",

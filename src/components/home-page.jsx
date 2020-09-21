@@ -147,8 +147,8 @@ function HomePage({ width }) {
           </Box>
           <Box
             textAlign="center"
-            mt={{ lg: "40px" }}
-            mb={{ xs: "20px", sm: "40px" }}
+            mt={{ xs: "37px", sm: "47px" }}
+            mb={{ xs: "30px", sm: "40px" }}
           >
             <CheckboxInput
               value={state.numbers}
@@ -174,6 +174,7 @@ function HomePage({ width }) {
             letterSpacing="1px"
             textAlign="center"
             component="h2"
+            fontWeight="600"
             mb={5}
           >
             {handleTitle(state.numbers, state.dots, state.arrows)}
