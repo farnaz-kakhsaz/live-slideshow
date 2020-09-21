@@ -17,7 +17,7 @@ export default function ImagePreviewItem({
   const classes = useStyles();
 
   return (
-    <Grow in={whichOneFade === index ? false : true} timeout={1000}>
+    <Grow in={whichOneFade === index ? false : true} timeout={700}>
       <GridListTile className={classes.gridListTile} {...rest}>
         <img className={classes.img} src={item.image} alt={item.title} />
         <Button

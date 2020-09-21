@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
+import Grow from "@material-ui/core/Grow";
 // Styles
 import { useStyles } from "./upload-image.styles";
 
@@ -97,28 +98,34 @@ export default function UploadImage({
           </Box>
         </Box>
         {showResetBtn && (
-          <Button
-            type="button"
-            variant="contained"
-            color="secondary"
-            fullWidth
-            onClick={handleReset}
-            className={classes.resetBtn}
-          >
-            Reset
-          </Button>
+          <Grow in={showResetBtn} timeout={700}>
+            <Button
+              type="button"
+              variant="contained"
+              color="secondary"
+              fullWidth
+              onClick={handleReset}
+              className={classes.resetBtn}
+            >
+              Reset
+            </Button>
+          </Grow>
         )}
         {error && (
           <Box mt={2}>
             {!name && (
-              <FormHelperText className={classes.formHelperText}>
-                Please choose a name for the file!
-              </FormHelperText>
+              <Grow in={!name} timeout={700}>
+                <FormHelperText className={classes.formHelperText}>
+                  Please choose a name for the file!
+                </FormHelperText>
+              </Grow>
             )}
             {!value && (
-              <FormHelperText className={classes.formHelperText}>
-                Please select a photo!
-              </FormHelperText>
+              <Grow in={!value} timeout={700}>
+                <FormHelperText className={classes.formHelperText}>
+                  Please select a photo!
+                </FormHelperText>
+              </Grow>
             )}
           </Box>
         )}

@@ -16,6 +16,7 @@ import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import Grow from "@material-ui/core/Grow";
 
 function HomePage({ width }) {
   // mobileCards array contains all objects (spread), desktopCards contains all objects in 3 split chunks
@@ -56,7 +57,7 @@ function HomePage({ width }) {
         whichOneFade: itemIndex,
       }));
 
-      // 700ms is the same timeout that we set on the Grow component in the ImagePreviewItem component.
+      // The 600ms set based on timeout that we set on the Grow component in the ImagePreviewItem component.
       setTimeout(() => {
         const newArray = removeItem([...state.moblieCards], itemIndex);
         setState((prevState) => ({
@@ -65,7 +66,7 @@ function HomePage({ width }) {
           moblieCards: newArray,
           whichOneFade: -1,
         }));
-      }, 700);
+      }, 600);
     } else {
       setState((prevState) => ({
         ...prevState,
@@ -124,16 +125,18 @@ function HomePage({ width }) {
                 handleShakeAnimation={handleShakeAnimation}
               />
               {state.showError && (
-                <Box
-                  color="#f44336"
-                  letterSpacing="1px"
-                  fontSize="0.86rem"
-                  component="p"
-                  mt={3}
-                  mb={0}
-                >
-                  Can't contain less than 4 items!
-                </Box>
+                <Grow in={state.showError} timeout={700}>
+                  <Box
+                    color="#f44336"
+                    letterSpacing="1px"
+                    fontSize="0.86rem"
+                    component="p"
+                    mt={3}
+                    mb={0}
+                  >
+                    Can't contain less than 4 items!
+                  </Box>
+                </Grow>
               )}
             </Box>
             <UploadImage
