@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
       color: theme.palette.grey[400],
       fontSize: 120,
       position: "absolute",
-      top: "50%",
+      top: "45%",
       transform: "translateY(-50%)",
       zIndex: 1,
       cursor: "pointer",

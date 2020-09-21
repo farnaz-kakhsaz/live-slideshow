@@ -7,6 +7,6 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     borderRadius: 10,
     cursor: "e-resize",
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(0.5),
   },
 }));
