@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/live-slideshow/static/js/main.8f2e05fa.chunk.js",
-    "main.js.map": "/live-slideshow/static/js/main.8f2e05fa.chunk.js.map",
+    "main.js": "/live-slideshow/static/js/main.681ec43e.chunk.js",
+    "main.js.map": "/live-slideshow/static/js/main.681ec43e.chunk.js.map",
     "runtime-main.js": "/live-slideshow/static/js/runtime-main.a836554d.js",
     "runtime-main.js.map": "/live-slideshow/static/js/runtime-main.a836554d.js.map",
     "static/js/2.98cebef8.chunk.js": "/live-slideshow/static/js/2.98cebef8.chunk.js",
     "static/js/2.98cebef8.chunk.js.map": "/live-slideshow/static/js/2.98cebef8.chunk.js.map",
     "index.html": "/live-slideshow/index.html",
-    "precache-manifest.91face7d48640208a0f734d8f3f1a4b1.js": "/live-slideshow/precache-manifest.91face7d48640208a0f734d8f3f1a4b1.js",
+    "precache-manifest.44b248b471e8433ba0050f7b06d21021.js": "/live-slideshow/precache-manifest.44b248b471e8433ba0050f7b06d21021.js",
     "service-worker.js": "/live-slideshow/service-worker.js",
     "static/media/Dosis-Bold.ttf": "/live-slideshow/static/media/Dosis-Bold.ccb2ab50.ttf",
     "static/media/Dosis-Book.ttf": "/live-slideshow/static/media/Dosis-Book.ba735d67.ttf",
@@ -30,6 +30,6 @@
   "entrypoints": [
     "static/js/runtime-main.a836554d.js",
     "static/js/2.98cebef8.chunk.js",
-    "static/js/main.8f2e05fa.chunk.js"
+    "static/js/main.681ec43e.chunk.js"
   ]
 }
