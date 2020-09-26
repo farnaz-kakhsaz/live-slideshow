@@ -19,10 +19,9 @@ import Box from "@material-ui/core/Box";
 import Grow from "@material-ui/core/Grow";
 
 function HomePage({ width }) {
-  // mobileCards array contains all objects (spread), desktopCards contains all objects in 3 split chunks
   const [state, setState] = useState({
-    desktopCards: splitToChunks([...CARDS_DETAILS], 3),
-    moblieCards: CARDS_DETAILS,
+    threeCardsPerScreen: splitToChunks([...CARDS_DETAILS], 3),
+    oneCardPerScreen: CARDS_DETAILS,
     numbers: false,
     dots: false,
     arrows: false,
@@ -44,14 +43,17 @@ function HomePage({ width }) {
 
     setState((prevState) => ({
       ...prevState,
-      desktopCards: splitToChunks([...prevState.moblieCards, newImageObj], 3),
-      moblieCards: [...prevState.moblieCards, newImageObj],
-      showError: prevState.moblieCards.length < 4 ? true : false,
+      threeCardsPerScreen: splitToChunks(
+        [...prevState.oneCardPerScreen, newImageObj],
+        3
+      ),
+      oneCardPerScreen: [...prevState.oneCardPerScreen, newImageObj],
+      showError: prevState.oneCardPerScreen.length < 4 ? true : false,
     }));
   };
 
   const handleRemoveItem = (itemIndex) => {
-    if (state.moblieCards.length > 4) {
+    if (state.oneCardPerScreen.length > 4) {
       setState((prevState) => ({
         ...prevState,
         whichOneFade: itemIndex,
@@ -59,11 +61,11 @@ function HomePage({ width }) {
 
       // The 600ms set based on timeout that we set on the Grow component in the ImagePreviewItem component.
       setTimeout(() => {
-        const newArray = removeItem([...state.moblieCards], itemIndex);
+        const newArray = removeItem([...state.oneCardPerScreen], itemIndex);
         setState((prevState) => ({
           ...prevState,
-          desktopCards: splitToChunks(newArray, 3),
-          moblieCards: newArray,
+          threeCardsPerScreen: splitToChunks(newArray, 3),
+          oneCardPerScreen: newArray,
           whichOneFade: -1,
         }));
       }, 600);
@@ -79,8 +81,8 @@ function HomePage({ width }) {
   const handleReset = () => {
     setState((prevState) => ({
       ...prevState,
-      desktopCards: splitToChunks([...CARDS_DETAILS], 3),
-      moblieCards: CARDS_DETAILS,
+      threeCardsPerScreen: splitToChunks([...CARDS_DETAILS], 3),
+      oneCardPerScreen: CARDS_DETAILS,
       showError: false,
     }));
   };
@@ -118,7 +120,7 @@ function HomePage({ width }) {
           >
             <Box display="flex" flexDirection="column">
               <ImagePreviewContainer
-                cards={state.moblieCards}
+                cards={state.oneCardPerScreen}
                 shakeIt={state.showError && state.shakeEnd ? true : false}
                 whichOneFade={state.whichOneFade}
                 handleRemoveItem={handleRemoveItem}
@@ -142,7 +144,7 @@ function HomePage({ width }) {
             <UploadImage
               handleAddImage={handleAddImage}
               handleReset={handleReset}
-              showResetBtn={isEqual(CARDS_DETAILS, state.moblieCards)}
+              showResetBtn={isEqual(CARDS_DETAILS, state.oneCardPerScreen)}
             />
           </Box>
           <Box
@@ -181,7 +183,9 @@ function HomePage({ width }) {
           </Box>
           <Slideshow
             options={
-              isWidthDown("md", width) ? state.moblieCards : state.desktopCards
+              isWidthDown("md", width)
+                ? state.oneCardPerScreen
+                : state.threeCardsPerScreen
             }
             paginationMarginTop={{ xs: 3 }}
             showNumbers={state.numbers}
