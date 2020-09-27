@@ -26,7 +26,8 @@ export const useStyles = makeStyles((theme) => ({
     "&:hover $img": {
       WebkitFilter: "blur(4px)",
       filter: "blur(4px)",
-      transform: "scale(1)",
+      transform: "scale(1.2)",
+      left: 0,
     },
     "&:hover $button": {
       opacity: 1,
@@ -35,9 +36,6 @@ export const useStyles = makeStyles((theme) => ({
     height: "100px !important",
   },
   img: {
-    transform: "scale(1)",
-    left: 0,
-    top: 0,
     WebkitTransition: "all 0.5s ease-in-out",
     MozTransition: "all 0.5s ease-in-out",
     OTransition: "all 0.5s ease-in-out",
