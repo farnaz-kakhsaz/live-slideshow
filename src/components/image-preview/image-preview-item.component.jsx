@@ -20,10 +20,7 @@ export default function ImagePreviewItem({
     <Grow in={whichOneFade === index ? false : true} timeout={700}>
       <GridListTile className={classes.gridListTile} {...rest}>
         <img className={classes.img} src={item.image} alt={item.title} />
-        <Button
-          className={classes.button}
-          onClick={() => handleRemoveItem(index)}
-        >
+        <Button className={classes.button} onClick={handleRemoveItem(index)}>
           Delete
         </Button>
       </GridListTile>

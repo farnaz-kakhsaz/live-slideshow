@@ -36,9 +36,7 @@ export default function Slideshow({
     }
   };
 
-  const handleDotClick = (step) => (event) => {
-    setActiveStep(step);
-  };
+  const handleDotClick = (step) => (event) => setActiveStep(step);
 
   return (
     <>
@@ -57,13 +55,11 @@ export default function Slideshow({
               delay: "0s",
             }}
           >
-            {options.map((item, index) => {
-              return (
-                <Box display="flex" justifyContent="center" key={index}>
-                  {children(item)}
-                </Box>
-              );
-            })}
+            {options.map((item, index) => (
+              <Box display="flex" justifyContent="center" key={index}>
+                {children(item)}
+              </Box>
+            ))}
           </AutoPlaySwipeableViews>
         </Container>
       </Box>
