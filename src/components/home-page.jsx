@@ -52,7 +52,7 @@ function HomePage({ width }) {
     }));
   };
 
-  const handleRemoveItem = (itemIndex) => {
+  const handleRemoveItem = (itemIndex) => (event) => {
     if (state.oneCardPerScreen.length > 4) {
       setState((prevState) => ({
         ...prevState,
@@ -192,11 +192,11 @@ function HomePage({ width }) {
             showDots={state.dots}
             showArrows={state.arrows}
           >
-            {(item) =>
+            {(item, index) =>
               isWidthDown("md", width) ? (
-                <Card image={item.image} title={item.title} />
+                <Card image={item.image} title={item.title} key={index} />
               ) : (
-                <Grid container justify="space-evenly">
+                <Grid container justify="space-evenly" key={index}>
                   {item.map((item, index) => (
                     <Card image={item.image} title={item.title} key={index} />
                   ))}

@@ -55,11 +55,7 @@ export default function Slideshow({
               delay: "0s",
             }}
           >
-            {options.map((item, index) => (
-              <Box display="flex" justifyContent="center" key={index}>
-                {children(item)}
-              </Box>
-            ))}
+            {options.map((item, index) => children(item, index))}
           </AutoPlaySwipeableViews>
         </Container>
       </Box>
