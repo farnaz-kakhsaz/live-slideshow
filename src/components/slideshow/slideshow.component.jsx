@@ -55,7 +55,7 @@ export default function Slideshow({
               delay: "0s",
             }}
           >
-            {options.map((item, index) => children(item, index))}
+            {options.map((item, index, array) => children(item, index, array))}
           </AutoPlaySwipeableViews>
         </Container>
       </Box>
