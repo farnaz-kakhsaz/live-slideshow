@@ -19,7 +19,6 @@ import Grow from "@material-ui/core/Grow";
 
 function HomePage() {
   const [state, setState] = useState({
-    threeCardsPerScreen: splitToChunks([...CARDS_DETAILS], 3),
     oneCardPerScreen: CARDS_DETAILS,
     numbers: false,
     dots: false,
@@ -42,10 +41,6 @@ function HomePage() {
 
     setState((prevState) => ({
       ...prevState,
-      threeCardsPerScreen: splitToChunks(
-        [...prevState.oneCardPerScreen, newImageObj],
-        3
-      ),
       oneCardPerScreen: [...prevState.oneCardPerScreen, newImageObj],
       showError: prevState.oneCardPerScreen.length < 4 ? true : false,
     }));
@@ -63,7 +58,6 @@ function HomePage() {
         const newArray = removeItem([...state.oneCardPerScreen], itemIndex);
         setState((prevState) => ({
           ...prevState,
-          threeCardsPerScreen: splitToChunks(newArray, 3),
           oneCardPerScreen: newArray,
           whichOneFade: -1,
         }));
@@ -80,7 +74,6 @@ function HomePage() {
   const handleReset = () => {
     setState((prevState) => ({
       ...prevState,
-      threeCardsPerScreen: splitToChunks([...CARDS_DETAILS], 3),
       oneCardPerScreen: CARDS_DETAILS,
       showError: false,
     }));

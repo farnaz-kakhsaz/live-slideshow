@@ -12,7 +12,7 @@ export default function Card({ image, title }) {
   return (
     <Box textAlign="center" color="grey.400">
       <img className={classes.image} src={image} alt={title} />
-      <Typography>{title}</Typography>
+      {title && <Typography className={classes.typography}>{title}</Typography>}
     </Box>
   );
 }

@@ -14,6 +14,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export default function Slideshow({
   children,
+  childrenArray,
   options,
   showDots,
   showNumbers,
@@ -55,7 +56,11 @@ export default function Slideshow({
               delay: "0s",
             }}
           >
-            {options.map((item, index, array) => children(item, index, array))}
+            {childrenArray
+              ? childrenArray
+              : options.map((item, index, array) =>
+                  children(item, index, array)
+                )}
           </AutoPlaySwipeableViews>
         </Container>
       </Box>
@@ -88,8 +93,12 @@ export default function Slideshow({
 }
 
 Slideshow.propTypes = {
-  children: PropTypes.func.isRequired,
-  options: PropTypes.array.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.func.isRequired,
+    PropTypes.array.isRequired,
+  ]),
+  childrenArray: PropTypes.array,
+  options: PropTypes.array,
   showDots: PropTypes.bool,
   showNumbers: PropTypes.bool,
   showArrows: PropTypes.bool,

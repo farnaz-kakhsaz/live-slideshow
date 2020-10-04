@@ -20,30 +20,43 @@ function SlideshowWithPagination({
 }) {
   const [oneCardPerScreen, setOneCardPerScreen] = useState(options);
   const [multipleCardsPerScreen, setMultipleCardPerScreen] = useState(
-    splitToChunks(options, numberOfCardsPerScreen)
+    splitToChunks(options ? options : [], numberOfCardsPerScreen)
   );
+
+  useEffect(() => {
+    if (options) {
+      setOneCardPerScreen(options);
+      setMultipleCardPerScreen(splitToChunks(options, numberOfCardsPerScreen));
+    }
+  }, [options]);
 
   return (
     <Slideshow
       options={
-        isWidthDown("md", width) ? oneCardPerScreen : multipleCardsPerScreen
+        children
+          ? children
+          : isWidthDown("md", width)
+          ? oneCardPerScreen
+          : multipleCardsPerScreen
       }
       showNumbers={showNumbers}
       showDots={showDots}
       showArrows={showArrows}
       paginationMarginTop={paginationMarginTop}
+      childrenArray={children}
     >
-      {(item, index) =>
-        isWidthDown("md", width) ? (
-          <Card image={item.image} title={item.title} key={index} />
-        ) : (
-          <Grid container justify="space-evenly" key={index}>
-            {item.map((item, index) => (
+      {children
+        ? children
+        : (item, index) =>
+            isWidthDown("md", width) ? (
               <Card image={item.image} title={item.title} key={index} />
-            ))}
-          </Grid>
-        )
-      }
+            ) : (
+              <Grid container justify="space-evenly" key={index}>
+                {item.map((item, index) => (
+                  <Card image={item.image} title={item.title} key={index} />
+                ))}
+              </Grid>
+            )}
     </Slideshow>
   );
 }
@@ -51,9 +64,9 @@ function SlideshowWithPagination({
 export default withWidth()(SlideshowWithPagination);
 
 SlideshowWithPagination.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.array,
+  children: PropTypes.array,
   numberOfCardsPerScreen: PropTypes.number,
-  children: PropTypes.element,
   showDots: PropTypes.bool,
   showNumbers: PropTypes.bool,
   showArrows: PropTypes.bool,
