@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 // Components
-import Card from "./card/card.component";
 import ImagePreviewContainer from "./image-preview/image-preview-container.component";
-import Slideshow from "./slideshow/slideshow.component";
+import SlideshowWithPagination from "./slideshow";
 import UploadImage from "./upload-image/upload-image.component";
 import CheckboxInput from "./checkbox-input/checkbox-input.component";
-import CARDS_DETAILS from "../constants/card-details";
 import { handleTitle } from "../helper/handleTitle";
 import { splitToChunks } from "../helper/splitToChunks";
 import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
+// Constants
+import CARDS_DETAILS from "../constants/card-details";
 // Material-UI
-import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
+import withWidth from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Grow from "@material-ui/core/Grow";
 
-function HomePage({ width }) {
+function HomePage() {
   const [state, setState] = useState({
     threeCardsPerScreen: splitToChunks([...CARDS_DETAILS], 3),
     oneCardPerScreen: CARDS_DETAILS,
@@ -181,29 +180,15 @@ function HomePage({ width }) {
           >
             {handleTitle(state.numbers, state.dots, state.arrows)}
           </Box>
-          <Slideshow
-            options={
-              isWidthDown("md", width)
-                ? state.oneCardPerScreen
-                : state.threeCardsPerScreen
-            }
-            paginationMarginTop={{ xs: 3 }}
+
+          <SlideshowWithPagination
+            options={state.oneCardPerScreen}
+            numberOfCardsPerScreen={3}
             showNumbers={state.numbers}
             showDots={state.dots}
             showArrows={state.arrows}
-          >
-            {(item, index) =>
-              isWidthDown("md", width) ? (
-                <Card image={item.image} title={item.title} key={index} />
-              ) : (
-                <Grid container justify="space-evenly" key={index}>
-                  {item.map((item, index) => (
-                    <Card image={item.image} title={item.title} key={index} />
-                  ))}
-                </Grid>
-              )
-            }
-          </Slideshow>
+            paginationMarginTop={{ xs: 3 }}
+          />
         </Container>
       </Box>
     </section>
