@@ -60,7 +60,11 @@ export default function Slideshow({
         </Container>
       </Box>
       {showDots && (
-        <Box display="flex" justifyContent="center" mt={paginationMarginTop}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          mt={paginationMarginTop ? paginationMarginTop : 3}
+        >
           {showDots &&
             options.map((item, index) => (
               <PaginationDot
@@ -74,7 +78,11 @@ export default function Slideshow({
         </Box>
       )}
       {showNumbers && (
-        <Box display="flex" justifyContent="center" mt={paginationMarginTop}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          mt={paginationMarginTop ? paginationMarginTop : 3}
+        >
           {showNumbers && (
             <PaginationNumber
               totalNumber={options.length}
