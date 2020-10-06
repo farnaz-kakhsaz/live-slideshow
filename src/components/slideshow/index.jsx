@@ -92,6 +92,6 @@ SlideshowWithPagination.propTypes = {
   width: PropTypes.string.isRequired,
   numberOfCardsPerScreen: PropTypes.number,
   imageContainerJustify: PropTypes.string,
-  imageMaxHeight: PropTypes.number,
-  imageMaxWidth: PropTypes.number,
+  imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

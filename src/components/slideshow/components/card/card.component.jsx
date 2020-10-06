@@ -23,6 +23,6 @@ export default function Card({ image, title, imageMaxWidth, imageMaxHeight }) {
 Card.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  imageMaxWidth: PropTypes.number,
-  imageMaxHeight: PropTypes.number,
+  imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
