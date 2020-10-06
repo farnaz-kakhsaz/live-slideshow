@@ -20,6 +20,7 @@ export default function Slideshow({
   showNumbers,
   showArrows,
   paginationMarginTop,
+  ...rest
 }) {
   const [activeStep, setActiveStep] = useState(0);
 
@@ -45,16 +46,9 @@ export default function Slideshow({
         {showArrows && <Arrow handleArrowClick={handleArrowClick} />}
         <Container>
           <AutoPlaySwipeableViews
-            axis={"x"}
             index={activeStep}
             onChangeIndex={handleStepChange}
-            enableMouseEvents
-            interval={6000}
-            springConfig={{
-              duration: "1s",
-              easeFunction: "ease-in-out",
-              delay: "0s",
-            }}
+            {...rest}
           >
             {childrenArray
               ? childrenArray

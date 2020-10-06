@@ -6,7 +6,6 @@ import SlideshowWithPagination from "./slideshow";
 import UploadImage from "./upload-image/upload-image.component";
 import CheckboxInput from "./checkbox-input/checkbox-input.component";
 import { handleTitle } from "../helper/handleTitle";
-import { splitToChunks } from "../helper/splitToChunks";
 import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
 // Constants
@@ -181,6 +180,14 @@ function HomePage() {
             showDots={state.dots}
             showArrows={state.arrows}
             paginationMarginTop={{ xs: 3 }}
+            ImageContainerMaxWidth={""}
+            enableMouseEvents
+            interval={6000}
+            springConfig={{
+              duration: "1s",
+              easeFunction: "ease-in-out",
+              delay: "0s",
+            }}
           />
         </Container>
       </Box>

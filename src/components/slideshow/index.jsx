@@ -12,11 +12,8 @@ function SlideshowWithPagination({
   width,
   options,
   children,
-  showDots,
-  showNumbers,
-  showArrows,
-  paginationMarginTop,
   numberOfCardsPerScreen,
+  ...rest
 }) {
   const [oneCardPerScreen, setOneCardPerScreen] = useState(options);
   const [multipleCardsPerScreen, setMultipleCardPerScreen] = useState(
@@ -39,11 +36,8 @@ function SlideshowWithPagination({
           ? oneCardPerScreen
           : multipleCardsPerScreen
       }
-      showNumbers={showNumbers}
-      showDots={showDots}
-      showArrows={showArrows}
-      paginationMarginTop={paginationMarginTop}
       childrenArray={children}
+      {...rest}
     >
       {children
         ? children
@@ -66,13 +60,6 @@ export default withWidth()(SlideshowWithPagination);
 SlideshowWithPagination.propTypes = {
   options: PropTypes.array,
   children: PropTypes.array,
-  numberOfCardsPerScreen: PropTypes.number,
-  showDots: PropTypes.bool,
-  showNumbers: PropTypes.bool,
-  showArrows: PropTypes.bool,
-  paginationMarginTop: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.object,
-  ]),
   width: PropTypes.string.isRequired,
+  numberOfCardsPerScreen: PropTypes.number,
 };
