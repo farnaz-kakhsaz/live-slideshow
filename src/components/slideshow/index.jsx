@@ -20,13 +20,21 @@ function SlideshowWithPagination({
 }) {
   const [oneCardPerScreen, setOneCardPerScreen] = useState(options);
   const [multipleCardsPerScreen, setMultipleCardPerScreen] = useState(
-    splitToChunks(options ? options : [], numberOfCardsPerScreen)
+    splitToChunks(
+      options ? options : [],
+      numberOfCardsPerScreen ? numberOfCardsPerScreen : 3
+    )
   );
 
   useEffect(() => {
     if (options) {
       setOneCardPerScreen(options);
-      setMultipleCardPerScreen(splitToChunks(options, numberOfCardsPerScreen));
+      setMultipleCardPerScreen(
+        splitToChunks(
+          options,
+          numberOfCardsPerScreen ? numberOfCardsPerScreen : 3
+        )
+      );
     }
   }, [options]);
 

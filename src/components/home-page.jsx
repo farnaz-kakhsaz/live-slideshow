@@ -182,10 +182,12 @@ function HomePage() {
 
           <SlideshowWithPagination
             options={state.oneCardPerScreen}
-            numberOfCardsPerScreen={3}
             showNumbers={state.numbers}
             showDots={state.dots}
             showArrows={state.arrows}
+            enableMouseEvents
+            interval={5000}
+            // numberOfCardsPerScreen={5}
             // paginationMarginTop={{ xs: 3 }}
             // imageContainerMaxWidth={"xl"}
             // imageContainerJustify={"space-between"}
@@ -196,8 +198,6 @@ function HomePage() {
             //   easeFunction: "ease-in-out",
             //   delay: "0s",
             // }}
-            enableMouseEvents
-            interval={5000}
           />
         </Container>
         <div ref={scrollToBottom} />
