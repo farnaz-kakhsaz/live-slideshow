@@ -6,8 +6,11 @@ import Typography from "@material-ui/core/Typography";
 // Styles
 import { useStyles } from "./card.styles";
 
-export default function Card({ image, title }) {
-  const classes = useStyles();
+export default function Card({ image, title, imageMaxWidth, imageMaxHeight }) {
+  const classes = useStyles({
+    maxWidth: imageMaxWidth,
+    maxHeight: imageMaxHeight,
+  });
 
   return (
     <Box textAlign="center" color="grey.400">
@@ -20,4 +23,6 @@ export default function Card({ image, title }) {
 Card.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  imageMaxWidth: PropTypes.number,
+  imageMaxHeight: PropTypes.number,
 };

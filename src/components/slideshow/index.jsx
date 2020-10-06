@@ -12,8 +12,10 @@ function SlideshowWithPagination({
   width,
   options,
   children,
-  imageContainerJustify,
   numberOfCardsPerScreen,
+  imageContainerJustify,
+  imageMaxWidth,
+  imageMaxHeight,
   ...rest
 }) {
   const [oneCardPerScreen, setOneCardPerScreen] = useState(options);
@@ -44,7 +46,13 @@ function SlideshowWithPagination({
         ? children
         : (item, index) =>
             isWidthDown("md", width) ? (
-              <Card image={item.image} title={item.title} key={index} />
+              <Card
+                image={item.image}
+                title={item.title}
+                imageMaxWidth={imageMaxWidth ? imageMaxWidth : 375}
+                imageMaxHeight={imageMaxHeight ? imageMaxHeight : 234}
+                key={index}
+              />
             ) : (
               <Grid
                 container
@@ -54,7 +62,13 @@ function SlideshowWithPagination({
                 key={index}
               >
                 {item.map((item, index) => (
-                  <Card image={item.image} title={item.title} key={index} />
+                  <Card
+                    image={item.image}
+                    title={item.title}
+                    imageMaxWidth={imageMaxWidth ? imageMaxWidth : 375}
+                    imageMaxHeight={imageMaxHeight ? imageMaxHeight : 234}
+                    key={index}
+                  />
                 ))}
               </Grid>
             )}
@@ -70,4 +84,6 @@ SlideshowWithPagination.propTypes = {
   width: PropTypes.string.isRequired,
   numberOfCardsPerScreen: PropTypes.number,
   imageContainerJustify: PropTypes.string,
+  imageMaxHeight: PropTypes.number,
+  imageMaxWidth: PropTypes.number,
 };

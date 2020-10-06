@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   image: {
-    maxWidth: 375,
-    maxHeight: 234,
+    maxWidth: (props) => props.maxWidth,
+    maxHeight: (props) => props.maxHeight,
     width: "100%",
     borderRadius: 10,
     cursor: "e-resize",
