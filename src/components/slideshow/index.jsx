@@ -12,6 +12,7 @@ function SlideshowWithPagination({
   width,
   options,
   children,
+  imageContainerJustify,
   numberOfCardsPerScreen,
   ...rest
 }) {
@@ -45,7 +46,13 @@ function SlideshowWithPagination({
             isWidthDown("md", width) ? (
               <Card image={item.image} title={item.title} key={index} />
             ) : (
-              <Grid container justify="space-evenly" key={index}>
+              <Grid
+                container
+                justify={
+                  imageContainerJustify ? imageContainerJustify : "space-evenly"
+                }
+                key={index}
+              >
                 {item.map((item, index) => (
                   <Card image={item.image} title={item.title} key={index} />
                 ))}
@@ -62,4 +69,5 @@ SlideshowWithPagination.propTypes = {
   children: PropTypes.array,
   width: PropTypes.string.isRequired,
   numberOfCardsPerScreen: PropTypes.number,
+  imageContainerJustify: PropTypes.string,
 };
