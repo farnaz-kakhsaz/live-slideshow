@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 // Components
 import ImagePreviewContainer from "./image-preview/image-preview-container.component";
@@ -26,6 +26,13 @@ function HomePage() {
     shakeEnd: true,
     whichOneFade: -1,
   });
+  const scrollToBottom = useRef(null);
+
+  useEffect(() => {
+    if (state.numbers || state.dots || state.arrows) {
+      scrollToBottom.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [state.numbers, state.dots, state.arrows]);
 
   const handleCheckboxChange = (event) => {
     const { name } = event.target;
@@ -179,8 +186,11 @@ function HomePage() {
             showNumbers={state.numbers}
             showDots={state.dots}
             showArrows={state.arrows}
-            paginationMarginTop={{ xs: 3 }}
-            ImageContainerMaxWidth={""}
+            // paginationMarginTop={{ xs: 3 }}
+            // imageContainerMaxWidth={"xl"}
+            // imageContainerJustify={"space-between"}
+            // imageMaxWidth={50}
+            // imageMaxHeight={100}
             enableMouseEvents
             interval={6000}
             springConfig={{
@@ -190,6 +200,7 @@ function HomePage() {
             }}
           />
         </Container>
+        <div ref={scrollToBottom} />
       </Box>
     </section>
   );
