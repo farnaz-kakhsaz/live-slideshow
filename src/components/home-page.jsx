@@ -191,13 +191,13 @@ function HomePage() {
             // imageContainerJustify={"space-between"}
             // imageMaxWidth={50}
             // imageMaxHeight={100}
+            // springConfig={{
+            //   duration: "1s",
+            //   easeFunction: "ease-in-out",
+            //   delay: "0s",
+            // }}
             enableMouseEvents
-            interval={6000}
-            springConfig={{
-              duration: "1s",
-              easeFunction: "ease-in-out",
-              delay: "0s",
-            }}
+            interval={5000}
           />
         </Container>
         <div ref={scrollToBottom} />

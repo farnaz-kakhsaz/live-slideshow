@@ -49,6 +49,15 @@ export default function Slideshow({
           <AutoPlaySwipeableViews
             index={activeStep}
             onChangeIndex={handleStepChange}
+            springConfig={
+              rest.springConfig
+                ? rest.springConfig
+                : {
+                    duration: "1s",
+                    easeFunction: "ease-in-out",
+                    delay: "0s",
+                  }
+            }
             {...rest}
           >
             {childrenArray
