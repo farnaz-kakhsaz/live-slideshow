@@ -187,6 +187,7 @@ function HomePage() {
             showArrows={state.arrows}
             enableMouseEvents
             interval={5000}
+            // forWidthLowerShowOneCard={"lg"}
             // numberOfCardsPerScreen={5}
             // paginationMarginTop={{ xs: 3 }}
             // imageContainerMaxWidth={"xl"}

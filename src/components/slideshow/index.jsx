@@ -13,6 +13,7 @@ function SlideshowWithPagination({
   options,
   children,
   numberOfCardsPerScreen,
+  forWidthLowerShowOneCard,
   imageContainerJustify,
   imageMaxWidth,
   imageMaxHeight,
@@ -43,7 +44,10 @@ function SlideshowWithPagination({
       options={
         children
           ? children
-          : isWidthDown("md", width)
+          : isWidthDown(
+              forWidthLowerShowOneCard ? forWidthLowerShowOneCard : "md",
+              width
+            )
           ? oneCardPerScreen
           : multipleCardsPerScreen
       }
@@ -53,7 +57,10 @@ function SlideshowWithPagination({
       {children
         ? children
         : (item, index) =>
-            isWidthDown("md", width) ? (
+            isWidthDown(
+              forWidthLowerShowOneCard ? forWidthLowerShowOneCard : "md",
+              width
+            ) ? (
               <Card
                 image={item.image}
                 title={item.title}
@@ -94,4 +101,5 @@ SlideshowWithPagination.propTypes = {
   imageContainerJustify: PropTypes.string,
   imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  forWidthLowerShowOneCard: PropTypes.string,
 };
