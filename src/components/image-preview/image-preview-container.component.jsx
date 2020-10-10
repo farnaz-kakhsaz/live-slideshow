@@ -19,7 +19,7 @@ export default function ImagePreviewContainer({
 
   return (
     <GridList
-      className={clsx(classes.gridList, shakeIt && classes.shakeIt)}
+      className={clsx(classes.gridList, { [classes.shakeIt]: shakeIt })}
       cellHeight={150}
       cols={4}
       onAnimationEnd={handleShakeAnimation}

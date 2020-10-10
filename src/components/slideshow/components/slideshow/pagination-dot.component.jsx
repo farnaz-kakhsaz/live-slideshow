@@ -9,7 +9,7 @@ export default function PaginationDot({ activeDot, index, handleDotClick }) {
 
   return (
     <div
-      className={clsx(classes.dot, activeDot ? classes.activeDot : "")}
+      className={clsx(classes.dot, { [classes.activeDot]: activeDot })}
       onClick={handleDotClick(index)}
     />
   );
