@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 // Styles
-import { useStyles } from "./checkbox-input.styles";
+import { useStyles } from "./checkbox-base.styles";
 
-export default function CheckboxInput({
+export default function CheckboxBase({
   value,
   name,
   title,
@@ -25,7 +25,7 @@ export default function CheckboxInput({
   );
 }
 
-CheckboxInput.propTypes = {
+CheckboxBase.propTypes = {
   value: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import ImagePreviewContainer from "./image-preview/image-preview-container.component";
 import SlideshowWithPagination from "./slideshow";
 import UploadImage from "./upload-image/upload-image.component";
-import CheckboxInput from "./checkbox-input/checkbox-input.component";
+import CheckboxBase from "./checkbox-base/checkbox-base.component";
 import { handleTitle } from "../helper/handleTitle";
 import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
@@ -150,19 +150,19 @@ function HomePage() {
             mt={{ xs: "37px", sm: "47px" }}
             mb={{ xs: "30px", sm: "40px" }}
           >
-            <CheckboxInput
+            <CheckboxBase
               value={state.numbers}
               name="numbers"
               title="Slideshow with Numbers"
               handleCheckboxChange={handleCheckboxChange}
             />
-            <CheckboxInput
+            <CheckboxBase
               value={state.dots}
               name="dots"
               title="Slideshow with Dots"
               handleCheckboxChange={handleCheckboxChange}
             />
-            <CheckboxInput
+            <CheckboxBase
               value={state.arrows}
               name="arrows"
               title="Slideshow with Arrows"
@@ -188,8 +188,8 @@ function HomePage() {
             enableMouseEvents
             interval={5000}
             // forWidthLowerShowOneCard={"lg"}
-            // numberOfCardsPerScreen={5}
-            // paginationMarginTop={{ xs: 3 }}
+            // numberOfCardsPerScreen={4}
+            // paginationMarginTop={{ xs: 4 }}
             // imageContainerMaxWidth={"xl"}
             // imageContainerJustify={"space-between"}
             // imageMaxWidth={50}
