@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 // Components
-import ImagePreviewContainer from "./image-preview/image-preview-container.component";
 import SlideshowWithPagination from "./slideshow";
+import DrawerBase from "./drawer-base/drawer-base.component";
+import ImagePreviewContainer from "./image-preview/image-preview-container.component";
 import UploadImage from "./upload-image/upload-image.component";
 import CheckboxBase from "./checkbox-base/checkbox-base.component";
 import { handleTitle } from "../helper/handleTitle";
@@ -15,6 +17,8 @@ import withWidth from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Grow from "@material-ui/core/Grow";
+// Styles
+import { useStyles } from "./home-page.styles";
 
 function HomePage() {
   const [state, setState] = useState({
@@ -25,8 +29,10 @@ function HomePage() {
     showError: false,
     shakeEnd: true,
     whichOneFade: -1,
+    openDrawer: false,
   });
   const scrollToBottom = useRef(null);
+  const classes = useStyles();
 
   useEffect(() => {
     if (state.numbers || state.dots || state.arrows) {
@@ -92,9 +98,22 @@ function HomePage() {
     }));
   };
 
+  const handleDrawer = () => {
+    setState((prevState) => ({
+      ...prevState,
+      openDrawer: !prevState.openDrawer,
+    }));
+  };
+
   return (
-    <section>
-      <Box my={5} textAlign="center">
+    <section className={classes.root}>
+      <Box
+        my={5}
+        textAlign="center"
+        className={clsx(classes.content, {
+          [classes.contentShift]: state.openDrawer,
+        })}
+      >
         <Container maxWidth="xl">
           <Box
             display="inline-block"
@@ -203,6 +222,7 @@ function HomePage() {
         </Container>
         <div ref={scrollToBottom} />
       </Box>
+      <DrawerBase handleDrawer={handleDrawer} openDrawer={state.openDrawer} />
     </section>
   );
 }
