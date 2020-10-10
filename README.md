@@ -1,7 +1,8 @@
-# Slideshow
-> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and created based on [Material-UI](https://material-ui.com) and [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views).
+# Live Slideshow
 
-Check out the [demos](https://farnaz-kakhsaz.github.io/Slideshow) from a mobile device (real or emulated). The Slideshow can have pagination(dots) or arrow for changing screens.
+> This project was created based on my other library [react-slideshow-with-pagination](https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination) to show its potential in action.
+
+This is a [**Live Slideshow**](https://farnaz-kakhsaz.github.io/live-slideshow) go ahead and remove or upload as many photos as you want. The [react-slideshow-with-pagination](https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination) can have pagination (numbers or dots) and arrows for changing screens. Also, check out the [demo](https://farnaz-kakhsaz.github.io/live-slideshow/) from a mobile device (real or emulated) it's fully responsive.
 
 ![simple-slideshow](https://user-images.githubusercontent.com/37678729/68343821-ef9fa180-0102-11ea-8499-14e50891717a.jpg)
 
@@ -11,8 +12,19 @@ Check out the [demos](https://farnaz-kakhsaz.github.io/Slideshow) from a mobile 
 
 ![slideshow-whit-dots-and-arrow](https://user-images.githubusercontent.com/37678729/68344175-a1d76900-0103-11ea-8989-5d1e6e6fc978.jpg)
 
+## How to use:
+
+Assuming that the Material-UI has been installed
+
+Copy slideshow folder in your project when import `Slideshow` component. You can have one Card (item) or multiple Cards (items) in one screen of the slideshow and if the width of the screen decreases it will change it to one card per screen.
+
+```JavaScript
+
+```
+
 ## Available Scripts
 
+~
 In the project directory, you can run:
 
 ### `npm start`
@@ -22,7 +34,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
 
 ### `npm run build`
 
