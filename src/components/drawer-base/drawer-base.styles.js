@@ -5,7 +5,6 @@ const drawerWidth = 500;
 export const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
-    flexShrink: 0,
   },
   drawerPaper: {
     width: drawerWidth,
@@ -19,11 +18,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   fab: {
     [theme.breakpoints.down("xs")]: {
-      right: 20,
-      bottom: 15,
+      right: theme.spacing(2),
+      bottom: theme.spacing(1.5),
     },
     position: "fixed",
-    right: 40,
-    bottom: 30,
+    right: theme.spacing(5),
+    bottom: theme.spacing(4),
   },
 }));

@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
     maxWidth: (props) => props.maxWidth,
     maxHeight: (props) => props.maxHeight,
     width: "100%",
-    borderRadius: 10,
+    borderRadius: theme.shape.borderRadius * 3,
     cursor: "e-resize",
   },
   typography: {

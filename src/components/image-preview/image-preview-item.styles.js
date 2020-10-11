@@ -43,8 +43,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   button: {
     [theme.breakpoints.down("xs")]: {
-      minWidth: 55,
-      fontSize: 14,
+      minWidth: theme.spacing(6),
+      fontSize: theme.typography.fontSize - 2,
     },
     "&:before": {
       [theme.breakpoints.down("xs")]: {
@@ -55,7 +55,7 @@ export const useStyles = makeStyles((theme) => ({
       left: "50%",
       bottom: 0,
       background: theme.palette.common.white,
-      height: 2,
+      height: theme.spacing(0.25),
       width: 0,
       WebkitTransition: "all 0.5s ease-in-out",
       MozTransition: "all 0.5s ease-in-out",
@@ -68,7 +68,7 @@ export const useStyles = makeStyles((theme) => ({
         left: "0",
       },
     },
-    height: 40,
+    height: theme.spacing(5),
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -81,8 +81,8 @@ export const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     border: "none",
     color: "white",
-    fontSize: 18,
-    zIndex: 10,
+    fontSize: theme.typography.fontSize + 2,
+    zIndex: 1,
     opacity: 0,
     outline: "none",
   },

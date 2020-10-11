@@ -40,8 +40,8 @@ export const useStyles = makeStyles((theme) => ({
     animation: "$shake 0.5s",
   },
   gridList: {
-    maxWidth: 600,
-    maxHeight: 300,
+    maxWidth: theme.spacing(75),
+    maxHeight: theme.spacing(40),
     position: "relative",
   },
 }));
