@@ -102,4 +102,5 @@ SlideshowWithPagination.propTypes = {
   imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   forWidthLowerShowOneCard: PropTypes.string,
+  rest: PropTypes.any,
 };

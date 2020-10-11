@@ -33,4 +33,5 @@ ImagePreviewItem.propTypes = {
   index: PropTypes.number.isRequired,
   whichOneFade: PropTypes.number.isRequired,
   handleRemoveItem: PropTypes.func.isRequired,
+  rest: PropTypes.any,
 };

@@ -1,6 +1,6 @@
 import React from "react";
-import clsx from "clsx";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 // Styles
 import { useStyles } from "./pagination-dot.styles";
 
