@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 // Components
 import SlideshowWithPagination from "./slideshow";
@@ -13,14 +12,13 @@ import { isEqual } from "../helper/isEqual";
 // Constants
 import CARDS_DETAILS from "../constants/card-details";
 // Material-UI
-import withWidth from "@material-ui/core/withWidth";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Grow from "@material-ui/core/Grow";
 // Styles
 import { useStyles } from "./home-page.styles";
 
-function HomePage() {
+export default function HomePage() {
   const [state, setState] = useState({
     oneCardPerScreen: CARDS_DETAILS,
     numbers: false,
@@ -226,9 +224,3 @@ function HomePage() {
     </section>
   );
 }
-
-export default withWidth()(HomePage);
-
-HomePage.propTypes = {
-  width: PropTypes.string.isRequired,
-};

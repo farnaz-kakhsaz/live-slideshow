@@ -3,14 +3,20 @@ import { makeStyles } from "@material-ui/styles";
 const drawerWidth = 500;
 
 export const useStyles = makeStyles((theme) => ({
-  root: { display: "flex" },
+  root: {
+    [theme.breakpoints.up("lg")]: {
+      display: "flex",
+    },
+  },
   content: {
+    [theme.breakpoints.up("lg")]: {
+      marginRight: -drawerWidth,
+    },
     flexGrow: 1,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginRight: -drawerWidth,
   },
   contentShift: {
     transition: theme.transitions.create("margin", {

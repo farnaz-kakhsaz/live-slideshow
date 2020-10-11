@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Material-UI
+import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
@@ -11,14 +12,14 @@ import Fade from "@material-ui/core/Fade";
 // Styles
 import { useStyles } from "./drawer-base.styles";
 
-export default function DrawerBase({ openDrawer, handleDrawer }) {
+function DrawerBase({ width, openDrawer, handleDrawer }) {
   const classes = useStyles();
 
   return (
     <>
       <Drawer
         open={openDrawer}
-        variant="persistent"
+        variant={isWidthDown("md", width) ? "temporary" : "persistent"}
         anchor="right"
         className={classes.drawer}
         classes={{ paper: classes.drawerPaper }}
@@ -36,7 +37,7 @@ export default function DrawerBase({ openDrawer, handleDrawer }) {
       </Drawer>
       <Fade in={!openDrawer}>
         <Fab
-          color={"primary"}
+          color="primary"
           className={classes.fab}
           onClick={handleDrawer}
           aria-label="Open Drawer"
@@ -48,7 +49,10 @@ export default function DrawerBase({ openDrawer, handleDrawer }) {
   );
 }
 
+export default withWidth()(DrawerBase);
+
 DrawerBase.propTypes = {
+  width: PropTypes.string.isRequired,
   openDrawer: PropTypes.bool.isRequired,
   handleDrawer: PropTypes.func.isRequired,
 };
