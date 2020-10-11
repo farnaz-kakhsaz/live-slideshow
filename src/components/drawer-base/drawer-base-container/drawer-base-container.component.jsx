@@ -9,7 +9,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
 // Styles
-import { useStyles } from "./drawer-base.styles";
+import { useStyles } from "./drawer-base-container.styles";
 
 function DrawerBase({ width, openDrawer, handleDrawer }) {
   const classes = useStyles();

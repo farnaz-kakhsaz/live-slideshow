@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 // Components
 import SlideshowWithPagination from "./slideshow";
-import DrawerBase from "./drawer-base/drawer-base.component";
-import ImagePreviewContainer from "./image-preview/image-preview-container.component";
+import DrawerBase from "./drawer-base/drawer-base-container/drawer-base-container.component";
+import ImagePreviewContainer from "./image-preview/image-preview-container/image-preview-container.component";
 import UploadImage from "./upload-image/upload-image.component";
 import CheckboxBase from "./checkbox-base/checkbox-base.component";
 import { handleTitle } from "../helper/handleTitle";
