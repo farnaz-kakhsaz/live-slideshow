@@ -8,10 +8,18 @@ export default function Arrow({ handleArrowClick }) {
 
   return (
     <div className={classes.root}>
-      <div className={classes.rightArrow} onClick={handleArrowClick("right")}>
+      <div
+        className={classes.rightArrow}
+        onClick={handleArrowClick("right")}
+        aria-label="Right arrow"
+      >
         &#8250;
       </div>
-      <div className={classes.leftArrow} onClick={handleArrowClick("left")}>
+      <div
+        className={classes.leftArrow}
+        onClick={handleArrowClick("left")}
+        aria-label="Left arrow"
+      >
         &#8249;
       </div>
     </div>

@@ -8,7 +8,6 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
-import Fade from "@material-ui/core/Fade";
 // Styles
 import { useStyles } from "./drawer-base.styles";
 
@@ -25,7 +24,7 @@ function DrawerBase({ width, openDrawer, handleDrawer }) {
         classes={{ paper: classes.drawerPaper }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawer} aria-label="Close Drawer">
+          <IconButton onClick={handleDrawer} aria-label="Close drawer">
             <ChevronRightIcon />
           </IconButton>
         </div>
@@ -35,16 +34,16 @@ function DrawerBase({ width, openDrawer, handleDrawer }) {
         repudiandae sit, accusamus error alias aspernatur? Reprehenderit officia
         quas cupiditate itaque eaque.
       </Drawer>
-      <Fade in={!openDrawer}>
+      {!openDrawer && (
         <Fab
           color="primary"
           className={classes.fab}
           onClick={handleDrawer}
-          aria-label="Open Drawer"
+          aria-label="Open drawer and edit"
         >
           <EditIcon />
         </Fab>
-      </Fade>
+      )}
     </>
   );
 }
