@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 // Material-UI
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -19,7 +20,7 @@ export default function CheckboxBase({
       control={
         <Checkbox checked={value} onChange={handleCheckboxChange} name={name} />
       }
-      className={value ? classes.checked : ""}
+      className={clsx({ [classes.checked]: value })}
       label={title}
     />
   );
