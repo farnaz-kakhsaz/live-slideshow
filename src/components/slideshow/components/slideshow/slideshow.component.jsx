@@ -19,8 +19,13 @@ export default function Slideshow({
   showDots,
   showNumbers,
   showArrows,
-  imageContainerMaxWidth,
-  paginationMarginTop,
+  imageContainerMaxWidth = "lg",
+  paginationMarginTop = 3,
+  springConfig = {
+    duration: "1s",
+    easeFunction: "ease-in-out",
+    delay: "0s",
+  },
   ...rest
 }) {
   const [activeStep, setActiveStep] = useState(0);
@@ -49,15 +54,7 @@ export default function Slideshow({
           <AutoPlaySwipeableViews
             index={activeStep}
             onChangeIndex={handleStepChange}
-            springConfig={
-              rest.springConfig
-                ? rest.springConfig
-                : {
-                    duration: "1s",
-                    easeFunction: "ease-in-out",
-                    delay: "0s",
-                  }
-            }
+            springConfig={springConfig}
             {...rest}
           >
             {childrenArray
@@ -87,11 +84,7 @@ export default function Slideshow({
         </Box>
       )}
       {showNumbers && (
-        <Box
-          display="flex"
-          justifyContent="center"
-          mt={paginationMarginTop ? paginationMarginTop : 3}
-        >
+        <Box display="flex" justifyContent="center" mt={paginationMarginTop}>
           {showNumbers && (
             <PaginationNumber
               totalNumber={options.length}
@@ -119,5 +112,6 @@ Slideshow.propTypes = {
     PropTypes.number,
     PropTypes.object,
   ]),
+  springConfig: PropTypes.object,
   rest: PropTypes.any,
 };

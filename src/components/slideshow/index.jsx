@@ -10,32 +10,24 @@ import Grid from "@material-ui/core/Grid";
 
 function SlideshowWithPagination({
   width,
-  options,
+  options = [],
   children,
-  numberOfCardsPerScreen,
-  forWidthLowerShowOneCard,
-  imageContainerJustify,
-  imageMaxWidth,
-  imageMaxHeight,
+  numberOfCardsPerScreen = 3,
+  forWidthLowerShowOneCard = "md",
+  imageContainerJustify = "space-evenly",
+  imageMaxWidth = 375,
+  imageMaxHeight = 234,
   ...rest
 }) {
   const [oneCardPerScreen, setOneCardPerScreen] = useState(options);
   const [multipleCardsPerScreen, setMultipleCardPerScreen] = useState(
-    splitToChunks(
-      options ? options : [],
-      numberOfCardsPerScreen ? numberOfCardsPerScreen : 3
-    )
+    splitToChunks(options, numberOfCardsPerScreen)
   );
 
   useEffect(() => {
     if (options) {
       setOneCardPerScreen(options);
-      setMultipleCardPerScreen(
-        splitToChunks(
-          options,
-          numberOfCardsPerScreen ? numberOfCardsPerScreen : 3
-        )
-      );
+      setMultipleCardPerScreen(splitToChunks(options, numberOfCardsPerScreen));
     }
   }, [options]);
 
@@ -44,10 +36,7 @@ function SlideshowWithPagination({
       options={
         children
           ? children
-          : isWidthDown(
-              forWidthLowerShowOneCard ? forWidthLowerShowOneCard : "md",
-              width
-            )
+          : isWidthDown(forWidthLowerShowOneCard, width)
           ? oneCardPerScreen
           : multipleCardsPerScreen
       }
@@ -57,31 +46,22 @@ function SlideshowWithPagination({
       {children
         ? children
         : (item, index) =>
-            isWidthDown(
-              forWidthLowerShowOneCard ? forWidthLowerShowOneCard : "md",
-              width
-            ) ? (
+            isWidthDown(forWidthLowerShowOneCard, width) ? (
               <Card
                 image={item.image}
                 title={item.title}
-                imageMaxWidth={imageMaxWidth ? imageMaxWidth : 375}
-                imageMaxHeight={imageMaxHeight ? imageMaxHeight : 234}
+                imageMaxWidth={imageMaxWidth}
+                imageMaxHeight={imageMaxHeight}
                 key={index}
               />
             ) : (
-              <Grid
-                container
-                justify={
-                  imageContainerJustify ? imageContainerJustify : "space-evenly"
-                }
-                key={index}
-              >
+              <Grid container justify={imageContainerJustify} key={index}>
                 {item.map((item, index) => (
                   <Card
                     image={item.image}
                     title={item.title}
-                    imageMaxWidth={imageMaxWidth ? imageMaxWidth : 375}
-                    imageMaxHeight={imageMaxHeight ? imageMaxHeight : 234}
+                    imageMaxWidth={imageMaxWidth}
+                    imageMaxHeight={imageMaxHeight}
                     key={index}
                   />
                 ))}
