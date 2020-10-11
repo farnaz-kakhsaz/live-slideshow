@@ -170,19 +170,19 @@ export default function HomePage() {
             <CheckboxBase
               value={state.numbers}
               name="numbers"
-              title="Slideshow with Numbers"
+              label="Slideshow with Numbers"
               handleCheckboxChange={handleCheckboxChange}
             />
             <CheckboxBase
               value={state.dots}
               name="dots"
-              title="Slideshow with Dots"
+              label="Slideshow with Dots"
               handleCheckboxChange={handleCheckboxChange}
             />
             <CheckboxBase
               value={state.arrows}
               name="arrows"
-              title="Slideshow with Arrows"
+              label="Slideshow with Arrows"
               handleCheckboxChange={handleCheckboxChange}
             />
           </Box>

@@ -10,7 +10,7 @@ import { useStyles } from "./checkbox-base.styles";
 export default function CheckboxBase({
   value,
   name,
-  title,
+  label,
   handleCheckboxChange,
 }) {
   const classes = useStyles();
@@ -21,7 +21,7 @@ export default function CheckboxBase({
         <Checkbox checked={value} onChange={handleCheckboxChange} name={name} />
       }
       className={clsx({ [classes.checked]: value })}
-      label={title}
+      label={label}
     />
   );
 }
@@ -29,6 +29,6 @@ export default function CheckboxBase({
 CheckboxBase.propTypes = {
   value: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   handleCheckboxChange: PropTypes.func.isRequired,
 };
