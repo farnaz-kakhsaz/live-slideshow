@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
+// Components
+import TextFieldBase from "../text-field-base/text-field-base";
 // Material-UI
 import Box from "@material-ui/core/Box";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -61,7 +62,7 @@ export default function UploadImage({
             onChange={handleFileChange}
             className={classes.hiddenInput}
           />
-          <TextField
+          <TextFieldBase
             type="text"
             name="name"
             value={name}
