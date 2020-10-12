@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+// Components
+import ButtonBase from "../../items-base/button-base/button-base";
 // Material-UI
 import GridListTile from "@material-ui/core/GridListTile";
-import Button from "@material-ui/core/Button";
 import Grow from "@material-ui/core/Grow";
 // Styles
 import { useStyles } from "./image-preview-item.styles";
@@ -20,9 +21,12 @@ export default function ImagePreviewItem({
     <Grow in={whichOneFade === index ? false : true} timeout={700}>
       <GridListTile className={classes.gridListTile} {...rest}>
         <img className={classes.img} src={item.image} alt={item.title} />
-        <Button className={classes.button} onClick={handleRemoveItem(index)}>
+        <ButtonBase
+          className={classes.button}
+          onClick={handleRemoveItem(index)}
+        >
           Delete
-        </Button>
+        </ButtonBase>
       </GridListTile>
     </Grow>
   );

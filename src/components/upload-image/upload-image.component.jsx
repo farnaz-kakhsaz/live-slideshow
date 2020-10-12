@@ -2,9 +2,9 @@ import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 // Components
 import TextFieldBase from "../items-base/text-field-base/text-field-base";
+import ButtonBase from "../items-base/button-base/button-base";
 // Material-UI
 import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Grow from "@material-ui/core/Grow";
@@ -78,7 +78,7 @@ export default function UploadImage({
             height={{ xs: 132, sm: "auto" }}
           >
             <label htmlFor="custom-file-upload">
-              <Button
+              <ButtonBase
                 type="button"
                 variant="contained"
                 component="span"
@@ -86,21 +86,21 @@ export default function UploadImage({
                 className={classes.btn}
               >
                 Find Photo
-              </Button>
+              </ButtonBase>
             </label>
-            <Button
+            <ButtonBase
               type="submit"
               variant="contained"
               color="primary"
               className={classes.btn}
             >
               Upload
-            </Button>
+            </ButtonBase>
           </Box>
         </Box>
         {showResetBtn && (
           <Grow in={showResetBtn} timeout={700}>
-            <Button
+            <ButtonBase
               type="button"
               variant="contained"
               color="secondary"
@@ -109,7 +109,7 @@ export default function UploadImage({
               className={classes.resetBtn}
             >
               Reset
-            </Button>
+            </ButtonBase>
           </Grow>
         )}
         {error && (
