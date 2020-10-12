@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 // Components
-import Slideshow from "./components/slideshow/slideshow.component";
+import Slideshow from "./components/slideshow/slideshow";
 import Card from "./components/card/card.component";
 import { splitToChunks } from "./helper/splitToChunks";
 // Material-UI

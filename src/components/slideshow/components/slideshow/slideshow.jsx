@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 // Components
-import PaginationNumber from "./pagination-number/pagination-number.component";
+import PaginationNumber from "./pagination-number/pagination-number";
 import PaginationDot from "./pagination-dot/pagination-dot.component";
 import Arrow from "./arrow/arrow.component";
 // Material-UI
