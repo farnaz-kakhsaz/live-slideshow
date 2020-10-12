@@ -2,10 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 // Components
 import SlideshowWithPagination from "./slideshow";
-import DrawerBase from "./drawer-base/drawer-base-container/drawer-base-container.component";
+import DrawerMenuContainer from "./drawer-menu/drawer-menu-container/drawer-menu-container.component";
 import ImagePreviewContainer from "./image-preview/image-preview-container/image-preview-container.component";
 import UploadImage from "./upload-image/upload-image.component";
-import CheckboxBase from "./checkbox-base/checkbox-base.component";
+import CheckboxBase from "./items-base/checkbox-base/checkbox-base.component";
 import { handleTitle } from "../helper/handleTitle";
 import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
@@ -96,7 +96,7 @@ export default function HomePage() {
     }));
   };
 
-  const handleDrawer = () => {
+  const handleDrawerOpen = () => {
     setState((prevState) => ({
       ...prevState,
       openDrawer: !prevState.openDrawer,
@@ -220,7 +220,10 @@ export default function HomePage() {
         </Container>
         <div ref={scrollToBottom} />
       </Box>
-      <DrawerBase handleDrawer={handleDrawer} openDrawer={state.openDrawer} />
+      <DrawerMenuContainer
+        handleDrawerOpen={handleDrawerOpen}
+        openDrawer={state.openDrawer}
+      />
     </section>
   );
 }

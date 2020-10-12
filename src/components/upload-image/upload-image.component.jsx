@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 // Components
-import TextFieldBase from "../text-field-base/text-field-base";
+import TextFieldBase from "../items-base/text-field-base/text-field-base";
 // Material-UI
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
