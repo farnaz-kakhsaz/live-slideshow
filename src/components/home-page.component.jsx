@@ -28,6 +28,8 @@ export default function HomePage() {
     shakeEnd: true,
     whichOneFade: -1,
     openDrawer: false,
+    numberOfCardsPerScreen: 3,
+    enableMouseEvents: true,
   });
   const scrollToBottom = useRef(null);
   const classes = useStyles();
@@ -101,6 +103,17 @@ export default function HomePage() {
       ...prevState,
       openDrawer: !prevState.openDrawer,
     }));
+  };
+
+  const handleDrawerItemChange = (value) => (event) => {
+    const { name } = event.target;
+
+    if (name === "enableMouseEvents") {
+      setState((prevState) => ({
+        ...prevState,
+        [name]: !value,
+      }));
+    }
   };
 
   return (
@@ -202,10 +215,10 @@ export default function HomePage() {
             showNumbers={state.numbers}
             showDots={state.dots}
             showArrows={state.arrows}
-            enableMouseEvents
             interval={5000}
+            enableMouseEvents={state.enableMouseEvents}
+            numberOfCardsPerScreen={state.numberOfCardsPerScreen}
             // forWidthLowerShowOneCard={"lg"}
-            // numberOfCardsPerScreen={4}
             // paginationMarginTop={{ xs: 4 }}
             // imageContainerMaxWidth={"xl"}
             // imageContainerJustify={"space-between"}
@@ -221,8 +234,11 @@ export default function HomePage() {
         <div ref={scrollToBottom} />
       </Box>
       <DrawerMenuContainer
-        handleDrawerOpen={handleDrawerOpen}
         openDrawer={state.openDrawer}
+        handleDrawerOpen={handleDrawerOpen}
+        handleDrawerItemChange={handleDrawerItemChange}
+        numberOfCardsPerScreen={state.numberOfCardsPerScreen}
+        enableMouseEvents={state.enableMouseEvents}
       />
     </section>
   );

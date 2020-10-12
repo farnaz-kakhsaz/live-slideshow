@@ -1,17 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+// Components
+import DrawerMenuItem from "../drawer-menu-item/drawer-menu-item.component";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
+import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
 // Styles
-import { useStyles } from "./drawer-base-container.styles";
+import { useStyles } from "./drawer-menu-container.styles";
 
-function DrawerBase({ width, openDrawer, handleDrawer }) {
+function DrawerMenuContainer({ width, openDrawer, handleDrawerOpen, ...rest }) {
   const classes = useStyles();
 
   return (
@@ -24,21 +27,20 @@ function DrawerBase({ width, openDrawer, handleDrawer }) {
         classes={{ paper: classes.drawerPaper }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawer} aria-label="Close drawer">
+          <IconButton onClick={handleDrawerOpen} aria-label="Close drawer">
             <ChevronRightIcon />
           </IconButton>
         </div>
         <Divider />
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem
-        distinctio explicabo quaerat modi autem asperiores iste expedita nisi,
-        repudiandae sit, accusamus error alias aspernatur? Reprehenderit officia
-        quas cupiditate itaque eaque.
+        <Container>
+          <DrawerMenuItem {...rest} />
+        </Container>
       </Drawer>
       {!openDrawer && (
         <Fab
           color="primary"
           className={classes.fab}
-          onClick={handleDrawer}
+          onClick={handleDrawerOpen}
           aria-label="Open drawer and edit"
         >
           <EditIcon />
@@ -48,10 +50,11 @@ function DrawerBase({ width, openDrawer, handleDrawer }) {
   );
 }
 
-export default withWidth()(DrawerBase);
+export default withWidth()(DrawerMenuContainer);
 
-DrawerBase.propTypes = {
+DrawerMenuContainer.propTypes = {
   width: PropTypes.string.isRequired,
   openDrawer: PropTypes.bool.isRequired,
-  handleDrawer: PropTypes.func.isRequired,
+  handleDrawerOpen: PropTypes.func.isRequired,
+  rest: PropTypes.any,
 };
