@@ -181,22 +181,22 @@ export default function HomePage() {
             mb={{ xs: "30px", sm: "40px" }}
           >
             <CheckboxBase
-              value={state.numbers}
+              checked={state.numbers}
               name="numbers"
               label="Slideshow with Numbers"
-              handleCheckboxChange={handleCheckboxChange}
+              onChange={handleCheckboxChange}
             />
             <CheckboxBase
-              value={state.dots}
+              checked={state.dots}
               name="dots"
               label="Slideshow with Dots"
-              handleCheckboxChange={handleCheckboxChange}
+              onChange={handleCheckboxChange}
             />
             <CheckboxBase
-              value={state.arrows}
+              checked={state.arrows}
               name="arrows"
               label="Slideshow with Arrows"
-              handleCheckboxChange={handleCheckboxChange}
+              onChange={handleCheckboxChange}
             />
           </Box>
           <Box
@@ -209,7 +209,6 @@ export default function HomePage() {
           >
             {handleTitle(state.numbers, state.dots, state.arrows)}
           </Box>
-
           <SlideshowWithPagination
             options={state.oneCardPerScreen}
             showNumbers={state.numbers}
