@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 // Components
 import Slideshow from "./components/slideshow/slideshow";
 import Card from "./components/card/card.component";
+import GridBase from "./components/items-base/grid-base/grid-base";
 import { splitToChunks } from "./helper/splitToChunks";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
-import Grid from "@material-ui/core/Grid";
 
 function SlideshowWithPagination({
   width,
@@ -59,7 +59,7 @@ function SlideshowWithPagination({
                 key={index}
               />
             ) : (
-              <Grid container justify={cardsContainerJustify} key={index}>
+              <GridBase container justify={cardsContainerJustify} key={index}>
                 {item.map((item, index) => (
                   <Card
                     image={item.image}
@@ -71,7 +71,7 @@ function SlideshowWithPagination({
                     key={index}
                   />
                 ))}
-              </Grid>
+              </GridBase>
             )}
     </Slideshow>
   );
