@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 // Components
 import ImagePreviewItem from "../image-preview-item/image-preview-item.component";
-// Material-UI
-import GridList from "@material-ui/core/GridList";
+import GridListBase from "../../items-base/grid-list-base/gris-list-base";
 // Styles
 import { useStyles } from "./image-preview-container.styles";
 
@@ -18,7 +17,7 @@ export default function ImagePreviewContainer({
   const classes = useStyles();
 
   return (
-    <GridList
+    <GridListBase
       className={clsx(classes.gridList, { [classes.shakeIt]: shakeIt })}
       cellHeight={150}
       cols={4}
@@ -33,7 +32,7 @@ export default function ImagePreviewContainer({
           handleRemoveItem={handleRemoveItem}
         />
       ))}
-    </GridList>
+    </GridListBase>
   );
 }
 
