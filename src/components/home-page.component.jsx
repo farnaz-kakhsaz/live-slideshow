@@ -217,6 +217,7 @@ export default function HomePage() {
             interval={5000}
             enableMouseEvents={state.enableMouseEvents}
             numberOfCardsPerScreen={state.numberOfCardsPerScreen}
+            cardMarginY={1}
             // forWidthLowerShowOneCard={"lg"}
             // paginationMarginTop={{ xs: 4 }}
             // imageContainerMaxWidth={"xl"}

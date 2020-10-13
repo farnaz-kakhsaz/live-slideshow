@@ -15,6 +15,8 @@ function SlideshowWithPagination({
   numberOfCardsPerScreen = 3,
   forWidthLowerShowOneCard = "md",
   imageContainerJustify = "space-evenly",
+  cardMarginX,
+  cardMarginY,
   imageMaxWidth = 375,
   imageMaxHeight = 234,
   ...rest
@@ -52,6 +54,8 @@ function SlideshowWithPagination({
                 title={item.title}
                 imageMaxWidth={imageMaxWidth}
                 imageMaxHeight={imageMaxHeight}
+                cardMarginX={cardMarginX}
+                cardMarginY={cardMarginY}
                 key={index}
               />
             ) : (
@@ -62,6 +66,8 @@ function SlideshowWithPagination({
                     title={item.title}
                     imageMaxWidth={imageMaxWidth}
                     imageMaxHeight={imageMaxHeight}
+                    cardMarginX={cardMarginX}
+                    cardMarginY={cardMarginY}
                     key={index}
                   />
                 ))}
@@ -78,9 +84,11 @@ SlideshowWithPagination.propTypes = {
   children: PropTypes.array,
   width: PropTypes.string.isRequired,
   numberOfCardsPerScreen: PropTypes.number,
+  forWidthLowerShowOneCard: PropTypes.string,
   imageContainerJustify: PropTypes.string,
+  cardMarginX: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
+  cardMarginY: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
   imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  forWidthLowerShowOneCard: PropTypes.string,
   rest: PropTypes.any,
 };
