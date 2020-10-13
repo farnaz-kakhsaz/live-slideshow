@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import ButtonBase from "../../items-base/button-base/button-base";
 import GrowBase from "../../items-base/grow-base/grow-base";
 import GridListTileBase from "../../items-base/grid-list-tile-base/grid-list-tile-base";
-// Material-UI
 // Styles
 import { useStyles } from "./image-preview-item.styles";
 
