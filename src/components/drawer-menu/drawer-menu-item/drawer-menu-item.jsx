@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Components
+import ContainerBase from "../../items-base/container-base/container-base";
 import CheckboxBase from "../../items-base/checkbox-base/checkbox-base.component";
 import SliderBase from "../../items-base/slider-base/slider-base";
-// Material-UI
-import Container from "@material-ui/core/Container";
 
 export default function DrawerMenuItem({
   enableMouseEvents,
@@ -20,7 +19,7 @@ export default function DrawerMenuItem({
   };
 
   return (
-    <Container>
+    <ContainerBase>
       <CheckboxBase
         checked={enableMouseEvents}
         label="Enable Mouse Event"
@@ -37,7 +36,7 @@ export default function DrawerMenuItem({
         max={10}
         marks
       />
-    </Container>
+    </ContainerBase>
   );
 }
 

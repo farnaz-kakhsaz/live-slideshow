@@ -5,15 +5,15 @@ import SlideshowWithPagination from "./slideshow";
 import DrawerMenuContainer from "./drawer-menu/drawer-menu-container/drawer-menu-container.component";
 import ImagePreviewContainer from "./image-preview/image-preview-container/image-preview-container.component";
 import UploadImage from "./upload-image/upload-image.component";
-import CheckboxBase from "./items-base/checkbox-base/checkbox-base.component";
+import ContainerBase from "./items-base/container-base/container-base";
 import BoxBase from "./items-base/box-base/box-base";
+import CheckboxBase from "./items-base/checkbox-base/checkbox-base.component";
 import { handleTitle } from "../helper/handleTitle";
 import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
 // Constants
 import CARDS_DETAILS from "../constants/card-details";
 // Material-UI
-import Container from "@material-ui/core/Container";
 import Grow from "@material-ui/core/Grow";
 // Styles
 import { useStyles } from "./home-page.styles";
@@ -130,7 +130,7 @@ export default function HomePage() {
           [classes.contentShift]: state.openDrawer,
         })}
       >
-        <Container maxWidth="xl">
+        <ContainerBase maxWidth="xl">
           <BoxBase
             display="inline-block"
             fontSize={{ xs: 32, sm: 42, md: 52 }}
@@ -235,7 +235,7 @@ export default function HomePage() {
             //   delay: "0s",
             // }}
           />
-        </Container>
+        </ContainerBase>
         <div ref={scrollToBottom} />
       </BoxBase>
       <DrawerMenuContainer

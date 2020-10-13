@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 // Components
 import DrawerMenuItem from "../drawer-menu-item/drawer-menu-item";
+import ContainerBase from "../../items-base/container-base/container-base";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
-import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Fab from "@material-ui/core/Fab";
@@ -32,9 +32,9 @@ function DrawerMenuContainer({ width, openDrawer, handleDrawerOpen, ...rest }) {
           </IconButton>
         </div>
         <Divider />
-        <Container>
+        <ContainerBase>
           <DrawerMenuItem {...rest} />
-        </Container>
+        </ContainerBase>
       </Drawer>
       {!openDrawer && (
         <Fab

@@ -7,12 +7,20 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 // Styles
 import { useStyles } from "./checkbox-base.styles";
 
-export default function CheckboxBase({ checked, name, label, onChange }) {
+export default function CheckboxBase({
+  checked,
+  name,
+  label,
+  onChange,
+  ...rest
+}) {
   const classes = useStyles();
 
   return (
     <FormControlLabel
-      control={<Checkbox checked={checked} onChange={onChange} name={name} />}
+      control={
+        <Checkbox checked={checked} onChange={onChange} name={name} {...rest} />
+      }
       className={clsx({ [classes.checked]: checked })}
       label={label}
     />
@@ -24,4 +32,5 @@ CheckboxBase.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
+  rest: PropTypes.any,
 };
