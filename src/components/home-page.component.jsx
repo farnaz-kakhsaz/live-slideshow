@@ -105,13 +105,18 @@ export default function HomePage() {
     }));
   };
 
-  const handleDrawerItemChange = (value) => (event) => {
-    const { name } = event.target;
-
+  const handleDrawerItemChange = (name) => (event, newValue) => {
     if (name === "enableMouseEvents") {
       setState((prevState) => ({
         ...prevState,
-        [name]: !value,
+        [name]: !prevState[name],
+      }));
+    }
+
+    if (name === "numberOfCardsPerScreen") {
+      setState((prevState) => ({
+        ...prevState,
+        [name]: newValue,
       }));
     }
   };

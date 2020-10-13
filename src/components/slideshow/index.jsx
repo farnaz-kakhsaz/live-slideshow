@@ -31,7 +31,7 @@ function SlideshowWithPagination({
       setOneCardPerScreen(options);
       setMultipleCardPerScreen(splitToChunks(options, numberOfCardsPerScreen));
     }
-  }, [options]);
+  }, [options, numberOfCardsPerScreen]);
 
   return (
     <Slideshow
