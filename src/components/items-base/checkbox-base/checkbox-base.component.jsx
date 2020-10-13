@@ -20,8 +20,8 @@ export default function CheckboxBase({ checked, name, label, onChange }) {
 }
 
 CheckboxBase.propTypes = {
-  checked: PropTypes.bool.isRequired,
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  checked: PropTypes.bool,
+  name: PropTypes.string,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
 };
