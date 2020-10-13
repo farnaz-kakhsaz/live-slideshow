@@ -6,9 +6,9 @@ import DrawerBase from "../../items-base/drawer-base/drawer-base";
 import ContainerBase from "../../items-base/container-base/container-base";
 import IconButtonBase from "../../items-base/icon-button-base/icon-button-base";
 import DividerBase from "../../items-base/divider-base/divider-base";
+import FabBase from "../../items-base/fab-base/fab-base";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
-import Fab from "@material-ui/core/Fab";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import EditIcon from "@material-ui/icons/Edit";
 // Styles
@@ -37,14 +37,14 @@ function DrawerMenuContainer({ width, openDrawer, handleDrawerOpen, ...rest }) {
         </ContainerBase>
       </DrawerBase>
       {!openDrawer && (
-        <Fab
+        <FabBase
           color="primary"
           className={classes.fab}
           onClick={handleDrawerOpen}
           aria-label="Open drawer and edit"
         >
           <EditIcon />
-        </Fab>
+        </FabBase>
       )}
     </>
   );
