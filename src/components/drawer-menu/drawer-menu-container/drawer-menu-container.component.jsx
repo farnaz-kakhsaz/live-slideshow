@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Components
-import DrawerMenuItem from "../drawer-menu-item/drawer-menu-item.component";
+import DrawerMenuItem from "../drawer-menu-item/drawer-menu-item";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Drawer from "@material-ui/core/Drawer";
