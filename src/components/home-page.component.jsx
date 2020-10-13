@@ -29,6 +29,8 @@ export default function HomePage() {
     openDrawer: false,
     numberOfCardsPerScreen: 3,
     enableMouseEvents: true,
+    imageMaxWidth: 375,
+    imageMaxHeight: 234,
   });
   const scrollToBottom = useRef(null);
   const classes = useStyles();
@@ -105,18 +107,33 @@ export default function HomePage() {
   };
 
   const handleDrawerItemChange = (name) => (event, newValue) => {
-    if (name === "enableMouseEvents") {
-      setState((prevState) => ({
-        ...prevState,
-        [name]: !prevState[name],
-      }));
-    }
-
-    if (name === "numberOfCardsPerScreen") {
-      setState((prevState) => ({
-        ...prevState,
-        [name]: newValue,
-      }));
+    switch (name) {
+      case "enableMouseEvents":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: !prevState[name],
+        }));
+        break;
+      case "numberOfCardsPerScreen":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: newValue,
+        }));
+        break;
+      case "imageMaxWidth":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: newValue,
+        }));
+        break;
+      case "imageMaxHeight":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: newValue,
+        }));
+        break;
+      default:
+        console.error("Value didn't match in handleDrawerItemChange!");
     }
   };
 
@@ -221,13 +238,13 @@ export default function HomePage() {
             interval={5000}
             enableMouseEvents={state.enableMouseEvents}
             numberOfCardsPerScreen={state.numberOfCardsPerScreen}
+            imageMaxWidth={state.imageMaxWidth}
+            imageMaxHeight={state.imageMaxHeight}
             cardMarginY={1}
             // forWidthLowerShowOneCard={"lg"}
             // paginationMarginTop={{ xs: 4 }}
             // imageContainerMaxWidth={"xl"}
             // cardsContainerJustify={"space-between"}
-            // imageMaxWidth={50}
-            // imageMaxHeight={100}
             // springConfig={{
             //   duration: "1s",
             //   easeFunction: "ease-in-out",
@@ -241,8 +258,10 @@ export default function HomePage() {
         openDrawer={state.openDrawer}
         handleDrawerOpen={handleDrawerOpen}
         handleDrawerItemChange={handleDrawerItemChange}
-        numberOfCardsPerScreen={state.numberOfCardsPerScreen}
         enableMouseEvents={state.enableMouseEvents}
+        numberOfCardsPerScreen={state.numberOfCardsPerScreen}
+        imageMaxWidth={state.imageMaxWidth}
+        imageMaxHeight={state.imageMaxHeight}
       />
     </section>
   );
