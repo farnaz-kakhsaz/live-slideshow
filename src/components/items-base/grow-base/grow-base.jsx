@@ -8,6 +8,6 @@ export default function GrowBase({ children, ...rest }) {
 }
 
 GrowBase.propTypes = {
-  children: PropTypes,
+  children: PropTypes.node,
   rest: PropTypes.any,
 };
