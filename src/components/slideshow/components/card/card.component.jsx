@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+// Components
+import BoxBase from "../items-base/box-base/box-base";
 // Material-UI
-import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 // Styles
 import { useStyles } from "./card.styles";
@@ -20,10 +21,10 @@ export default function Card({
   });
 
   return (
-    <Box textAlign="center" mx={cardMarginX} my={cardMarginY}>
+    <BoxBase textAlign="center" mx={cardMarginX} my={cardMarginY}>
       <img className={classes.image} src={image} alt={title} />
       {title && <Typography className={classes.typography}>{title}</Typography>}
-    </Box>
+    </BoxBase>
   );
 }
 

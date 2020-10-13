@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 // Components
 import TextFieldBase from "../items-base/text-field-base/text-field-base";
 import ButtonBase from "../items-base/button-base/button-base";
+import BoxBase from "../items-base/box-base/box-base";
 // Material-UI
-import Box from "@material-ui/core/Box";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Grow from "@material-ui/core/Grow";
@@ -47,7 +47,7 @@ export default function UploadImage({
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
       <FormControl component="fieldset" error={error} fullWidth>
-        <Box
+        <BoxBase
           display="flex"
           flexDirection="column"
           justifyContent="space-between"
@@ -71,7 +71,7 @@ export default function UploadImage({
             variant="outlined"
             color="secondary"
           />
-          <Box
+          <BoxBase
             display="flex"
             flexDirection={{ xs: "column", sm: "row" }}
             justifyContent="space-between"
@@ -96,8 +96,8 @@ export default function UploadImage({
             >
               Upload
             </ButtonBase>
-          </Box>
-        </Box>
+          </BoxBase>
+        </BoxBase>
         {showResetBtn && (
           <Grow in={showResetBtn} timeout={700}>
             <ButtonBase
@@ -113,7 +113,7 @@ export default function UploadImage({
           </Grow>
         )}
         {error && (
-          <Box mt={2}>
+          <BoxBase mt={2}>
             {!name && (
               <Grow in={!name} timeout={700}>
                 <FormHelperText className={classes.formHelperText}>
@@ -128,7 +128,7 @@ export default function UploadImage({
                 </FormHelperText>
               </Grow>
             )}
-          </Box>
+          </BoxBase>
         )}
       </FormControl>
     </form>

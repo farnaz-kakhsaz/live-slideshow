@@ -8,6 +8,6 @@ export default function ButtonBase({ children, ...rest }) {
 }
 
 ButtonBase.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   rest: PropTypes.any,
 };

@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-// Material-UI
-import Box from "@material-ui/core/Box";
+// Components
+import BoxBase from "../../items-base/box-base/box-base";
 
 export default function PaginationNumber({ totalNumber, activeStep }) {
   return (
-    <Box color="grey.400" fontSize={16}>
+    <BoxBase color="grey.400" fontSize={16}>
       {activeStep}
       &#8239; / &#8239;
       {totalNumber}
-    </Box>
+    </BoxBase>
   );
 }
 

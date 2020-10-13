@@ -6,6 +6,7 @@ import DrawerMenuContainer from "./drawer-menu/drawer-menu-container/drawer-menu
 import ImagePreviewContainer from "./image-preview/image-preview-container/image-preview-container.component";
 import UploadImage from "./upload-image/upload-image.component";
 import CheckboxBase from "./items-base/checkbox-base/checkbox-base.component";
+import BoxBase from "./items-base/box-base/box-base";
 import { handleTitle } from "../helper/handleTitle";
 import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
@@ -13,7 +14,6 @@ import { isEqual } from "../helper/isEqual";
 import CARDS_DETAILS from "../constants/card-details";
 // Material-UI
 import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
 import Grow from "@material-ui/core/Grow";
 // Styles
 import { useStyles } from "./home-page.styles";
@@ -123,7 +123,7 @@ export default function HomePage() {
 
   return (
     <section className={classes.root}>
-      <Box
+      <BoxBase
         my={5}
         textAlign="center"
         className={clsx(classes.content, {
@@ -131,7 +131,7 @@ export default function HomePage() {
         })}
       >
         <Container maxWidth="xl">
-          <Box
+          <BoxBase
             display="inline-block"
             fontSize={{ xs: 32, sm: 42, md: 52 }}
             fontWeight="bold"
@@ -143,15 +143,15 @@ export default function HomePage() {
             <span role="img" aria-label="winking face">
               &#128521;
             </span>
-          </Box>
-          <Box
+          </BoxBase>
+          <BoxBase
             display="flex"
             flexDirection={{ xs: "column", lg: "row" }}
             alignItems="center"
             justifyContent="center"
             mt={8}
           >
-            <Box display="flex" flexDirection="column">
+            <BoxBase display="flex" flexDirection="column">
               <ImagePreviewContainer
                 cards={state.oneCardPerScreen}
                 shakeIt={state.showError && state.shakeEnd ? true : false}
@@ -161,7 +161,7 @@ export default function HomePage() {
               />
               {state.showError && (
                 <Grow in={state.showError} timeout={700}>
-                  <Box
+                  <BoxBase
                     color="#f44336"
                     letterSpacing="1px"
                     fontSize="0.86rem"
@@ -170,17 +170,17 @@ export default function HomePage() {
                     mb={0}
                   >
                     Can't contain less than 4 items!
-                  </Box>
+                  </BoxBase>
                 </Grow>
               )}
-            </Box>
+            </BoxBase>
             <UploadImage
               handleAddImage={handleAddImage}
               handleReset={handleReset}
               showResetBtn={isEqual(CARDS_DETAILS, state.oneCardPerScreen)}
             />
-          </Box>
-          <Box
+          </BoxBase>
+          <BoxBase
             textAlign="center"
             mt={{ xs: "37px", sm: "47px" }}
             mb={{ xs: "30px", sm: "40px" }}
@@ -203,8 +203,8 @@ export default function HomePage() {
               label="Slideshow with Arrows"
               onChange={handleCheckboxChange}
             />
-          </Box>
-          <Box
+          </BoxBase>
+          <BoxBase
             fontSize={{ xs: 26, sm: 36, md: 46 }}
             letterSpacing="1px"
             textAlign="center"
@@ -213,7 +213,7 @@ export default function HomePage() {
             mb={5}
           >
             {handleTitle(state.numbers, state.dots, state.arrows)}
-          </Box>
+          </BoxBase>
           <SlideshowWithPagination
             options={state.oneCardPerScreen}
             showNumbers={state.numbers}
@@ -237,7 +237,7 @@ export default function HomePage() {
           />
         </Container>
         <div ref={scrollToBottom} />
-      </Box>
+      </BoxBase>
       <DrawerMenuContainer
         openDrawer={state.openDrawer}
         handleDrawerOpen={handleDrawerOpen}

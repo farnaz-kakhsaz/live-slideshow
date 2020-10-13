@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import PaginationNumber from "./pagination-number/pagination-number";
 import PaginationDot from "./pagination-dot/pagination-dot.component";
 import Arrow from "./arrow/arrow.component";
+import BoxBase from "../items-base/box-base/box-base";
 // Material-UI
 import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
@@ -48,7 +48,7 @@ export default function Slideshow({
 
   return (
     <>
-      <Box position="relative" maxWidth="100%">
+      <BoxBase position="relative" maxWidth="100%">
         {showArrows && <Arrow handleArrowClick={handleArrowClick} />}
         <Container maxWidth={imageContainerMaxWidth} disableGutters>
           <AutoPlaySwipeableViews
@@ -64,9 +64,9 @@ export default function Slideshow({
                 )}
           </AutoPlaySwipeableViews>
         </Container>
-      </Box>
+      </BoxBase>
       {showDots && (
-        <Box
+        <BoxBase
           display="flex"
           justifyContent="center"
           mt={paginationMarginTop ? paginationMarginTop : 3}
@@ -81,17 +81,21 @@ export default function Slideshow({
                 key={index}
               />
             ))}
-        </Box>
+        </BoxBase>
       )}
       {showNumbers && (
-        <Box display="flex" justifyContent="center" mt={paginationMarginTop}>
+        <BoxBase
+          display="flex"
+          justifyContent="center"
+          mt={paginationMarginTop}
+        >
           {showNumbers && (
             <PaginationNumber
               totalNumber={options.length}
               activeStep={activeStep + 1}
             />
           )}
-        </Box>
+        </BoxBase>
       )}
     </>
   );
