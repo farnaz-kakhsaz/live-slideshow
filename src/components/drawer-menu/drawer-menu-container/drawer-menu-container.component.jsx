@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import DrawerMenuItem from "../drawer-menu-item/drawer-menu-item";
 import ContainerBase from "../../items-base/container-base/container-base";
 import IconButtonBase from "../../items-base/icon-button-base/icon-button-base";
+import DividerBase from "../../items-base/divider-base/divider-base";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import Drawer from "@material-ui/core/Drawer";
-import Divider from "@material-ui/core/Divider";
 import Fab from "@material-ui/core/Fab";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import EditIcon from "@material-ui/icons/Edit";
@@ -31,7 +31,7 @@ function DrawerMenuContainer({ width, openDrawer, handleDrawerOpen, ...rest }) {
             <ChevronRightIcon />
           </IconButtonBase>
         </div>
-        <Divider />
+        <DividerBase />
         <ContainerBase>
           <DrawerMenuItem {...rest} />
         </ContainerBase>
