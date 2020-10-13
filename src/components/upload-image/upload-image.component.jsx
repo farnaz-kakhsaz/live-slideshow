@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 // Components
+import FormControlBase from "../items-base/form-control-base/form-control-base";
 import TextFieldBase from "../items-base/text-field-base/text-field-base";
 import ButtonBase from "../items-base/button-base/button-base";
 import BoxBase from "../items-base/box-base/box-base";
 import GrowBase from "../items-base/grow-base/grow-base";
 // Material-UI
-import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 // Styles
 import { useStyles } from "./upload-image.styles";
@@ -46,7 +46,7 @@ export default function UploadImage({
 
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
-      <FormControl component="fieldset" error={error} fullWidth>
+      <FormControlBase component="fieldset" error={error} fullWidth>
         <BoxBase
           display="flex"
           flexDirection="column"
@@ -130,7 +130,7 @@ export default function UploadImage({
             )}
           </BoxBase>
         )}
-      </FormControl>
+      </FormControlBase>
     </form>
   );
 }
