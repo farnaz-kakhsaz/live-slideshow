@@ -24,5 +24,6 @@ export const useStyles = makeStyles((theme) => ({
     position: "fixed",
     right: theme.spacing(5),
     bottom: theme.spacing(4),
+    zIndex: 1,
   },
 }));
