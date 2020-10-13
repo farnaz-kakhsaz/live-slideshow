@@ -6,8 +6,7 @@ import TextFieldBase from "../items-base/text-field-base/text-field-base";
 import ButtonBase from "../items-base/button-base/button-base";
 import BoxBase from "../items-base/box-base/box-base";
 import GrowBase from "../items-base/grow-base/grow-base";
-// Material-UI
-import FormHelperText from "@material-ui/core/FormHelperText";
+import FormHelperTextBase from "../items-base/form-helper-text-base/form-helper-text-base";
 // Styles
 import { useStyles } from "./upload-image.styles";
 
@@ -116,16 +115,16 @@ export default function UploadImage({
           <BoxBase mt={2}>
             {!name && (
               <GrowBase in={!name} timeout={700}>
-                <FormHelperText className={classes.formHelperText}>
+                <FormHelperTextBase className={classes.formHelperText}>
                   Please choose a name for the file!
-                </FormHelperText>
+                </FormHelperTextBase>
               </GrowBase>
             )}
             {!value && (
               <GrowBase in={!value} timeout={700}>
-                <FormHelperText className={classes.formHelperText}>
+                <FormHelperTextBase className={classes.formHelperText}>
                   Please select a photo!
-                </FormHelperText>
+                </FormHelperTextBase>
               </GrowBase>
             )}
           </BoxBase>
