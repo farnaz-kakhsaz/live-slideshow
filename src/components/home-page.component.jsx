@@ -221,7 +221,7 @@ export default function HomePage() {
             // forWidthLowerShowOneCard={"lg"}
             // paginationMarginTop={{ xs: 4 }}
             // imageContainerMaxWidth={"xl"}
-            // imageContainerJustify={"space-between"}
+            // cardsContainerJustify={"space-between"}
             // imageMaxWidth={50}
             // imageMaxHeight={100}
             // springConfig={{

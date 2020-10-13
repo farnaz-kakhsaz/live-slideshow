@@ -14,7 +14,7 @@ function SlideshowWithPagination({
   children,
   numberOfCardsPerScreen = 3,
   forWidthLowerShowOneCard = "md",
-  imageContainerJustify = "space-evenly",
+  cardsContainerJustify = "space-evenly",
   cardMarginX,
   cardMarginY,
   imageMaxWidth = 375,
@@ -59,7 +59,7 @@ function SlideshowWithPagination({
                 key={index}
               />
             ) : (
-              <Grid container justify={imageContainerJustify} key={index}>
+              <Grid container justify={cardsContainerJustify} key={index}>
                 {item.map((item, index) => (
                   <Card
                     image={item.image}
@@ -85,7 +85,7 @@ SlideshowWithPagination.propTypes = {
   width: PropTypes.string.isRequired,
   numberOfCardsPerScreen: PropTypes.number,
   forWidthLowerShowOneCard: PropTypes.string,
-  imageContainerJustify: PropTypes.string,
+  cardsContainerJustify: PropTypes.string,
   cardMarginX: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
   cardMarginY: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
   imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
