@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import TextFieldBase from "../items-base/text-field-base/text-field-base";
 import ButtonBase from "../items-base/button-base/button-base";
 import BoxBase from "../items-base/box-base/box-base";
+import GrowBase from "../items-base/grow-base/grow-base";
 // Material-UI
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import Grow from "@material-ui/core/Grow";
 // Styles
 import { useStyles } from "./upload-image.styles";
 
@@ -99,7 +99,7 @@ export default function UploadImage({
           </BoxBase>
         </BoxBase>
         {showResetBtn && (
-          <Grow in={showResetBtn} timeout={700}>
+          <GrowBase in={showResetBtn} timeout={700}>
             <ButtonBase
               type="button"
               variant="contained"
@@ -110,23 +110,23 @@ export default function UploadImage({
             >
               Reset
             </ButtonBase>
-          </Grow>
+          </GrowBase>
         )}
         {error && (
           <BoxBase mt={2}>
             {!name && (
-              <Grow in={!name} timeout={700}>
+              <GrowBase in={!name} timeout={700}>
                 <FormHelperText className={classes.formHelperText}>
                   Please choose a name for the file!
                 </FormHelperText>
-              </Grow>
+              </GrowBase>
             )}
             {!value && (
-              <Grow in={!value} timeout={700}>
+              <GrowBase in={!value} timeout={700}>
                 <FormHelperText className={classes.formHelperText}>
                   Please select a photo!
                 </FormHelperText>
-              </Grow>
+              </GrowBase>
             )}
           </BoxBase>
         )}

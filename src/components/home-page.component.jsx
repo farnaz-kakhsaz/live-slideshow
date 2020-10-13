@@ -8,13 +8,12 @@ import UploadImage from "./upload-image/upload-image.component";
 import ContainerBase from "./items-base/container-base/container-base";
 import BoxBase from "./items-base/box-base/box-base";
 import CheckboxBase from "./items-base/checkbox-base/checkbox-base.component";
+import GrowBase from "./items-base/grow-base/grow-base";
 import { handleTitle } from "../helper/handleTitle";
 import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
 // Constants
 import CARDS_DETAILS from "../constants/card-details";
-// Material-UI
-import Grow from "@material-ui/core/Grow";
 // Styles
 import { useStyles } from "./home-page.styles";
 
@@ -160,7 +159,7 @@ export default function HomePage() {
                 handleShakeAnimation={handleShakeAnimation}
               />
               {state.showError && (
-                <Grow in={state.showError} timeout={700}>
+                <GrowBase in={state.showError} timeout={700}>
                   <BoxBase
                     color="#f44336"
                     letterSpacing="1px"
@@ -171,7 +170,7 @@ export default function HomePage() {
                   >
                     Can't contain less than 4 items!
                   </BoxBase>
-                </Grow>
+                </GrowBase>
               )}
             </BoxBase>
             <UploadImage
