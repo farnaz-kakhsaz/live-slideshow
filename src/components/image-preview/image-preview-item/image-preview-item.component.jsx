@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 // Components
 import ButtonBase from "../../items-base/button-base/button-base";
 import GrowBase from "../../items-base/grow-base/grow-base";
+import GridListTileBase from "../../items-base/grid-list-tile-base/grid-list-tile-base";
 // Material-UI
-import GridListTile from "@material-ui/core/GridListTile";
 // Styles
 import { useStyles } from "./image-preview-item.styles";
 
@@ -19,7 +19,7 @@ export default function ImagePreviewItem({
 
   return (
     <GrowBase in={whichOneFade === index ? false : true} timeout={700}>
-      <GridListTile className={classes.gridListTile} {...rest}>
+      <GridListTileBase className={classes.gridListTile} {...rest}>
         <img className={classes.img} src={item.image} alt={item.title} />
         <ButtonBase
           className={classes.button}
@@ -27,7 +27,7 @@ export default function ImagePreviewItem({
         >
           Delete
         </ButtonBase>
-      </GridListTile>
+      </GridListTileBase>
     </GrowBase>
   );
 }
