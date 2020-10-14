@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 // Components
 import ContainerBase from "../../items-base/container-base/container-base";
-import CheckboxBase from "../../items-base/checkbox-base/checkbox-base.component";
+import SwitchBase from "../../items-base/switch-base/switch-base";
 import SliderBase from "../../items-base/slider-base/slider-base";
 
 export default function DrawerMenuItem({
@@ -29,7 +29,7 @@ export default function DrawerMenuItem({
 
   return (
     <ContainerBase>
-      <CheckboxBase
+      <SwitchBase
         checked={enableMouseEvents}
         label="Enable Mouse Event"
         onChange={handleDrawerItemChange("enableMouseEvents")}
