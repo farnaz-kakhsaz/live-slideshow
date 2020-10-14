@@ -7,6 +7,7 @@ import ContainerBase from "../../items-base/container-base/container-base";
 import IconButtonBase from "../../items-base/icon-button-base/icon-button-base";
 import DividerBase from "../../items-base/divider-base/divider-base";
 import FabBase from "../../items-base/fab-base/fab-base";
+import ZoomBase from "../../items-base/zoom-base/zoom-base";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -36,7 +37,7 @@ function DrawerMenuContainer({ width, openDrawer, handleDrawerOpen, ...rest }) {
           <DrawerMenuItem {...rest} />
         </ContainerBase>
       </DrawerBase>
-      {!openDrawer && (
+      <ZoomBase in={!openDrawer} timeout={500}>
         <FabBase
           color="primary"
           className={classes.fab}
@@ -45,7 +46,7 @@ function DrawerMenuContainer({ width, openDrawer, handleDrawerOpen, ...rest }) {
         >
           <EditIcon />
         </FabBase>
-      )}
+      </ZoomBase>
     </>
   );
 }
