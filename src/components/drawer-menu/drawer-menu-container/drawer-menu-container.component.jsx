@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Components
-import DrawerMenuItem from "../drawer-menu-item/drawer-menu-item";
+import DrawerMenuItem from "../drawer-menu-item/drawer-menu-item.component";
 import DrawerBase from "../../items-base/drawer-base/drawer-base";
 import ContainerBase from "../../items-base/container-base/container-base";
 import IconButtonBase from "../../items-base/icon-button-base/icon-button-base";
