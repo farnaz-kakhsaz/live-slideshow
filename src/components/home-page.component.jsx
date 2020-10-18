@@ -31,6 +31,7 @@ export default function HomePage() {
     enableMouseEvents: true,
     imageMaxWidth: 375,
     imageMaxHeight: 234,
+    forWidthLowerShowOneCard: "md",
   });
   const scrollToBottom = useRef(null);
   const classes = useStyles();
@@ -107,6 +108,8 @@ export default function HomePage() {
   };
 
   const handleDrawerItemChange = (name) => (event, newValue) => {
+    const { value } = event.target;
+
     switch (name) {
       case "enableMouseEvents":
         setState((prevState) => ({
@@ -130,6 +133,12 @@ export default function HomePage() {
         setState((prevState) => ({
           ...prevState,
           [name]: newValue,
+        }));
+        break;
+      case "forWidthLowerShowOneCard":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: value,
         }));
         break;
       default:
@@ -241,7 +250,7 @@ export default function HomePage() {
             imageMaxWidth={state.imageMaxWidth}
             imageMaxHeight={state.imageMaxHeight}
             cardMarginY={1}
-            // forWidthLowerShowOneCard={"lg"}
+            forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
             // paginationMarginTop={{ xs: 4 }}
             // imageContainerMaxWidth={"xl"}
             // cardsContainerJustify={"space-between"}
@@ -262,6 +271,7 @@ export default function HomePage() {
         numberOfCardsPerScreen={state.numberOfCardsPerScreen}
         imageMaxWidth={state.imageMaxWidth}
         imageMaxHeight={state.imageMaxHeight}
+        forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
       />
     </section>
   );
