@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 // Components
 import BoxBase from "../../items-base/box-base/box-base";
-import ContainerBase from "../../items-base/container-base/container-base";
 import SwitchBase from "../../items-base/switch-base/switch-base";
 import SliderBase from "../../items-base/slider-base/slider-base";
 import FormControlBase from "../../items-base/form-control-base/form-control-base";
@@ -38,15 +37,28 @@ export default function DrawerMenuItem({
   };
 
   return (
-    <ContainerBase>
-      <SwitchBase
-        checked={enableMouseEvents}
-        label="Enable Mouse Event"
-        onChange={handleDrawerItemChange("enableMouseEvents")}
-      />
-      <DividerBase variant="middle" className={classes.marginY} />
+    <>
+      <BoxBase
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        marginTop={4}
+      >
+        <BoxBase
+          display="inline-block"
+          color="text.secondary"
+          fontWeight="fontWeightMedium"
+        >
+          Mouse Event (default: enabled):
+        </BoxBase>
+        <SwitchBase
+          checked={enableMouseEvents}
+          onChange={handleDrawerItemChange("enableMouseEvents")}
+        />
+      </BoxBase>
+      <DividerBase className={classes.marginY} />
       <BoxBase color="text.secondary" fontWeight="fontWeightMedium">
-        Number of Cards Per Screen:
+        Number of cards per screen (default: 3):
       </BoxBase>
       <SliderBase
         name="numberOfCardsPerScreen"
@@ -59,7 +71,14 @@ export default function DrawerMenuItem({
         max={10}
         marks
       />
-      <DividerBase variant="middle" className={classes.marginY} />
+      <DividerBase className={classes.marginY} />
+      <BoxBase
+        display="inline-block"
+        color="text.secondary"
+        fontWeight="fontWeightMedium"
+      >
+        Images width (default: 375):
+      </BoxBase>
       <SliderBase
         name="imageMaxWidth"
         value={imageMaxWidth}
@@ -70,7 +89,14 @@ export default function DrawerMenuItem({
         min={0}
         max={1000}
       />
-      <DividerBase variant="middle" className={classes.marginY} />
+      <DividerBase className={classes.marginY} />
+      <BoxBase
+        display="inline-block"
+        color="text.secondary"
+        fontWeight="fontWeightMedium"
+      >
+        Images height (default: 234):
+      </BoxBase>
       <SliderBase
         name="imageMaxHeight"
         value={imageMaxHeight}
@@ -81,32 +107,45 @@ export default function DrawerMenuItem({
         min={0}
         max={1000}
       />
-      <DividerBase variant="middle" className={classes.marginY} />
-      <FormControlBase>
-        <SelectBase
-          value={forWidthLowerShowOneCard}
-          onChange={handleDrawerItemChange("forWidthLowerShowOneCard")}
-          inputProps={{ "aria-label": "Dropdown menu" }}
-          classes={{ select: classes.menuItem }}
+      <DividerBase className={classes.marginY} />
+      <BoxBase
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <BoxBase
+          display="inline-block"
+          color="text.secondary"
+          fontWeight="fontWeightMedium"
         >
-          <MenuItemBase value="xs" className={classes.menuItem}>
-            xs
-          </MenuItemBase>
-          <MenuItemBase value="sm" className={classes.menuItem}>
-            sm
-          </MenuItemBase>
-          <MenuItemBase value="md" className={classes.menuItem}>
-            md
-          </MenuItemBase>
-          <MenuItemBase value="lg" className={classes.menuItem}>
-            lg
-          </MenuItemBase>
-          <MenuItemBase value="xl" className={classes.menuItem}>
-            xl
-          </MenuItemBase>
-        </SelectBase>
-      </FormControlBase>
-    </ContainerBase>
+          For width lower than this show only one card per screen:
+        </BoxBase>
+        <FormControlBase className={classes.formControl}>
+          <SelectBase
+            value={forWidthLowerShowOneCard}
+            onChange={handleDrawerItemChange("forWidthLowerShowOneCard")}
+            inputProps={{ "aria-label": "Dropdown menu" }}
+            classes={{ select: classes.menuItem }}
+          >
+            <MenuItemBase value="xs" className={classes.menuItem}>
+              xs
+            </MenuItemBase>
+            <MenuItemBase value="sm" className={classes.menuItem}>
+              sm
+            </MenuItemBase>
+            <MenuItemBase value="md" className={classes.menuItem}>
+              md
+            </MenuItemBase>
+            <MenuItemBase value="lg" className={classes.menuItem}>
+              lg
+            </MenuItemBase>
+            <MenuItemBase value="xl" className={classes.menuItem}>
+              xl
+            </MenuItemBase>
+          </SelectBase>
+        </FormControlBase>
+      </BoxBase>
+    </>
   );
 }
 
