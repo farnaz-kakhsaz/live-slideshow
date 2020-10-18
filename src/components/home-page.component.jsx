@@ -31,6 +31,7 @@ export default function HomePage() {
     enableMouseEvents: true,
     imageMaxWidth: 375,
     imageMaxHeight: 234,
+    slideshowContainerMaxWidth: "lg",
     forWidthLowerShowOneCard: "md",
   });
   const scrollToBottom = useRef(null);
@@ -141,6 +142,12 @@ export default function HomePage() {
           [name]: value,
         }));
         break;
+      case "slideshowContainerMaxWidth":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+        break;
       default:
         console.error("Value didn't match in handleDrawerItemChange!");
     }
@@ -155,7 +162,7 @@ export default function HomePage() {
           [classes.contentShift]: state.openDrawer,
         })}
       >
-        <ContainerBase maxWidth="xl">
+        <ContainerBase maxWidth="off">
           <BoxBase
             display="inline-block"
             fontSize={{ xs: 32, sm: 42, md: 52 }}
@@ -250,9 +257,9 @@ export default function HomePage() {
             imageMaxWidth={state.imageMaxWidth}
             imageMaxHeight={state.imageMaxHeight}
             cardMarginY={1}
+            slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
             forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
             // paginationMarginTop={{ xs: 4 }}
-            // imageContainerMaxWidth={"xl"}
             // cardsContainerJustify={"space-between"}
             // springConfig={{
             //   duration: "1s",
@@ -271,6 +278,7 @@ export default function HomePage() {
         numberOfCardsPerScreen={state.numberOfCardsPerScreen}
         imageMaxWidth={state.imageMaxWidth}
         imageMaxHeight={state.imageMaxHeight}
+        slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
         forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
       />
     </section>

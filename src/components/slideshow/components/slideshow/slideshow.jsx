@@ -19,7 +19,7 @@ export default function Slideshow({
   showDots,
   showNumbers,
   showArrows,
-  imageContainerMaxWidth = "lg",
+  slideshowContainerMaxWidth = "lg",
   paginationMarginTop = 3,
   springConfig = {
     duration: "1s",
@@ -50,7 +50,7 @@ export default function Slideshow({
     <>
       <BoxBase position="relative" maxWidth="100%">
         {showArrows && <Arrow handleArrowClick={handleArrowClick} />}
-        <ContainerBase maxWidth={imageContainerMaxWidth} disableGutters>
+        <ContainerBase maxWidth={slideshowContainerMaxWidth} disableGutters>
           <AutoPlaySwipeableViews
             index={activeStep}
             onChangeIndex={handleStepChange}
@@ -111,7 +111,7 @@ Slideshow.propTypes = {
   showDots: PropTypes.bool,
   showNumbers: PropTypes.bool,
   showArrows: PropTypes.bool,
-  imageContainerMaxWidth: PropTypes.string,
+  slideshowContainerMaxWidth: PropTypes.string,
   paginationMarginTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,

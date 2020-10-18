@@ -16,6 +16,7 @@ export default function DrawerMenuItem({
   numberOfCardsPerScreen,
   imageMaxWidth,
   imageMaxHeight,
+  slideshowContainerMaxWidth,
   forWidthLowerShowOneCard,
   handleDrawerItemChange,
 }) {
@@ -118,6 +119,47 @@ export default function DrawerMenuItem({
           color="text.secondary"
           fontWeight="fontWeightMedium"
         >
+          Maximum width of the entire slideshow screen (default: lg):
+        </BoxBase>
+        <FormControlBase className={classes.formControl}>
+          <SelectBase
+            value={slideshowContainerMaxWidth}
+            onChange={handleDrawerItemChange("slideshowContainerMaxWidth")}
+            inputProps={{ "aria-label": "Dropdown menu" }}
+            classes={{ select: classes.menuItem }}
+          >
+            <MenuItemBase value="off" className={classes.menuItem}>
+              off
+            </MenuItemBase>
+            <MenuItemBase value="xs" className={classes.menuItem}>
+              xs
+            </MenuItemBase>
+            <MenuItemBase value="sm" className={classes.menuItem}>
+              sm
+            </MenuItemBase>
+            <MenuItemBase value="md" className={classes.menuItem}>
+              md
+            </MenuItemBase>
+            <MenuItemBase value="lg" className={classes.menuItem}>
+              lg
+            </MenuItemBase>
+            <MenuItemBase value="xl" className={classes.menuItem}>
+              xl
+            </MenuItemBase>
+          </SelectBase>
+        </FormControlBase>
+      </BoxBase>
+      <DividerBase className={classes.marginY} />
+      <BoxBase
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <BoxBase
+          display="inline-block"
+          color="text.secondary"
+          fontWeight="fontWeightMedium"
+        >
           For width lower than this show only one card per screen:
         </BoxBase>
         <FormControlBase className={classes.formControl}>
@@ -154,6 +196,7 @@ DrawerMenuItem.propTypes = {
   numberOfCardsPerScreen: PropTypes.number.isRequired,
   imageMaxWidth: PropTypes.number.isRequired,
   imageMaxHeight: PropTypes.number.isRequired,
+  slideshowContainerMaxWidth: PropTypes.string.isRequired,
   forWidthLowerShowOneCard: PropTypes.string.isRequired,
   handleDrawerItemChange: PropTypes.func.isRequired,
 };
