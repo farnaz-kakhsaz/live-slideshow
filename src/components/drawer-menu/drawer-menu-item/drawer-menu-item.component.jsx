@@ -18,6 +18,7 @@ export default function DrawerMenuItem({
   imageMaxHeight,
   slideshowContainerMaxWidth,
   forWidthLowerShowOneCard,
+  cardsContainerJustify,
   handleDrawerItemChange,
 }) {
   const classes = useStyles();
@@ -160,7 +161,7 @@ export default function DrawerMenuItem({
           color="text.secondary"
           fontWeight="fontWeightMedium"
         >
-          For width lower than this show only one card per screen:
+          For width lower than this show only one card per screen (default: md):
         </BoxBase>
         <FormControlBase className={classes.formControl}>
           <SelectBase
@@ -187,6 +188,47 @@ export default function DrawerMenuItem({
           </SelectBase>
         </FormControlBase>
       </BoxBase>
+      <DividerBase className={classes.marginY} />
+      <BoxBase
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <BoxBase
+          display="inline-block"
+          color="text.secondary"
+          fontWeight="fontWeightMedium"
+        >
+          Cards container justify (default: space-evenly):
+        </BoxBase>
+        <FormControlBase className={classes.formControl}>
+          <SelectBase
+            value={cardsContainerJustify}
+            onChange={handleDrawerItemChange("cardsContainerJustify")}
+            inputProps={{ "aria-label": "Dropdown menu" }}
+            classes={{ select: classes.menuItem }}
+          >
+            <MenuItemBase value="flex-start" className={classes.menuItem}>
+              flex-start
+            </MenuItemBase>
+            <MenuItemBase value="flex-end" className={classes.menuItem}>
+              flex-end
+            </MenuItemBase>
+            <MenuItemBase value="center" className={classes.menuItem}>
+              center
+            </MenuItemBase>
+            <MenuItemBase value="space-between" className={classes.menuItem}>
+              space-between
+            </MenuItemBase>
+            <MenuItemBase value="space-around" className={classes.menuItem}>
+              space-around
+            </MenuItemBase>
+            <MenuItemBase value="space-evenly" className={classes.menuItem}>
+              space-evenly
+            </MenuItemBase>
+          </SelectBase>
+        </FormControlBase>
+      </BoxBase>
     </>
   );
 }
@@ -198,5 +240,6 @@ DrawerMenuItem.propTypes = {
   imageMaxHeight: PropTypes.number.isRequired,
   slideshowContainerMaxWidth: PropTypes.string.isRequired,
   forWidthLowerShowOneCard: PropTypes.string.isRequired,
+  cardsContainerJustify: PropTypes.string.isRequired,
   handleDrawerItemChange: PropTypes.func.isRequired,
 };

@@ -33,6 +33,7 @@ export default function HomePage() {
     imageMaxHeight: 234,
     slideshowContainerMaxWidth: "lg",
     forWidthLowerShowOneCard: "md",
+    cardsContainerJustify: "space-evenly",
   });
   const scrollToBottom = useRef(null);
   const classes = useStyles();
@@ -148,6 +149,12 @@ export default function HomePage() {
           [name]: value,
         }));
         break;
+      case "cardsContainerJustify":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: value,
+        }));
+        break;
       default:
         console.error("Value didn't match in handleDrawerItemChange!");
     }
@@ -256,11 +263,11 @@ export default function HomePage() {
             numberOfCardsPerScreen={state.numberOfCardsPerScreen}
             imageMaxWidth={state.imageMaxWidth}
             imageMaxHeight={state.imageMaxHeight}
-            cardMarginY={1}
             slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
             forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
+            cardsContainerJustify={state.cardsContainerJustify}
+            cardMarginY={1}
             // paginationMarginTop={{ xs: 4 }}
-            // cardsContainerJustify={"space-between"}
             // springConfig={{
             //   duration: "1s",
             //   easeFunction: "ease-in-out",
@@ -280,6 +287,7 @@ export default function HomePage() {
         imageMaxHeight={state.imageMaxHeight}
         slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
         forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
+        cardsContainerJustify={state.cardsContainerJustify}
       />
     </section>
   );
