@@ -15,10 +15,17 @@ function SlideshowWithPagination({
   numberOfCardsPerScreen = 3,
   forWidthLowerShowOneCard = "md",
   cardsContainerJustify = "space-evenly",
-  cardMarginX,
-  cardMarginY,
+  cardMarginX = 0,
+  cardMarginY = 0,
   imageMaxWidth = 375,
   imageMaxHeight = 234,
+  slideshowContainerMaxWidth = "lg",
+  paginationMarginTop = 3,
+  springConfig = {
+    duration: "1s",
+    easeFunction: "ease-in-out",
+    delay: "0s",
+  },
   ...rest
 }) {
   const [oneCardPerScreen, setOneCardPerScreen] = useState(options);
@@ -43,6 +50,9 @@ function SlideshowWithPagination({
           : multipleCardsPerScreen
       }
       childrenArray={children}
+      slideshowContainerMaxWidth={slideshowContainerMaxWidth}
+      paginationMarginTop={paginationMarginTop}
+      springConfig={springConfig}
       {...rest}
     >
       {children
@@ -86,8 +96,16 @@ SlideshowWithPagination.propTypes = {
   numberOfCardsPerScreen: PropTypes.number,
   forWidthLowerShowOneCard: PropTypes.string,
   cardsContainerJustify: PropTypes.string,
-  cardMarginX: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
-  cardMarginY: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
+  cardMarginX: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+  ]),
+  cardMarginY: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   rest: PropTypes.any,

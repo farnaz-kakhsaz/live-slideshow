@@ -19,13 +19,9 @@ export default function Slideshow({
   showDots,
   showNumbers,
   showArrows,
-  slideshowContainerMaxWidth = "lg",
-  paginationMarginTop = 3,
-  springConfig = {
-    duration: "1s",
-    easeFunction: "ease-in-out",
-    delay: "0s",
-  },
+  slideshowContainerMaxWidth,
+  paginationMarginTop,
+  springConfig,
   ...rest
 }) {
   const [activeStep, setActiveStep] = useState(0);
