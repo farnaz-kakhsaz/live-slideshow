@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 // Material-UI
 import MenuItem from "@material-ui/core/MenuItem";
 
-export default function MenuItemBase({ children, ...rest }) {
-  return <MenuItem {...rest}>{children}</MenuItem>;
-}
+const MenuItemBase = React.forwardRef(({ children, ...rest }, ref) => (
+  <MenuItem {...rest} ref={ref}>
+    {children}
+  </MenuItem>
+));
+
+export default MenuItemBase;
 
 MenuItemBase.propTypes = {
   children: PropTypes.node,
