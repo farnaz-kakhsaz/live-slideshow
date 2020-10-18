@@ -159,7 +159,7 @@ export default function HomePage() {
           <BoxBase
             display="inline-block"
             fontSize={{ xs: 32, sm: 42, md: 52 }}
-            fontWeight="bold"
+            fontWeight="fontWeightBold"
             component="h1"
             borderBottom="3px solid"
             my="0"
@@ -187,7 +187,7 @@ export default function HomePage() {
               {state.showError && (
                 <GrowBase in={state.showError} timeout={700}>
                   <BoxBase
-                    color="#f44336"
+                    color="error.main"
                     letterSpacing="1px"
                     fontSize="0.86rem"
                     component="p"
@@ -234,7 +234,7 @@ export default function HomePage() {
             letterSpacing="1px"
             textAlign="center"
             component="h2"
-            fontWeight="600"
+            fontWeight="fontWeightMedium"
             mb={5}
           >
             {handleTitle(state.numbers, state.dots, state.arrows)}
