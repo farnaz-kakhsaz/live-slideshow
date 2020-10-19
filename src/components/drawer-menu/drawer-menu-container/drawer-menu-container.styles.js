@@ -9,13 +9,6 @@ export const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
   },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-  },
   fab: {
     [theme.breakpoints.down("xs")]: {
       right: theme.spacing(2),
