@@ -34,6 +34,8 @@ export default function HomePage() {
     slideshowContainerMaxWidth: "lg",
     forWidthLowerShowOneCard: "md",
     cardsContainerJustify: "space-evenly",
+    cardMarginX: 0,
+    cardMarginY: 1,
   });
   const scrollToBottom = useRef(null);
   const classes = useStyles();
@@ -155,6 +157,18 @@ export default function HomePage() {
           [name]: value,
         }));
         break;
+      case "cardMarginX":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: newValue,
+        }));
+        break;
+      case "cardMarginY":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: newValue,
+        }));
+        break;
       default:
         console.error("Value didn't match in handleDrawerItemChange!");
     }
@@ -169,7 +183,7 @@ export default function HomePage() {
           [classes.contentShift]: state.openDrawer,
         })}
       >
-        <ContainerBase maxWidth="off">
+        <ContainerBase maxWidth={false}>
           <BoxBase
             display="inline-block"
             fontSize={{ xs: 32, sm: 42, md: 52 }}
@@ -266,7 +280,8 @@ export default function HomePage() {
             slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
             forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
             cardsContainerJustify={state.cardsContainerJustify}
-            cardMarginY={1}
+            cardMarginX={state.cardMarginX}
+            cardMarginY={state.cardMarginY}
             // paginationMarginTop={{ xs: 4 }}
             // springConfig={{
             //   duration: "1s",
@@ -288,6 +303,8 @@ export default function HomePage() {
         slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
         forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
         cardsContainerJustify={state.cardsContainerJustify}
+        cardMarginX={state.cardMarginX}
+        cardMarginY={state.cardMarginY}
       />
     </section>
   );

@@ -8,6 +8,7 @@ import FormControlBase from "../../items-base/form-control-base/form-control-bas
 import SelectBase from "../../items-base/select-base/select-base";
 import MenuItemBase from "../../items-base/menu-item-base/menu-item-base";
 import DividerBase from "../../items-base/divider-base/divider-base";
+import FormHelperTextBase from "../../items-base/form-helper-text-base/form-helper-text-base";
 // Styles
 import { useStyles } from "./drawer-menu-item.styles";
 
@@ -19,6 +20,8 @@ export default function DrawerMenuItem({
   slideshowContainerMaxWidth,
   forWidthLowerShowOneCard,
   cardsContainerJustify,
+  cardMarginX,
+  cardMarginY,
   handleDrawerItemChange,
 }) {
   const classes = useStyles();
@@ -33,6 +36,8 @@ export default function DrawerMenuItem({
         }
       case "image size":
         return `${value}px`;
+      case "margin":
+        return `${value * 8}px`;
       default:
         console.error("Value didn't match in valueText!");
     }
@@ -129,8 +134,8 @@ export default function DrawerMenuItem({
             inputProps={{ "aria-label": "Dropdown menu" }}
             classes={{ select: classes.menuItem }}
           >
-            <MenuItemBase value="off" className={classes.menuItem}>
-              off
+            <MenuItemBase value={false} className={classes.menuItem}>
+              false
             </MenuItemBase>
             <MenuItemBase value="xs" className={classes.menuItem}>
               xs
@@ -229,6 +234,50 @@ export default function DrawerMenuItem({
           </SelectBase>
         </FormControlBase>
       </BoxBase>
+      <DividerBase className={classes.marginY} />
+      <BoxBase
+        display="inline-block"
+        color="text.secondary"
+        fontWeight="fontWeightMedium"
+      >
+        Card horizontal margin (default: 0):
+      </BoxBase>
+      <FormHelperTextBase disabled>
+        Each unit is equal to 8px
+      </FormHelperTextBase>
+      <SliderBase
+        name="cardMarginX"
+        value={cardMarginX}
+        getAriaValueText={valueText("margin")}
+        aria-labelledby="discrete-slider"
+        valueLabelDisplay="auto"
+        onChange={handleDrawerItemChange("cardMarginX")}
+        min={0}
+        max={10}
+        marks
+      />
+      <DividerBase className={classes.marginY} />
+      <BoxBase
+        display="inline-block"
+        color="text.secondary"
+        fontWeight="fontWeightMedium"
+      >
+        Card vertical margin (default: 0 - but I set it one here):
+      </BoxBase>
+      <FormHelperTextBase disabled>
+        Each unit is equal to 8px
+      </FormHelperTextBase>
+      <SliderBase
+        name="cardMarginY"
+        value={cardMarginY}
+        getAriaValueText={valueText("margin")}
+        aria-labelledby="discrete-slider"
+        valueLabelDisplay="auto"
+        onChange={handleDrawerItemChange("cardMarginY")}
+        min={0}
+        max={10}
+        marks
+      />
     </>
   );
 }
@@ -241,5 +290,15 @@ DrawerMenuItem.propTypes = {
   slideshowContainerMaxWidth: PropTypes.string.isRequired,
   forWidthLowerShowOneCard: PropTypes.string.isRequired,
   cardsContainerJustify: PropTypes.string.isRequired,
+  cardMarginX: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+  ]),
+  cardMarginY: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   handleDrawerItemChange: PropTypes.func.isRequired,
 };

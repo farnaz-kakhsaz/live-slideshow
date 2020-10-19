@@ -34,6 +34,14 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  cardMarginX: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
-  cardMarginY: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
+  cardMarginX: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+  ]),
+  cardMarginY: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+  ]),
 };
