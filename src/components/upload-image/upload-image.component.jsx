@@ -1,12 +1,10 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 // Components
-import FormControlBase from "../items-base/form-control-base/form-control-base";
 import TextFieldBase from "../items-base/text-field-base/text-field-base";
 import ButtonBase from "../items-base/button-base/button-base";
 import BoxBase from "../items-base/box-base/box-base";
 import GrowBase from "../items-base/grow-base/grow-base";
-import FormHelperTextBase from "../items-base/form-helper-text-base/form-helper-text-base";
 // Styles
 import { useStyles } from "./upload-image.styles";
 
@@ -45,91 +43,102 @@ export default function UploadImage({
 
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
-      <FormControlBase component="fieldset" error={error} fullWidth>
+      <BoxBase
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        height={{ xs: 205, sm: 133 }}
+        textAlign="center"
+      >
+        <input
+          ref={fileInput}
+          type="file"
+          accept="image/*"
+          id="custom-file-upload"
+          onChange={handleFileChange}
+          className={classes.hiddenInput}
+        />
+        <TextFieldBase
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleTextChange}
+          label="Choose a name"
+          variant="outlined"
+          color="secondary"
+          error={error && !name}
+        />
         <BoxBase
           display="flex"
-          flexDirection="column"
+          flexDirection={{ xs: "column", sm: "row" }}
           justifyContent="space-between"
-          height={{ xs: 205, sm: 133 }}
-          textAlign="center"
+          height={{ xs: 132, sm: "auto" }}
         >
-          <input
-            ref={fileInput}
-            type="file"
-            accept="image/*"
-            id="custom-file-upload"
-            onChange={handleFileChange}
-            className={classes.hiddenInput}
-          />
-          <TextFieldBase
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleTextChange}
-            label="Choose a name"
-            variant="outlined"
-            color="secondary"
-          />
-          <BoxBase
-            display="flex"
-            flexDirection={{ xs: "column", sm: "row" }}
-            justifyContent="space-between"
-            height={{ xs: 132, sm: "auto" }}
-          >
-            <label htmlFor="custom-file-upload">
-              <ButtonBase
-                type="button"
-                variant="contained"
-                component="span"
-                fullWidth
-                className={classes.btn}
-              >
-                Find Photo
-              </ButtonBase>
-            </label>
-            <ButtonBase
-              type="submit"
-              variant="contained"
-              color="primary"
-              className={classes.btn}
-            >
-              Upload
-            </ButtonBase>
-          </BoxBase>
-        </BoxBase>
-        {showResetBtn && (
-          <GrowBase in={showResetBtn} timeout={700}>
+          <label htmlFor="custom-file-upload">
             <ButtonBase
               type="button"
               variant="contained"
-              color="secondary"
+              component="span"
               fullWidth
-              onClick={handleReset}
-              className={classes.resetBtn}
+              className={classes.btn}
             >
-              Reset
+              Find Photo
             </ButtonBase>
-          </GrowBase>
-        )}
-        {error && (
-          <BoxBase mt={2}>
-            {!name && (
-              <GrowBase in={!name} timeout={700}>
-                <FormHelperTextBase className={classes.formHelperText}>
-                  Please choose a name for the file!
-                </FormHelperTextBase>
-              </GrowBase>
-            )}
-            {!value && (
-              <GrowBase in={!value} timeout={700}>
-                <FormHelperTextBase className={classes.formHelperText}>
-                  Please select a photo!
-                </FormHelperTextBase>
-              </GrowBase>
-            )}
-          </BoxBase>
-        )}
-      </FormControlBase>
+          </label>
+          <ButtonBase
+            type="submit"
+            variant="contained"
+            color="primary"
+            className={classes.btn}
+          >
+            Upload
+          </ButtonBase>
+        </BoxBase>
+      </BoxBase>
+      {showResetBtn && (
+        <GrowBase in={showResetBtn} timeout={700}>
+          <ButtonBase
+            type="button"
+            variant="contained"
+            color="secondary"
+            fullWidth
+            onClick={handleReset}
+            className={classes.resetBtn}
+          >
+            Reset
+          </ButtonBase>
+        </GrowBase>
+      )}
+      {error && (
+        <BoxBase mt={2}>
+          {!name && (
+            <GrowBase in={!name} timeout={700}>
+              <BoxBase
+                color="error.main"
+                letterSpacing="1px"
+                fontSize="0.86rem"
+                component="p"
+                mb={1}
+              >
+                Please choose a name for the file!
+              </BoxBase>
+            </GrowBase>
+          )}
+          {!value && (
+            <GrowBase in={!value} timeout={700}>
+              <BoxBase
+                color="error.main"
+                letterSpacing="1px"
+                fontSize="0.86rem"
+                component="p"
+                my={0}
+              >
+                Please select a photo!
+              </BoxBase>
+            </GrowBase>
+          )}
+        </BoxBase>
+      )}
     </form>
   );
 }

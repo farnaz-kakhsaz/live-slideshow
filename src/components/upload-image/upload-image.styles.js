@@ -22,8 +22,4 @@ export const useStyles = makeStyles((theme) => ({
   resetBtn: {
     marginTop: 20,
   },
-  formHelperText: {
-    textAlign: "center",
-    letterSpacing: 1,
-  },
 }));
