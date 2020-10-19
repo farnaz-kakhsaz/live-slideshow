@@ -9,6 +9,7 @@ import SelectBase from "../../items-base/select-base/select-base";
 import MenuItemBase from "../../items-base/menu-item-base/menu-item-base";
 import DividerBase from "../../items-base/divider-base/divider-base";
 import FormHelperTextBase from "../../items-base/form-helper-text-base/form-helper-text-base";
+import ButtonBase from "../../items-base/button-base/button-base";
 // Styles
 import { useStyles } from "./drawer-menu-item.styles";
 
@@ -22,6 +23,7 @@ export default function DrawerMenuItem({
   cardsContainerJustify,
   cardMarginX,
   cardMarginY,
+  handleDrawerOpen,
   handleDrawerItemChange,
 }) {
   const classes = useStyles();
@@ -278,6 +280,14 @@ export default function DrawerMenuItem({
         max={10}
         marks
       />
+      <ButtonBase
+        variant="outlined"
+        color="inherit"
+        classes={{ root: classes.buttonRoot, outlined: classes.buttonOutlined }}
+        onClick={handleDrawerOpen}
+      >
+        Done
+      </ButtonBase>
     </>
   );
 }
@@ -300,5 +310,6 @@ DrawerMenuItem.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]),
+  handleDrawerOpen: PropTypes.func.isRequired,
   handleDrawerItemChange: PropTypes.func.isRequired,
 };
