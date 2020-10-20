@@ -108,5 +108,14 @@ SlideshowWithPagination.propTypes = {
   ]),
   imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  slideshowContainerMaxWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
+  paginationMarginTop: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.object,
+  ]),
+  springConfig: PropTypes.object,
   rest: PropTypes.any,
 };

@@ -98,16 +98,16 @@ export default function Slideshow({
 }
 
 Slideshow.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.func.isRequired,
-    PropTypes.array.isRequired,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.func, PropTypes.array]).isRequired,
   childrenArray: PropTypes.array,
   options: PropTypes.array,
   showDots: PropTypes.bool,
   showNumbers: PropTypes.bool,
   showArrows: PropTypes.bool,
-  slideshowContainerMaxWidth: PropTypes.string,
+  slideshowContainerMaxWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
   paginationMarginTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,

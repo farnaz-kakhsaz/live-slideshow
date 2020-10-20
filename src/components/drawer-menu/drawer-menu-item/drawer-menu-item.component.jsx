@@ -3,13 +3,11 @@ import PropTypes from "prop-types";
 // Components
 import BoxBase from "../../items-base/box-base/box-base";
 import SwitchBase from "../../items-base/switch-base/switch-base";
-import FormControlBase from "../../items-base/form-control-base/form-control-base";
-import SelectBase from "../../items-base/select-base/select-base";
-import MenuItemBase from "../../items-base/menu-item-base/menu-item-base";
 import DividerBase from "../../items-base/divider-base/divider-base";
 import ButtonBase from "../../items-base/button-base/button-base";
 
 import Slider from "./slider.component";
+import Select from "./select.component";
 // Styles
 import { useStyles } from "./drawer-menu-item.styles";
 
@@ -103,125 +101,39 @@ export default function DrawerMenuItem({
         max={1000}
       />
       <DividerBase className={classes.marginY} />
-      <BoxBase
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <BoxBase
-          display="inline-block"
-          color="text.secondary"
-          fontWeight="fontWeightMedium"
-        >
-          Maximum width of the entire slideshow screen (default: lg):
-        </BoxBase>
-        <FormControlBase className={classes.formControl}>
-          <SelectBase
-            value={slideshowContainerMaxWidth}
-            onChange={handleDrawerItemChange("slideshowContainerMaxWidth")}
-            inputProps={{ "aria-label": "Dropdown menu" }}
-            classes={{ select: classes.menuItem }}
-          >
-            <MenuItemBase value={false} className={classes.menuItem}>
-              false
-            </MenuItemBase>
-            <MenuItemBase value="xs" className={classes.menuItem}>
-              xs
-            </MenuItemBase>
-            <MenuItemBase value="sm" className={classes.menuItem}>
-              sm
-            </MenuItemBase>
-            <MenuItemBase value="md" className={classes.menuItem}>
-              md
-            </MenuItemBase>
-            <MenuItemBase value="lg" className={classes.menuItem}>
-              lg
-            </MenuItemBase>
-            <MenuItemBase value="xl" className={classes.menuItem}>
-              xl
-            </MenuItemBase>
-          </SelectBase>
-        </FormControlBase>
-      </BoxBase>
+      <Select
+        boxText="Maximum width of the entire slideshow screen (default: lg):"
+        menuItemValue={[false, "xs", "sm", "md", "lg", "xl"]}
+        value={slideshowContainerMaxWidth}
+        onChange={handleDrawerItemChange("slideshowContainerMaxWidth")}
+        inputProps={{ "aria-label": "Dropdown menu" }}
+        classes={classes}
+      />
       <DividerBase className={classes.marginY} />
-      <BoxBase
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <BoxBase
-          display="inline-block"
-          color="text.secondary"
-          fontWeight="fontWeightMedium"
-        >
-          For width lower than this show only one card per screen (default: md):
-        </BoxBase>
-        <FormControlBase className={classes.formControl}>
-          <SelectBase
-            value={forWidthLowerShowOneCard}
-            onChange={handleDrawerItemChange("forWidthLowerShowOneCard")}
-            inputProps={{ "aria-label": "Dropdown menu" }}
-            classes={{ select: classes.menuItem }}
-          >
-            <MenuItemBase value="xs" className={classes.menuItem}>
-              xs
-            </MenuItemBase>
-            <MenuItemBase value="sm" className={classes.menuItem}>
-              sm
-            </MenuItemBase>
-            <MenuItemBase value="md" className={classes.menuItem}>
-              md
-            </MenuItemBase>
-            <MenuItemBase value="lg" className={classes.menuItem}>
-              lg
-            </MenuItemBase>
-            <MenuItemBase value="xl" className={classes.menuItem}>
-              xl
-            </MenuItemBase>
-          </SelectBase>
-        </FormControlBase>
-      </BoxBase>
+      <Select
+        boxText="For width lower than this show only one card per screen (default: md):"
+        menuItemValue={["xs", "sm", "md", "lg", "xl"]}
+        value={forWidthLowerShowOneCard}
+        onChange={handleDrawerItemChange("forWidthLowerShowOneCard")}
+        inputProps={{ "aria-label": "Dropdown menu" }}
+        classes={classes}
+      />
       <DividerBase className={classes.marginY} />
-      <BoxBase
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <BoxBase
-          display="inline-block"
-          color="text.secondary"
-          fontWeight="fontWeightMedium"
-        >
-          Cards container justify (default: space-evenly):
-        </BoxBase>
-        <FormControlBase className={classes.formControl}>
-          <SelectBase
-            value={cardsContainerJustify}
-            onChange={handleDrawerItemChange("cardsContainerJustify")}
-            inputProps={{ "aria-label": "Dropdown menu" }}
-            classes={{ select: classes.menuItem }}
-          >
-            <MenuItemBase value="flex-start" className={classes.menuItem}>
-              flex-start
-            </MenuItemBase>
-            <MenuItemBase value="flex-end" className={classes.menuItem}>
-              flex-end
-            </MenuItemBase>
-            <MenuItemBase value="center" className={classes.menuItem}>
-              center
-            </MenuItemBase>
-            <MenuItemBase value="space-between" className={classes.menuItem}>
-              space-between
-            </MenuItemBase>
-            <MenuItemBase value="space-around" className={classes.menuItem}>
-              space-around
-            </MenuItemBase>
-            <MenuItemBase value="space-evenly" className={classes.menuItem}>
-              space-evenly
-            </MenuItemBase>
-          </SelectBase>
-        </FormControlBase>
-      </BoxBase>
+      <Select
+        boxText="Cards container justify (default: space-evenly):"
+        menuItemValue={[
+          "flex-start",
+          "flex-end",
+          "center",
+          "space-between",
+          "space-around",
+          "space-evenly",
+        ]}
+        value={cardsContainerJustify}
+        onChange={handleDrawerItemChange("cardsContainerJustify")}
+        inputProps={{ "aria-label": "Dropdown menu" }}
+        classes={classes}
+      />
       <DividerBase className={classes.marginY} />
       <Slider
         boxText="Card horizontal margin (default: 0):"
@@ -267,19 +179,22 @@ DrawerMenuItem.propTypes = {
   numberOfCardsPerScreen: PropTypes.number.isRequired,
   imageMaxWidth: PropTypes.number.isRequired,
   imageMaxHeight: PropTypes.number.isRequired,
-  slideshowContainerMaxWidth: PropTypes.string.isRequired,
+  slideshowContainerMaxWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]).isRequired,
   forWidthLowerShowOneCard: PropTypes.string.isRequired,
   cardsContainerJustify: PropTypes.string.isRequired,
   cardMarginX: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
     PropTypes.object,
-  ]),
+  ]).isRequired,
   cardMarginY: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
     PropTypes.object,
-  ]),
+  ]).isRequired,
   handleDrawerOpen: PropTypes.func.isRequired,
   handleDrawerItemChange: PropTypes.func.isRequired,
 };
