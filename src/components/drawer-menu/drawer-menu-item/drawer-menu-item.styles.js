@@ -20,6 +20,9 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.success.main,
   },
   resetButton: {
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: theme.spacing(2),
+    },
     maxWidth: theme.spacing(20),
   },
 }));

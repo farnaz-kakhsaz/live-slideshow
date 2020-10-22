@@ -17,6 +17,18 @@ import CARDS_DETAILS from "../constants/card-details";
 // Styles
 import { useStyles } from "./home-page.styles";
 
+const INITIAL_STATE_FOR_DRAWER = {
+  enableMouseEvents: true,
+  numberOfCardsPerScreen: 3,
+  imageMaxWidth: 375,
+  imageMaxHeight: 234,
+  slideshowContainerMaxWidth: "lg",
+  forWidthLowerShowOneCard: "md",
+  cardsContainerJustify: "space-around",
+  cardMarginX: 0,
+  cardMarginY: 1,
+};
+
 export default function HomePage() {
   const [state, setState] = useState({
     oneCardPerScreen: CARDS_DETAILS,
@@ -28,25 +40,20 @@ export default function HomePage() {
     whichImageFade: -1,
     showImagePreviewResetBtn: false,
     openDrawer: false,
-    numberOfCardsPerScreen: 3,
-    enableMouseEvents: true,
-    imageMaxWidth: 375,
-    imageMaxHeight: 234,
-    slideshowContainerMaxWidth: "lg",
-    forWidthLowerShowOneCard: "md",
-    cardsContainerJustify: "space-around",
-    cardMarginX: 0,
-    cardMarginY: 1,
+    showDrawerResetBtn: false,
+    ...INITIAL_STATE_FOR_DRAWER,
   });
   const scrollToBottom = useRef(null);
   const classes = useStyles();
 
+  // Scroll to bottom
   useEffect(() => {
     if (state.numbers || state.dots || state.arrows) {
       scrollToBottom.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [state.numbers, state.dots, state.arrows]);
 
+  // Show image preview rest button
   useEffect(() => {
     setState((prevState) => ({
       ...prevState,
@@ -58,6 +65,37 @@ export default function HomePage() {
         : true,
     }));
   }, [state.oneCardPerScreen]);
+
+  // Show drawer reset button
+  useEffect(() => {
+    const drawerState = {
+      enableMouseEvents: state.enableMouseEvents,
+      numberOfCardsPerScreen: state.numberOfCardsPerScreen,
+      imageMaxWidth: state.imageMaxWidth,
+      imageMaxHeight: state.imageMaxHeight,
+      slideshowContainerMaxWidth: state.slideshowContainerMaxWidth,
+      forWidthLowerShowOneCard: state.forWidthLowerShowOneCard,
+      cardsContainerJustify: state.cardsContainerJustify,
+      cardMarginX: state.cardMarginX,
+      cardMarginY: state.cardMarginY,
+    };
+    setState((prevState) => ({
+      ...prevState,
+      showDrawerResetBtn: isEqual(INITIAL_STATE_FOR_DRAWER, drawerState)
+        ? false
+        : true,
+    }));
+  }, [
+    state.enableMouseEvents,
+    state.numberOfCardsPerScreen,
+    state.imageMaxWidth,
+    state.imageMaxHeight,
+    state.slideshowContainerMaxWidth,
+    state.forWidthLowerShowOneCard,
+    state.cardsContainerJustify,
+    state.cardMarginX,
+    state.cardMarginY,
+  ]);
 
   const handleCheckboxChange = (event) => {
     const { name } = event.target;
@@ -122,6 +160,10 @@ export default function HomePage() {
       ...prevState,
       openDrawer: !prevState.openDrawer,
     }));
+  };
+
+  const handleResetDrawerItem = () => {
+    setState((prevState) => ({ ...prevState, ...INITIAL_STATE_FOR_DRAWER }));
   };
 
   const handleDrawerItemChange = (name) => (event, newValue) => {
@@ -309,6 +351,8 @@ export default function HomePage() {
         openDrawer={state.openDrawer}
         handleDrawerOpen={handleDrawerOpen}
         handleDrawerItemChange={handleDrawerItemChange}
+        handleResetDrawerItem={handleResetDrawerItem}
+        showDrawerResetBtn={state.showDrawerResetBtn}
         enableMouseEvents={state.enableMouseEvents}
         numberOfCardsPerScreen={state.numberOfCardsPerScreen}
         imageMaxWidth={state.imageMaxWidth}

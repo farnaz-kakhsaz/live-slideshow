@@ -5,6 +5,7 @@ import BoxBase from "../../items-base/box-base/box-base";
 import SwitchBase from "../../items-base/switch-base/switch-base";
 import DividerBase from "../../items-base/divider-base/divider-base";
 import ButtonBase from "../../items-base/button-base/button-base";
+import GrowBase from "../../items-base/grow-base/grow-base";
 
 import Slider from "./slider.component";
 import Select from "./select.component";
@@ -21,8 +22,10 @@ export default function DrawerMenuItem({
   cardsContainerJustify,
   cardMarginX,
   cardMarginY,
+  showDrawerResetBtn,
   handleDrawerOpen,
   handleDrawerItemChange,
+  handleResetDrawerItem,
 }) {
   const classes = useStyles();
 
@@ -162,14 +165,32 @@ export default function DrawerMenuItem({
         max={10}
         marks
       />
-      <ButtonBase
-        variant="outlined"
-        color="inherit"
-        classes={{ root: classes.buttonRoot, outlined: classes.buttonOutlined }}
-        onClick={handleDrawerOpen}
-      >
-        Done
-      </ButtonBase>
+      <BoxBase display="flex" justifyContent="space-evenly" mt={2} mb={3}>
+        <ButtonBase
+          type="button"
+          variant="contained"
+          color="inherit"
+          onClick={handleDrawerOpen}
+          className={classes.doneButton}
+          fullWidth
+        >
+          Done
+        </ButtonBase>
+        {showDrawerResetBtn && (
+          <GrowBase in={showDrawerResetBtn} timeout={700}>
+            <ButtonBase
+              type="button"
+              variant="contained"
+              color="secondary"
+              onClick={handleResetDrawerItem}
+              className={classes.resetButton}
+              fullWidth
+            >
+              reset
+            </ButtonBase>
+          </GrowBase>
+        )}
+      </BoxBase>
     </>
   );
 }
@@ -195,6 +216,8 @@ DrawerMenuItem.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]).isRequired,
+  showDrawerResetBtn: PropTypes.bool.isRequired,
   handleDrawerOpen: PropTypes.func.isRequired,
   handleDrawerItemChange: PropTypes.func.isRequired,
+  handleResetDrawerItem: PropTypes.func.isRequired,
 };
