@@ -120,7 +120,7 @@ export default function DrawerMenuItem({
       />
       <DividerBase className={classes.marginY} />
       <Select
-        boxText="Cards container justify (default: space-evenly):"
+        boxText="Cards container justify (default: space-around):"
         menuItemValue={[
           "flex-start",
           "flex-end",

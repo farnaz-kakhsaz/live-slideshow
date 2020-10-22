@@ -34,7 +34,7 @@ export default function HomePage() {
     imageMaxHeight: 234,
     slideshowContainerMaxWidth: "lg",
     forWidthLowerShowOneCard: "md",
-    cardsContainerJustify: "space-evenly",
+    cardsContainerJustify: "space-around",
     cardMarginX: 0,
     cardMarginY: 1,
   });
@@ -48,7 +48,6 @@ export default function HomePage() {
   }, [state.numbers, state.dots, state.arrows]);
 
   useEffect(() => {
-    console.log(state.oneCardPerScreen);
     setState((prevState) => ({
       ...prevState,
       showImagePreviewResetBtn: isEqual(

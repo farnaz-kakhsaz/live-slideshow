@@ -14,7 +14,7 @@ function SlideshowWithPagination({
   children,
   numberOfCardsPerScreen = 3,
   forWidthLowerShowOneCard = "md",
-  cardsContainerJustify = "space-evenly",
+  cardsContainerJustify = "space-around",
   cardMarginX = 0,
   cardMarginY = 0,
   imageMaxWidth = 375,
