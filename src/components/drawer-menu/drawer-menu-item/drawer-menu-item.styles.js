@@ -6,24 +6,20 @@ export const useStyles = makeStyles((theme) => ({
   },
   menuItem: {
     color: theme.palette.text.secondary,
-    fontWeight: theme.typography.fontWeightMedium,
+    // fontWeight: theme.typography.fontWeightMedium,
   },
   formControl: {
-    minWidth: 70,
+    minWidth: theme.spacing(8),
   },
-  buttonRoot: {
+  doneButton: {
     "&:hover": {
-      background: "rgba(76, 175, 80, 0.04)",
+      backgroundColor: theme.palette.success.dark,
     },
-    marginTop: theme.spacing(3),
-    marginLeft: "50%",
-    transform: "translateX(-50%)",
-    color: theme.palette.success.main,
+    maxWidth: theme.spacing(20),
+    color: theme.palette.common.white,
+    backgroundColor: theme.palette.success.main,
   },
-  buttonOutlined: {
-    "&:hover": {
-      border: `1px solid ${theme.palette.success.dark}`,
-    },
-    border: `1px solid ${theme.palette.success.light}`,
+  resetButton: {
+    maxWidth: theme.spacing(20),
   },
 }));

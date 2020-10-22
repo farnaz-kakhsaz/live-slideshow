@@ -20,6 +20,7 @@ function DrawerMenuContainer({ width, openDrawer, handleDrawerOpen, ...rest }) {
     <>
       <DrawerBase
         open={openDrawer}
+        onClose={handleDrawerOpen}
         variant={isWidthDown("md", width) ? "temporary" : "persistent"}
         anchor="right"
         className={classes.drawer}

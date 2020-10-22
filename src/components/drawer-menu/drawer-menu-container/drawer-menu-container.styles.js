@@ -4,10 +4,16 @@ const drawerWidth = 500;
 
 export const useStyles = makeStyles((theme) => ({
   drawer: {
-    width: drawerWidth,
+    [theme.breakpoints.up("lg")]: {
+      width: drawerWidth,
+    },
+    width: "90%",
   },
   drawerPaper: {
-    width: drawerWidth,
+    [theme.breakpoints.up("lg")]: {
+      width: drawerWidth,
+    },
+    width: "90%",
   },
   fab: {
     [theme.breakpoints.down("xs")]: {
