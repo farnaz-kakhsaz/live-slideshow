@@ -25,7 +25,7 @@ export default function HomePage() {
     arrows: false,
     showError: false,
     shakeEnd: true,
-    whichOneFade: -1,
+    whichImageFade: -1,
     openDrawer: false,
     numberOfCardsPerScreen: 3,
     enableMouseEvents: true,
@@ -68,7 +68,7 @@ export default function HomePage() {
     if (state.oneCardPerScreen.length > 4) {
       setState((prevState) => ({
         ...prevState,
-        whichOneFade: itemIndex,
+        whichImageFade: itemIndex,
       }));
 
       // The 600ms set based on timeout that we set on the Grow component in the ImagePreviewItem component.
@@ -77,7 +77,7 @@ export default function HomePage() {
         setState((prevState) => ({
           ...prevState,
           oneCardPerScreen: newArray,
-          whichOneFade: -1,
+          whichImageFade: -1,
         }));
       }, 600);
     } else {
@@ -89,7 +89,7 @@ export default function HomePage() {
     }
   };
 
-  const handleReset = () => {
+  const handleResetImagePreview = () => {
     setState((prevState) => ({
       ...prevState,
       oneCardPerScreen: CARDS_DETAILS,
@@ -208,7 +208,7 @@ export default function HomePage() {
               <ImagePreviewContainer
                 cards={state.oneCardPerScreen}
                 shakeIt={state.showError && state.shakeEnd ? true : false}
-                whichOneFade={state.whichOneFade}
+                whichImageFade={state.whichImageFade}
                 handleRemoveItem={handleRemoveItem}
                 handleShakeAnimation={handleShakeAnimation}
               />
@@ -229,8 +229,11 @@ export default function HomePage() {
             </BoxBase>
             <UploadImage
               handleAddImage={handleAddImage}
-              handleReset={handleReset}
-              showResetBtn={isEqual(CARDS_DETAILS, state.oneCardPerScreen)}
+              handleResetImagePreview={handleResetImagePreview}
+              showImagePreviewResetBtn={isEqual(
+                CARDS_DETAILS,
+                state.oneCardPerScreen
+              )}
             />
           </BoxBase>
           <BoxBase

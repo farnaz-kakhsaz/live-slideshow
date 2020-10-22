@@ -10,7 +10,7 @@ import { useStyles } from "./image-preview-container.styles";
 export default function ImagePreviewContainer({
   cards,
   shakeIt,
-  whichOneFade,
+  whichImageFade,
   handleRemoveItem,
   handleShakeAnimation,
 }) {
@@ -28,7 +28,7 @@ export default function ImagePreviewContainer({
           key={index}
           item={item}
           index={index}
-          whichOneFade={whichOneFade}
+          whichImageFade={whichImageFade}
           handleRemoveItem={handleRemoveItem}
         />
       ))}
@@ -39,7 +39,7 @@ export default function ImagePreviewContainer({
 ImagePreviewContainer.propTypes = {
   cards: PropTypes.array.isRequired,
   shakeIt: PropTypes.bool.isRequired,
-  whichOneFade: PropTypes.number.isRequired,
+  whichImageFade: PropTypes.number.isRequired,
   handleRemoveItem: PropTypes.func.isRequired,
   handleShakeAnimation: PropTypes.func.isRequired,
 };
