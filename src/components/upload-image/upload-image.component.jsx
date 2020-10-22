@@ -10,8 +10,8 @@ import { useStyles } from "./upload-image.styles";
 
 export default function UploadImage({
   handleAddImage,
-  handleReset,
-  showResetBtn,
+  handleResetImagePreview,
+  showImagePreviewResetBtn,
 }) {
   const [name, setName] = useState("");
   const [value, setValue] = useState(null);
@@ -95,14 +95,14 @@ export default function UploadImage({
           </ButtonBase>
         </BoxBase>
       </BoxBase>
-      {showResetBtn && (
-        <GrowBase in={showResetBtn} timeout={700}>
+      {showImagePreviewResetBtn && (
+        <GrowBase in={showImagePreviewResetBtn} timeout={700}>
           <ButtonBase
             type="button"
             variant="contained"
             color="secondary"
             fullWidth
-            onClick={handleReset}
+            onClick={handleResetImagePreview}
             className={classes.resetBtn}
           >
             Reset
@@ -145,6 +145,6 @@ export default function UploadImage({
 
 UploadImage.propTypes = {
   handleAddImage: PropTypes.func.isRequired,
-  handleReset: PropTypes.func.isRequired,
-  showResetBtn: PropTypes.bool.isRequired,
+  handleResetImagePreview: PropTypes.func.isRequired,
+  showImagePreviewResetBtn: PropTypes.bool.isRequired,
 };
