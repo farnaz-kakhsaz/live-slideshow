@@ -26,6 +26,7 @@ export default function HomePage() {
     showError: false,
     shakeEnd: true,
     whichImageFade: -1,
+    showImagePreviewResetBtn: false,
     openDrawer: false,
     numberOfCardsPerScreen: 3,
     enableMouseEvents: true,
@@ -45,6 +46,19 @@ export default function HomePage() {
       scrollToBottom.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [state.numbers, state.dots, state.arrows]);
+
+  useEffect(() => {
+    console.log(state.oneCardPerScreen);
+    setState((prevState) => ({
+      ...prevState,
+      showImagePreviewResetBtn: isEqual(
+        CARDS_DETAILS,
+        prevState.oneCardPerScreen
+      )
+        ? false
+        : true,
+    }));
+  }, [state.oneCardPerScreen]);
 
   const handleCheckboxChange = (event) => {
     const { name } = event.target;
@@ -230,10 +244,7 @@ export default function HomePage() {
             <UploadImage
               handleAddImage={handleAddImage}
               handleResetImagePreview={handleResetImagePreview}
-              showImagePreviewResetBtn={isEqual(
-                CARDS_DETAILS,
-                state.oneCardPerScreen
-              )}
+              showImagePreviewResetBtn={state.showImagePreviewResetBtn}
             />
           </BoxBase>
           <BoxBase
