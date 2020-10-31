@@ -112,7 +112,7 @@ export default function UploadImage({
       {error && (
         <BoxBase mt={2}>
           {!name && (
-            <GrowBase in={!name} timeout={700}>
+            <GrowBase in={!name} timeout={1000}>
               <BoxBase
                 color="error.main"
                 letterSpacing="1px"
@@ -125,7 +125,7 @@ export default function UploadImage({
             </GrowBase>
           )}
           {!value && (
-            <GrowBase in={!value} timeout={700}>
+            <GrowBase in={!value} timeout={1000}>
               <BoxBase
                 color="error.main"
                 letterSpacing="1px"

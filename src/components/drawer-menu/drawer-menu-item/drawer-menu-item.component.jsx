@@ -177,7 +177,7 @@ export default function DrawerMenuItem({
           Done
         </ButtonBase>
         {showDrawerResetBtn && (
-          <GrowBase in={showDrawerResetBtn} timeout={700}>
+          <GrowBase in={showDrawerResetBtn} timeout={1500}>
             <ButtonBase
               type="button"
               variant="contained"
