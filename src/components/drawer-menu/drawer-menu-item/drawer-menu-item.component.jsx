@@ -15,8 +15,8 @@ import { useStyles } from "./drawer-menu-item.styles";
 export default function DrawerMenuItem({
   enableMouseEvents,
   numberOfCardsPerScreen,
-  imageMaxWidth,
-  imageMaxHeight,
+  cardWidth,
+  cardHeight,
   slideshowContainerMaxWidth,
   forWidthLowerShowOneCard,
   cardsContainerJustify,
@@ -59,7 +59,7 @@ export default function DrawerMenuItem({
           color="text.secondary"
           fontWeight="fontWeightMedium"
         >
-          Mouse Event (default: enabled):
+          Mouse Event (default: true):
         </BoxBase>
         <SwitchBase
           checked={enableMouseEvents}
@@ -81,25 +81,25 @@ export default function DrawerMenuItem({
       />
       <DividerBase className={classes.marginY} />
       <Slider
-        boxText="Images width (default: 375):"
-        name="imageMaxWidth"
-        value={imageMaxWidth}
+        boxText="Cards width (default: 375):"
+        name="cardWidth"
+        value={cardWidth}
         getAriaValueText={valueText("image size")}
         ariaLabelledby="discrete-slider"
         valueLabelDisplay="auto"
-        onChange={handleDrawerItemChange("imageMaxWidth")}
+        onChange={handleDrawerItemChange("cardWidth")}
         min={0}
         max={1000}
       />
       <DividerBase className={classes.marginY} />
       <Slider
-        boxText="Images height (default: 234):"
-        name="imageMaxHeight"
-        value={imageMaxHeight}
+        boxText="Cards height (default: 234):"
+        name="cardHeight"
+        value={cardHeight}
         getAriaValueText={valueText("image size")}
         ariaLabelledby="discrete-slider"
         valueLabelDisplay="auto"
-        onChange={handleDrawerItemChange("imageMaxHeight")}
+        onChange={handleDrawerItemChange("cardHeight")}
         min={0}
         max={1000}
       />
@@ -198,8 +198,8 @@ export default function DrawerMenuItem({
 DrawerMenuItem.propTypes = {
   enableMouseEvents: PropTypes.bool.isRequired,
   numberOfCardsPerScreen: PropTypes.number.isRequired,
-  imageMaxWidth: PropTypes.number.isRequired,
-  imageMaxHeight: PropTypes.number.isRequired,
+  cardWidth: PropTypes.number.isRequired,
+  cardHeight: PropTypes.number.isRequired,
   slideshowContainerMaxWidth: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.bool,

@@ -17,8 +17,8 @@ function SlideshowWithPagination({
   cardsContainerJustify = "space-around",
   cardMarginX = 0,
   cardMarginY = 0,
-  imageMaxWidth = 375,
-  imageMaxHeight = 234,
+  cardWidth = 375,
+  cardHeight = 234,
   slideshowContainerMaxWidth = "lg",
   paginationMarginTop = 3,
   springConfig = {
@@ -62,8 +62,8 @@ function SlideshowWithPagination({
               <Card
                 image={item.image}
                 title={item.title}
-                imageMaxWidth={imageMaxWidth}
-                imageMaxHeight={imageMaxHeight}
+                cardWidth={cardWidth}
+                cardHeight={cardHeight}
                 cardMarginX={cardMarginX}
                 cardMarginY={cardMarginY}
                 key={index}
@@ -74,8 +74,8 @@ function SlideshowWithPagination({
                   <Card
                     image={item.image}
                     title={item.title}
-                    imageMaxWidth={imageMaxWidth}
-                    imageMaxHeight={imageMaxHeight}
+                    cardWidth={cardWidth}
+                    cardHeight={cardHeight}
                     cardMarginX={cardMarginX}
                     cardMarginY={cardMarginY}
                     key={index}
@@ -106,8 +106,8 @@ SlideshowWithPagination.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]),
-  imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  cardWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  cardHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   slideshowContainerMaxWidth: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.bool,

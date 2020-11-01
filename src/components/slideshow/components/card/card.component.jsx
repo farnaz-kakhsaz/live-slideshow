@@ -9,19 +9,24 @@ import { useStyles } from "./card.styles";
 export default function Card({
   image,
   title,
-  imageMaxWidth,
-  imageMaxHeight,
+  cardWidth,
+  cardHeight,
   cardMarginX,
   cardMarginY,
 }) {
   const classes = useStyles({
-    maxWidth: imageMaxWidth,
-    maxHeight: imageMaxHeight,
+    cardHeight,
+    image,
   });
 
   return (
-    <BoxBase textAlign="center" mx={cardMarginX} my={cardMarginY}>
-      <img className={classes.image} src={image} alt={title} />
+    <BoxBase
+      textAlign="center"
+      mx={cardMarginX}
+      my={cardMarginY}
+      width={cardWidth}
+    >
+      <div className={classes.image} />
       {title && (
         <TypographyBase className={classes.typography}>{title}</TypographyBase>
       )}
@@ -32,8 +37,8 @@ export default function Card({
 Card.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  imageMaxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  imageMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  cardWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  cardHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   cardMarginX: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,

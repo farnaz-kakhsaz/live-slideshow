@@ -20,8 +20,8 @@ import { useStyles } from "./home-page.styles";
 const INITIAL_STATE_FOR_DRAWER = {
   enableMouseEvents: true,
   numberOfCardsPerScreen: 3,
-  imageMaxWidth: 375,
-  imageMaxHeight: 234,
+  cardWidth: 375,
+  cardHeight: 234,
   slideshowContainerMaxWidth: "lg",
   forWidthLowerShowOneCard: "md",
   cardsContainerJustify: "space-around",
@@ -71,8 +71,8 @@ export default function HomePage() {
     const drawerState = {
       enableMouseEvents: state.enableMouseEvents,
       numberOfCardsPerScreen: state.numberOfCardsPerScreen,
-      imageMaxWidth: state.imageMaxWidth,
-      imageMaxHeight: state.imageMaxHeight,
+      cardWidth: state.cardWidth,
+      cardHeight: state.cardHeight,
       slideshowContainerMaxWidth: state.slideshowContainerMaxWidth,
       forWidthLowerShowOneCard: state.forWidthLowerShowOneCard,
       cardsContainerJustify: state.cardsContainerJustify,
@@ -88,8 +88,8 @@ export default function HomePage() {
   }, [
     state.enableMouseEvents,
     state.numberOfCardsPerScreen,
-    state.imageMaxWidth,
-    state.imageMaxHeight,
+    state.cardWidth,
+    state.cardHeight,
     state.slideshowContainerMaxWidth,
     state.forWidthLowerShowOneCard,
     state.cardsContainerJustify,
@@ -182,13 +182,13 @@ export default function HomePage() {
           [name]: newValue,
         }));
         break;
-      case "imageMaxWidth":
+      case "cardWidth":
         setState((prevState) => ({
           ...prevState,
           [name]: newValue,
         }));
         break;
-      case "imageMaxHeight":
+      case "cardHeight":
         setState((prevState) => ({
           ...prevState,
           [name]: newValue,
@@ -330,8 +330,8 @@ export default function HomePage() {
             interval={5000}
             enableMouseEvents={state.enableMouseEvents}
             numberOfCardsPerScreen={state.numberOfCardsPerScreen}
-            imageMaxWidth={state.imageMaxWidth}
-            imageMaxHeight={state.imageMaxHeight}
+            cardWidth={state.cardWidth}
+            cardHeight={state.cardHeight}
             slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
             forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
             cardsContainerJustify={state.cardsContainerJustify}
@@ -355,8 +355,8 @@ export default function HomePage() {
         showDrawerResetBtn={state.showDrawerResetBtn}
         enableMouseEvents={state.enableMouseEvents}
         numberOfCardsPerScreen={state.numberOfCardsPerScreen}
-        imageMaxWidth={state.imageMaxWidth}
-        imageMaxHeight={state.imageMaxHeight}
+        cardWidth={state.cardWidth}
+        cardHeight={state.cardHeight}
         slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
         forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
         cardsContainerJustify={state.cardsContainerJustify}
