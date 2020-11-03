@@ -17,8 +17,8 @@ function SlideshowWithPagination({
   cardsContainerJustify = "space-around",
   cardMarginX = 0,
   cardMarginY = 0,
-  cardWidth = 375,
-  cardHeight = 234,
+  cardWidth = 390,
+  cardHeight = 245,
   slideshowContainerMaxWidth = "lg",
   paginationMarginTop = 3,
   springConfig = {

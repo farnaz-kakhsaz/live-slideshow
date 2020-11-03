@@ -81,7 +81,7 @@ export default function DrawerMenuItem({
       />
       <DividerBase className={classes.marginY} />
       <Slider
-        boxText="Cards width (default: 375):"
+        boxText="Cards width (default: 390):"
         name="cardWidth"
         value={cardWidth}
         getAriaValueText={valueText("image size")}
@@ -93,7 +93,7 @@ export default function DrawerMenuItem({
       />
       <DividerBase className={classes.marginY} />
       <Slider
-        boxText="Cards height (default: 234):"
+        boxText="Cards height (default: 245):"
         name="cardHeight"
         value={cardHeight}
         getAriaValueText={valueText("image size")}

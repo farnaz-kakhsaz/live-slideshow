@@ -20,8 +20,8 @@ import { useStyles } from "./home-page.styles";
 const INITIAL_STATE_FOR_DRAWER = {
   enableMouseEvents: true,
   numberOfCardsPerScreen: 3,
-  cardWidth: 375,
-  cardHeight: 234,
+  cardWidth: 390,
+  cardHeight: 245,
   slideshowContainerMaxWidth: "lg",
   forWidthLowerShowOneCard: "md",
   cardsContainerJustify: "space-around",
