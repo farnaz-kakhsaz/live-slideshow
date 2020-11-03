@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 // Material-UI
 import TextField from "@material-ui/core/TextField";
 
-export default function TextFieldBase({ ...rest }) {
-  return <TextField {...rest} />;
+export default function TextFieldBase(props) {
+  return <TextField {...props} />;
 }
 
 TextField.propTypes = {
-  rest: PropTypes.any,
+  props: PropTypes.any,
 };

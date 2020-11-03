@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 // Material-UI
 import Slider from "@material-ui/core/Slider";
 
-export default function SliderBase({ ...rest }) {
-  return <Slider {...rest} />;
+export default function SliderBase(props) {
+  return <Slider {...props} />;
 }
 
 SliderBase.propTypes = {
-  rest: PropTypes.any,
+  props: PropTypes.any,
 };
