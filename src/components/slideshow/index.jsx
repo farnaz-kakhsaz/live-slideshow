@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import PropTypes from "prop-types";
 // Components
 import Slideshow from "./components/slideshow/slideshow";
-import Card from "./components/card/card.component";
 import GridBase from "./components/items-base/grid-base/grid-base";
+import CircularProgress from "../items-base/circular-progress-base/circular-progress-base";
 import { splitToChunks } from "./helper/splitToChunks";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
+// Code Split (Components)
+const Card = lazy(() => import("./components/card/card.component"));
 
 function SlideshowWithPagination({
   width,
@@ -59,28 +61,31 @@ function SlideshowWithPagination({
         ? children
         : (item, index) =>
             isWidthDown(forWidthLowerShowOneCard, width) ? (
-              <Card
-                image={item.image}
-                title={item.title}
-                cardWidth={cardWidth}
-                cardHeight={cardHeight}
-                cardMarginX={cardMarginX}
-                cardMarginY={cardMarginY}
-                showOneCard
-                key={index}
-              />
+              <Suspense fallback={<CircularProgress />}>
+                <Card
+                  image={item.image}
+                  title={item.title}
+                  cardWidth={cardWidth}
+                  cardHeight={cardHeight}
+                  cardMarginX={cardMarginX}
+                  cardMarginY={cardMarginY}
+                  showOneCard
+                  key={index}
+                />
+              </Suspense>
             ) : (
               <GridBase container justify={cardsContainerJustify} key={index}>
                 {item.map((item, index) => (
-                  <Card
-                    image={item.image}
-                    title={item.title}
-                    cardWidth={cardWidth}
-                    cardHeight={cardHeight}
-                    cardMarginX={cardMarginX}
-                    cardMarginY={cardMarginY}
-                    key={index}
-                  />
+                  <Suspense fallback={<CircularProgress />} key={index}>
+                    <Card
+                      image={item.image}
+                      title={item.title}
+                      cardWidth={cardWidth}
+                      cardHeight={cardHeight}
+                      cardMarginX={cardMarginX}
+                      cardMarginY={cardMarginY}
+                    />
+                  </Suspense>
                 ))}
               </GridBase>
             )}
