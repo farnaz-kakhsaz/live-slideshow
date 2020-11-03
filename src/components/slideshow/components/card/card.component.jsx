@@ -13,18 +13,22 @@ export default function Card({
   cardHeight,
   cardMarginX,
   cardMarginY,
+  showOneCard,
 }) {
   const classes = useStyles({
+    cardWidth,
     cardHeight,
+    showOneCard,
     image,
   });
 
   return (
     <BoxBase
       textAlign="center"
-      mx={cardMarginX}
+      mx={showOneCard ? "auto" : cardMarginX}
       my={cardMarginY}
-      width={cardWidth}
+      maxWidth={cardWidth}
+      width="100%"
     >
       <div className={classes.image} />
       {title && (
@@ -49,4 +53,5 @@ Card.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]),
+  showOneCard: PropTypes.bool,
 };

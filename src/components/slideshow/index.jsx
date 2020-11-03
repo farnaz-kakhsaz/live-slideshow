@@ -66,6 +66,7 @@ function SlideshowWithPagination({
                 cardHeight={cardHeight}
                 cardMarginX={cardMarginX}
                 cardMarginY={cardMarginY}
+                showOneCard
                 key={index}
               />
             ) : (
