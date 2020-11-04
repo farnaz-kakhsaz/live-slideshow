@@ -21,7 +21,7 @@ export default function Slideshow({
   showArrows,
   slideshowContainerMaxWidth,
   paginationMarginTop,
-  springConfig,
+  autoPlay,
   ...rest
 }) {
   const [activeStep, setActiveStep] = useState(0);
@@ -47,18 +47,31 @@ export default function Slideshow({
       <BoxBase position="relative" maxWidth="100%">
         {showArrows && <Arrow handleArrowClick={handleArrowClick} />}
         <ContainerBase maxWidth={slideshowContainerMaxWidth} disableGutters>
-          <AutoPlaySwipeableViews
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            springConfig={springConfig}
-            {...rest}
-          >
-            {childrenArray
-              ? childrenArray
-              : options.map((item, index, array) =>
-                  children(item, index, array)
-                )}
-          </AutoPlaySwipeableViews>
+          {autoPlay ? (
+            <AutoPlaySwipeableViews
+              index={activeStep}
+              onChangeIndex={handleStepChange}
+              {...rest}
+            >
+              {childrenArray
+                ? childrenArray
+                : options.map((item, index, array) =>
+                    children(item, index, array)
+                  )}
+            </AutoPlaySwipeableViews>
+          ) : (
+            <SwipeableViews
+              index={activeStep}
+              onChangeIndex={handleStepChange}
+              {...rest}
+            >
+              {childrenArray
+                ? childrenArray
+                : options.map((item, index, array) =>
+                    children(item, index, array)
+                  )}
+            </SwipeableViews>
+          )}
         </ContainerBase>
       </BoxBase>
       {showDots && (
@@ -112,6 +125,6 @@ Slideshow.propTypes = {
     PropTypes.number,
     PropTypes.object,
   ]),
-  springConfig: PropTypes.object,
+  autoPlay: PropTypes.bool,
   rest: PropTypes.any,
 };

@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Components
-import BoxBase from "../../items-base/box-base/box-base";
-import SwitchBase from "../../items-base/switch-base/switch-base";
 import DividerBase from "../../items-base/divider-base/divider-base";
 
+import Switch from "./switch.component";
 import Slider from "./slider.component";
 import Select from "./select.component";
 // Styles
 import { useStyles } from "./drawer-menu-item.styles";
 
 export default function DrawerMenuItem({
+  autoPlay,
   enableMouseEvents,
   numberOfCardsPerScreen,
   cardWidth,
@@ -43,24 +43,17 @@ export default function DrawerMenuItem({
 
   return (
     <>
-      <BoxBase
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        marginTop={1}
-      >
-        <BoxBase
-          display="inline-block"
-          color="text.secondary"
-          fontWeight="fontWeightMedium"
-        >
-          Mouse Event (default: true):
-        </BoxBase>
-        <SwitchBase
-          checked={enableMouseEvents}
-          onChange={handleDrawerItemChange("enableMouseEvents")}
-        />
-      </BoxBase>
+      <Switch
+        boxText="Auto-play slideshow (default: true):"
+        checked={autoPlay}
+        onChange={handleDrawerItemChange("autoPlay")}
+      />
+      <DividerBase className={classes.marginY} />
+      <Switch
+        boxText="Mouse event (default: true):"
+        checked={enableMouseEvents}
+        onChange={handleDrawerItemChange("enableMouseEvents")}
+      />
       <DividerBase className={classes.marginY} />
       <Slider
         boxText="Number of cards per screen (default: 3):"
@@ -165,6 +158,7 @@ export default function DrawerMenuItem({
 }
 
 DrawerMenuItem.propTypes = {
+  autoPlay: PropTypes.bool.isRequired,
   enableMouseEvents: PropTypes.bool.isRequired,
   numberOfCardsPerScreen: PropTypes.number.isRequired,
   cardWidth: PropTypes.number.isRequired,

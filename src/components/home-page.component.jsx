@@ -18,6 +18,7 @@ import CARDS_DETAILS from "../constants/card-details";
 import { useStyles } from "./home-page.styles";
 
 const INITIAL_STATE_FOR_DRAWER = {
+  autoPlay: true,
   enableMouseEvents: true,
   numberOfCardsPerScreen: 3,
   cardWidth: 390,
@@ -69,6 +70,7 @@ export default function HomePage() {
   // Show drawer reset button
   useEffect(() => {
     const drawerState = {
+      autoPlay: state.autoPlay,
       enableMouseEvents: state.enableMouseEvents,
       numberOfCardsPerScreen: state.numberOfCardsPerScreen,
       cardWidth: state.cardWidth,
@@ -86,6 +88,7 @@ export default function HomePage() {
         : true,
     }));
   }, [
+    state.autoPlay,
     state.enableMouseEvents,
     state.numberOfCardsPerScreen,
     state.cardWidth,
@@ -170,6 +173,12 @@ export default function HomePage() {
     const { value } = event.target;
 
     switch (name) {
+      case "autoPlay":
+        setState((prevState) => ({
+          ...prevState,
+          [name]: !prevState[name],
+        }));
+        break;
       case "enableMouseEvents":
         setState((prevState) => ({
           ...prevState,
@@ -232,7 +241,7 @@ export default function HomePage() {
   return (
     <section className={classes.root}>
       <BoxBase
-        my={5}
+        my={4}
         textAlign="center"
         className={clsx(classes.content, {
           [classes.contentShift]: state.openDrawer,
@@ -327,22 +336,16 @@ export default function HomePage() {
             showNumbers={state.numbers}
             showDots={state.dots}
             showArrows={state.arrows}
-            interval={5000}
+            autoPlay={state.autoPlay}
             enableMouseEvents={state.enableMouseEvents}
             numberOfCardsPerScreen={state.numberOfCardsPerScreen}
+            showOneCardForWidthLower={state.showOneCardForWidthLower}
+            slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
+            cardsContainerJustify={state.cardsContainerJustify}
             cardWidth={state.cardWidth}
             cardHeight={state.cardHeight}
-            slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
-            showOneCardForWidthLower={state.showOneCardForWidthLower}
-            cardsContainerJustify={state.cardsContainerJustify}
             cardMarginX={state.cardMarginX}
             cardMarginY={state.cardMarginY}
-            // paginationMarginTop={{ xs: 4 }}
-            // springConfig={{
-            //   duration: "1s",
-            //   easeFunction: "ease-in-out",
-            //   delay: "0s",
-            // }}
           />
         </ContainerBase>
         <div ref={scrollToBottom} />
@@ -353,13 +356,14 @@ export default function HomePage() {
         handleDrawerItemChange={handleDrawerItemChange}
         handleResetDrawerItem={handleResetDrawerItem}
         showDrawerResetBtn={state.showDrawerResetBtn}
+        autoPlay={state.autoPlay}
         enableMouseEvents={state.enableMouseEvents}
         numberOfCardsPerScreen={state.numberOfCardsPerScreen}
+        showOneCardForWidthLower={state.showOneCardForWidthLower}
+        slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
+        cardsContainerJustify={state.cardsContainerJustify}
         cardWidth={state.cardWidth}
         cardHeight={state.cardHeight}
-        slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
-        showOneCardForWidthLower={state.showOneCardForWidthLower}
-        cardsContainerJustify={state.cardsContainerJustify}
         cardMarginX={state.cardMarginX}
         cardMarginY={state.cardMarginY}
       />

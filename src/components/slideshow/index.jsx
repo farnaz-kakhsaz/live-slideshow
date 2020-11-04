@@ -14,15 +14,18 @@ function SlideshowWithPagination({
   width,
   options = [],
   children,
+  autoPlay = true,
+  enableMouseEvents = true,
   numberOfCardsPerScreen = 3,
   showOneCardForWidthLower = "md",
+  slideshowContainerMaxWidth = "lg",
   cardsContainerJustify = "space-around",
-  cardMarginX = 0,
-  cardMarginY = 0,
   cardWidth = 390,
   cardHeight = 245,
-  slideshowContainerMaxWidth = "lg",
+  cardMarginX = 0,
+  cardMarginY = 0,
   paginationMarginTop = 3,
+  interval = 5000,
   springConfig = {
     duration: "1s",
     easeFunction: "ease-in-out",
@@ -54,6 +57,9 @@ function SlideshowWithPagination({
       childrenArray={children}
       slideshowContainerMaxWidth={slideshowContainerMaxWidth}
       paginationMarginTop={paginationMarginTop}
+      autoPlay={autoPlay}
+      enableMouseEvents={enableMouseEvents}
+      interval={interval}
       springConfig={springConfig}
       {...rest}
     >
@@ -99,6 +105,8 @@ SlideshowWithPagination.propTypes = {
   options: PropTypes.array,
   children: PropTypes.array,
   width: PropTypes.string.isRequired,
+  autoPlay: PropTypes.bool,
+  enableMouseEvents: PropTypes.bool,
   numberOfCardsPerScreen: PropTypes.number,
   showOneCardForWidthLower: PropTypes.string,
   cardsContainerJustify: PropTypes.string,
@@ -122,6 +130,7 @@ SlideshowWithPagination.propTypes = {
     PropTypes.number,
     PropTypes.object,
   ]),
+  interval: PropTypes.number,
   springConfig: PropTypes.object,
   rest: PropTypes.any,
 };
