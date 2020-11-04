@@ -23,7 +23,7 @@ const INITIAL_STATE_FOR_DRAWER = {
   cardWidth: 390,
   cardHeight: 245,
   slideshowContainerMaxWidth: "lg",
-  forWidthLowerShowOneCard: "md",
+  showOneCardForWidthLower: "md",
   cardsContainerJustify: "space-around",
   cardMarginX: 0,
   cardMarginY: 1,
@@ -74,7 +74,7 @@ export default function HomePage() {
       cardWidth: state.cardWidth,
       cardHeight: state.cardHeight,
       slideshowContainerMaxWidth: state.slideshowContainerMaxWidth,
-      forWidthLowerShowOneCard: state.forWidthLowerShowOneCard,
+      showOneCardForWidthLower: state.showOneCardForWidthLower,
       cardsContainerJustify: state.cardsContainerJustify,
       cardMarginX: state.cardMarginX,
       cardMarginY: state.cardMarginY,
@@ -91,7 +91,7 @@ export default function HomePage() {
     state.cardWidth,
     state.cardHeight,
     state.slideshowContainerMaxWidth,
-    state.forWidthLowerShowOneCard,
+    state.showOneCardForWidthLower,
     state.cardsContainerJustify,
     state.cardMarginX,
     state.cardMarginY,
@@ -194,7 +194,7 @@ export default function HomePage() {
           [name]: newValue,
         }));
         break;
-      case "forWidthLowerShowOneCard":
+      case "showOneCardForWidthLower":
         setState((prevState) => ({
           ...prevState,
           [name]: value,
@@ -333,7 +333,7 @@ export default function HomePage() {
             cardWidth={state.cardWidth}
             cardHeight={state.cardHeight}
             slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
-            forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
+            showOneCardForWidthLower={state.showOneCardForWidthLower}
             cardsContainerJustify={state.cardsContainerJustify}
             cardMarginX={state.cardMarginX}
             cardMarginY={state.cardMarginY}
@@ -358,7 +358,7 @@ export default function HomePage() {
         cardWidth={state.cardWidth}
         cardHeight={state.cardHeight}
         slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
-        forWidthLowerShowOneCard={state.forWidthLowerShowOneCard}
+        showOneCardForWidthLower={state.showOneCardForWidthLower}
         cardsContainerJustify={state.cardsContainerJustify}
         cardMarginX={state.cardMarginX}
         cardMarginY={state.cardMarginY}

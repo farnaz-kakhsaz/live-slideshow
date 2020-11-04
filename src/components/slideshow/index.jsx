@@ -15,7 +15,7 @@ function SlideshowWithPagination({
   options = [],
   children,
   numberOfCardsPerScreen = 3,
-  forWidthLowerShowOneCard = "md",
+  showOneCardForWidthLower = "md",
   cardsContainerJustify = "space-around",
   cardMarginX = 0,
   cardMarginY = 0,
@@ -47,7 +47,7 @@ function SlideshowWithPagination({
       options={
         children
           ? children
-          : isWidthDown(forWidthLowerShowOneCard, width)
+          : isWidthDown(showOneCardForWidthLower, width)
           ? oneCardPerScreen
           : multipleCardsPerScreen
       }
@@ -60,7 +60,7 @@ function SlideshowWithPagination({
       {children
         ? children
         : (item, index) =>
-            isWidthDown(forWidthLowerShowOneCard, width) ? (
+            isWidthDown(showOneCardForWidthLower, width) ? (
               <Suspense fallback={<CircularProgress />}>
                 <Card
                   image={item.image}
@@ -100,7 +100,7 @@ SlideshowWithPagination.propTypes = {
   children: PropTypes.array,
   width: PropTypes.string.isRequired,
   numberOfCardsPerScreen: PropTypes.number,
-  forWidthLowerShowOneCard: PropTypes.string,
+  showOneCardForWidthLower: PropTypes.string,
   cardsContainerJustify: PropTypes.string,
   cardMarginX: PropTypes.oneOfType([
     PropTypes.number,

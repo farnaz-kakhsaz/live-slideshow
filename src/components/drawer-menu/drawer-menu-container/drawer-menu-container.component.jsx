@@ -44,7 +44,7 @@ function DrawerMenuContainer({
             textAlign="center"
             my={2}
           >
-            You can customize almost anything about the Slideshow
+            You can customize almost anything about this Slideshow
           </BoxBase>
           <DividerBase variant="middle" className={classes.marginY} />
           <DrawerMenuItem {...rest} />
@@ -57,7 +57,7 @@ function DrawerMenuContainer({
           >
             And so much more &nbsp;
             <a
-              href="https://www.google.com"
+              href="https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination"
               target="_blank"
               rel="noopener noreferrer"
             >

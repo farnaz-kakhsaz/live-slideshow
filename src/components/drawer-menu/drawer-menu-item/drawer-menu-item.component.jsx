@@ -16,7 +16,7 @@ export default function DrawerMenuItem({
   cardWidth,
   cardHeight,
   slideshowContainerMaxWidth,
-  forWidthLowerShowOneCard,
+  showOneCardForWidthLower,
   cardsContainerJustify,
   cardMarginX,
   cardMarginY,
@@ -109,10 +109,10 @@ export default function DrawerMenuItem({
       />
       <DividerBase className={classes.marginY} />
       <Select
-        boxText="For width lower than this show only one card per screen (default: md):"
+        boxText="For width lower than this, it shows only one card per screen (default: md):"
         menuItemValue={["xs", "sm", "md", "lg", "xl"]}
-        value={forWidthLowerShowOneCard}
-        onChange={handleDrawerItemChange("forWidthLowerShowOneCard")}
+        value={showOneCardForWidthLower}
+        onChange={handleDrawerItemChange("showOneCardForWidthLower")}
         inputProps={{ "aria-label": "Dropdown menu" }}
         classes={classes}
       />
@@ -173,7 +173,7 @@ DrawerMenuItem.propTypes = {
     PropTypes.string,
     PropTypes.bool,
   ]).isRequired,
-  forWidthLowerShowOneCard: PropTypes.string.isRequired,
+  showOneCardForWidthLower: PropTypes.string.isRequired,
   cardsContainerJustify: PropTypes.string.isRequired,
   cardMarginX: PropTypes.oneOfType([
     PropTypes.number,
