@@ -33,6 +33,7 @@ const INITIAL_STATE_FOR_DRAWER = {
 export default function HomePage() {
   const [state, setState] = useState({
     oneCardPerScreen: CARDS_DETAILS,
+    showNewTitle: "Simple Slideshow",
     numbers: false,
     dots: false,
     arrows: false,
@@ -48,11 +49,15 @@ export default function HomePage() {
   const scrollToBottom = useRef(null);
   const classes = useStyles();
 
-  // Scroll to bottom
+  // Change title name & Scroll to bottom
   useEffect(() => {
     if (state.numbers || state.dots || state.arrows) {
       scrollToBottom.current.scrollIntoView({ behavior: "smooth" });
     }
+    setState((prevState) => ({
+      ...prevState,
+      showNewTitle: handleTitle(state.numbers, state.dots, state.arrows),
+    }));
   }, [state.numbers, state.dots, state.arrows]);
 
   // Show image preview rest button
@@ -333,7 +338,7 @@ export default function HomePage() {
             fontWeight="fontWeightMedium"
             mb={5}
           >
-            {handleTitle(state.numbers, state.dots, state.arrows)}
+            {state.showNewTitle}
           </BoxBase>
           <SlideshowWithPagination
             options={state.oneCardPerScreen}
