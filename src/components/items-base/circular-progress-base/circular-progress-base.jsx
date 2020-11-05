@@ -1,10 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+// Components
+import BoxBase from "../../slideshow/components/items-base/box-base/box-base";
 // Material-UI
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default function CircularProgressBase(props) {
-  return <CircularProgress {...props} />;
+  return (
+    <BoxBase overflow="hidden">
+      <CircularProgress {...props} />
+    </BoxBase>
+  );
 }
 
 CircularProgressBase.prototype = {
