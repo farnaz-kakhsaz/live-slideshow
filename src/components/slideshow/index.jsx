@@ -67,7 +67,7 @@ function SlideshowWithPagination({
         ? children
         : (item, index) =>
             isWidthDown(showOneCardForWidthLower, width) ? (
-              <Suspense fallback={<CircularProgress />}>
+              <Suspense fallback={<CircularProgress />} key={index}>
                 <Card
                   image={item.image}
                   title={item.title}
@@ -76,7 +76,6 @@ function SlideshowWithPagination({
                   cardMarginX={cardMarginX}
                   cardMarginY={cardMarginY}
                   showOneCard
-                  key={index}
                 />
               </Suspense>
             ) : (

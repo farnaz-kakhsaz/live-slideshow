@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 // Components
 import DrawerMenuItem from "../drawer-menu-item/drawer-menu-item.component";
 import DrawerBase from "../../items-base/drawer-base/drawer-base";
@@ -19,6 +20,7 @@ import { useStyles } from "./drawer-menu-container.styles";
 function DrawerMenuContainer({
   width,
   openDrawer,
+  startPulseAnimation,
   handleDrawerOpen,
   showDrawerResetBtn,
   handleResetDrawerItem,
@@ -97,7 +99,9 @@ function DrawerMenuContainer({
       <ZoomBase in={!openDrawer} timeout={500}>
         <FabBase
           color="primary"
-          className={classes.fab}
+          className={clsx(classes.fab, {
+            [classes.fabWithAnimation]: startPulseAnimation,
+          })}
           onClick={handleDrawerOpen}
           aria-label="Open drawer and edit"
         >
@@ -113,6 +117,7 @@ export default withWidth()(DrawerMenuContainer);
 DrawerMenuContainer.propTypes = {
   width: PropTypes.string.isRequired,
   openDrawer: PropTypes.bool.isRequired,
+  startPulseAnimation: PropTypes.bool.isRequired,
   handleDrawerOpen: PropTypes.func.isRequired,
   showDrawerResetBtn: PropTypes.bool.isRequired,
   handleResetDrawerItem: PropTypes.func.isRequired,

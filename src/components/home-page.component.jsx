@@ -37,10 +37,11 @@ export default function HomePage() {
     dots: false,
     arrows: false,
     showError: false,
-    shakeEnd: true,
+    shakeAnimationEnd: true,
     whichImageFade: -1,
     showImagePreviewResetBtn: false,
     openDrawer: false,
+    startPulseAnimation: true,
     showDrawerResetBtn: false,
     ...INITIAL_STATE_FOR_DRAWER,
   });
@@ -138,7 +139,7 @@ export default function HomePage() {
       setState((prevState) => ({
         ...prevState,
         showError: true,
-        shakeEnd: true,
+        shakeAnimationEnd: true,
       }));
     }
   };
@@ -154,7 +155,7 @@ export default function HomePage() {
   const handleShakeAnimation = () => {
     setState((prevState) => ({
       ...prevState,
-      shakeEnd: prevState.showError ? false : true,
+      shakeAnimationEnd: prevState.showError ? false : true,
     }));
   };
 
@@ -162,6 +163,7 @@ export default function HomePage() {
     setState((prevState) => ({
       ...prevState,
       openDrawer: !prevState.openDrawer,
+      startPulseAnimation: false,
     }));
   };
 
@@ -271,7 +273,9 @@ export default function HomePage() {
             <BoxBase display="flex" flexDirection="column">
               <ImagePreviewContainer
                 cards={state.oneCardPerScreen}
-                shakeIt={state.showError && state.shakeEnd ? true : false}
+                shakeIt={
+                  state.showError && state.shakeAnimationEnd ? true : false
+                }
                 whichImageFade={state.whichImageFade}
                 handleRemoveItem={handleRemoveItem}
                 handleShakeAnimation={handleShakeAnimation}
@@ -352,6 +356,7 @@ export default function HomePage() {
       </BoxBase>
       <DrawerMenuContainer
         openDrawer={state.openDrawer}
+        startPulseAnimation={state.startPulseAnimation}
         handleDrawerOpen={handleDrawerOpen}
         handleDrawerItemChange={handleDrawerItemChange}
         handleResetDrawerItem={handleResetDrawerItem}
