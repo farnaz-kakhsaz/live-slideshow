@@ -25,4 +25,19 @@ export const useStyles = makeStyles((theme) => ({
     }),
     marginRight: 0,
   },
+  divider: {
+    "&:before": {
+      content: "''",
+      position: "absolute",
+      top: 0,
+      left: "5%",
+      right: "5%",
+      width: "90%",
+      height: 1,
+      backgroundImage:
+        "linear-gradient(to right, transparent, rgb(189, 189, 189), transparent)",
+    },
+    position: "relative",
+    height: 1,
+  },
 }));
