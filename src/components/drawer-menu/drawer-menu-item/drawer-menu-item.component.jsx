@@ -44,7 +44,7 @@ export default function DrawerMenuItem({
   return (
     <>
       <Switch
-        boxText="Auto-play slideshow (default: true):"
+        boxText="Slideshow auto-play (default: true):"
         checked={autoPlay}
         onChange={handleDrawerItemChange("autoPlay")}
       />
@@ -69,7 +69,7 @@ export default function DrawerMenuItem({
       />
       <DividerBase className={classes.marginY} />
       <Slider
-        boxText="Cards width (default: 390):"
+        boxText="Card width (default: 390):"
         name="cardWidth"
         value={cardWidth}
         getAriaValueText={valueText("image size")}
@@ -81,7 +81,7 @@ export default function DrawerMenuItem({
       />
       <DividerBase className={classes.marginY} />
       <Slider
-        boxText="Cards height (default: 245):"
+        boxText="Card height (default: 245):"
         name="cardHeight"
         value={cardHeight}
         getAriaValueText={valueText("image size")}
@@ -103,7 +103,7 @@ export default function DrawerMenuItem({
       <DividerBase className={classes.marginY} />
       <Select
         boxText="For width lower than this, it shows only one card per screen (default: md):"
-        menuItemValue={["xs", "sm", "md", "lg", "xl"]}
+        menuItemValue={[false, "xs", "sm", "md", "lg", "xl"]}
         value={showOneCardForWidthLower}
         onChange={handleDrawerItemChange("showOneCardForWidthLower")}
         inputProps={{ "aria-label": "Dropdown menu" }}
