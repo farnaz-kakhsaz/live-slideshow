@@ -12,8 +12,13 @@ import GrowBase from "./items-base/grow-base/grow-base";
 import { handleTitle } from "../helper/handleTitle";
 import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
+// Material-UI
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
 // Constants
 import CARDS_DETAILS from "../constants/card-details";
+// Images
+import { ReactComponent as StackOverflowIcon } from "../assets/images/stack-overflow-icon.svg";
 // Styles
 import { useStyles } from "./home-page.styles";
 
@@ -247,7 +252,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className={classes.root}>
+      <div className={classes.root}>
         <BoxBase
           my={4}
           textAlign="center"
@@ -256,109 +261,128 @@ export default function HomePage() {
           })}
         >
           <ContainerBase maxWidth={false}>
-            <BoxBase
-              display="inline-block"
-              fontSize={{ xs: 32, sm: 42, md: 52 }}
-              fontWeight="fontWeightBold"
-              component="h1"
-              borderBottom="3px solid"
-              my="0"
-            >
-              Go ahead and add or remove photos
-              <span role="img" aria-label="winking face">
-                &#128521;
-              </span>
-            </BoxBase>
-            <BoxBase
-              display="flex"
-              flexDirection={{ xs: "column", lg: "row" }}
-              alignItems="center"
-              justifyContent="center"
-              mt={8}
-            >
-              <BoxBase display="flex" flexDirection="column">
-                <ImagePreviewContainer
-                  cards={state.oneCardPerScreen}
-                  shakeIt={
-                    state.showError && state.shakeAnimationEnd ? true : false
-                  }
-                  whichImageFade={state.whichImageFade}
-                  handleRemoveItem={handleRemoveItem}
-                  handleShakeAnimation={handleShakeAnimation}
-                />
-                {state.showError && (
-                  <GrowBase in={state.showError} timeout={700}>
-                    <BoxBase
-                      color="error.main"
-                      letterSpacing="1px"
-                      fontSize="0.86rem"
-                      component="p"
-                      mt={3}
-                      mb={0}
-                    >
-                      Can't contain less than 4 items!
-                    </BoxBase>
-                  </GrowBase>
-                )}
+            <header>
+              <BoxBase
+                display="inline-block"
+                fontSize={{ xs: 32, sm: 42, md: 52 }}
+                fontWeight="fontWeightBold"
+                component="h1"
+                borderBottom="3px solid"
+                my="0"
+              >
+                Go ahead and add or remove photos
+                <span role="img" aria-label="winking face">
+                  &#128521;
+                </span>
               </BoxBase>
-              <UploadImage
-                handleAddImage={handleAddImage}
-                handleResetImagePreview={handleResetImagePreview}
-                showImagePreviewResetBtn={state.showImagePreviewResetBtn}
+            </header>
+            <section>
+              <BoxBase
+                display="flex"
+                flexDirection={{ xs: "column", lg: "row" }}
+                alignItems="center"
+                justifyContent="center"
+                mt={8}
+              >
+                <BoxBase display="flex" flexDirection="column">
+                  <ImagePreviewContainer
+                    cards={state.oneCardPerScreen}
+                    shakeIt={
+                      state.showError && state.shakeAnimationEnd ? true : false
+                    }
+                    whichImageFade={state.whichImageFade}
+                    handleRemoveItem={handleRemoveItem}
+                    handleShakeAnimation={handleShakeAnimation}
+                  />
+                  {state.showError && (
+                    <GrowBase in={state.showError} timeout={700}>
+                      <BoxBase
+                        color="error.main"
+                        letterSpacing="1px"
+                        fontSize="0.86rem"
+                        component="p"
+                        mt={3}
+                        mb={0}
+                      >
+                        Can't contain less than 4 items!
+                      </BoxBase>
+                    </GrowBase>
+                  )}
+                </BoxBase>
+                <UploadImage
+                  handleAddImage={handleAddImage}
+                  handleResetImagePreview={handleResetImagePreview}
+                  showImagePreviewResetBtn={state.showImagePreviewResetBtn}
+                />
+              </BoxBase>
+            </section>
+            <section>
+              <BoxBase
+                textAlign="center"
+                mt={{ xs: 5, sm: 7 }}
+                mb={{ xs: 3, sm: 4 }}
+              >
+                <CheckboxBase
+                  checked={state.numbers}
+                  name="numbers"
+                  label="Slideshow with Numbers"
+                  onChange={handleCheckboxChange}
+                />
+                <CheckboxBase
+                  checked={state.dots}
+                  name="dots"
+                  label="Slideshow with Dots"
+                  onChange={handleCheckboxChange}
+                />
+                <CheckboxBase
+                  checked={state.arrows}
+                  name="arrows"
+                  label="Slideshow with Arrows"
+                  onChange={handleCheckboxChange}
+                />
+              </BoxBase>
+              <div ref={scrollToBottom} />
+              <BoxBase
+                fontSize={{ xs: 26, sm: 36, md: 46 }}
+                letterSpacing="1px"
+                textAlign="center"
+                component="h2"
+                fontWeight="fontWeightMedium"
+                mb={{ xs: 4, sm: 5 }}
+                mt={0}
+              >
+                {state.showNewTitle}
+              </BoxBase>
+              <SlideshowWithPagination
+                options={state.oneCardPerScreen}
+                showNumbers={state.numbers}
+                showDots={state.dots}
+                showArrows={state.arrows}
+                autoPlay={state.autoPlay}
+                enableMouseEvents={state.enableMouseEvents}
+                numberOfCardsPerScreen={state.numberOfCardsPerScreen}
+                showOneCardForWidthLower={state.showOneCardForWidthLower}
+                slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
+                cardsContainerJustify={state.cardsContainerJustify}
+                cardWidth={state.cardWidth}
+                cardHeight={state.cardHeight}
+                cardMarginX={state.cardMarginX}
+                cardMarginY={state.cardMarginY}
               />
-            </BoxBase>
-            <BoxBase
-              textAlign="center"
-              mt={{ xs: "37px", sm: "47px" }}
-              mb={{ xs: "30px", sm: "40px" }}
-            >
-              <CheckboxBase
-                checked={state.numbers}
-                name="numbers"
-                label="Slideshow with Numbers"
-                onChange={handleCheckboxChange}
-              />
-              <CheckboxBase
-                checked={state.dots}
-                name="dots"
-                label="Slideshow with Dots"
-                onChange={handleCheckboxChange}
-              />
-              <CheckboxBase
-                checked={state.arrows}
-                name="arrows"
-                label="Slideshow with Arrows"
-                onChange={handleCheckboxChange}
-              />
-            </BoxBase>
-            <div ref={scrollToBottom} />
-            <BoxBase
-              fontSize={{ xs: 26, sm: 36, md: 46 }}
-              letterSpacing="1px"
-              textAlign="center"
-              component="h2"
-              fontWeight="fontWeightMedium"
-              mb={5}
-            >
-              {state.showNewTitle}
-            </BoxBase>
-            <SlideshowWithPagination
-              options={state.oneCardPerScreen}
-              showNumbers={state.numbers}
-              showDots={state.dots}
-              showArrows={state.arrows}
-              autoPlay={state.autoPlay}
-              enableMouseEvents={state.enableMouseEvents}
-              numberOfCardsPerScreen={state.numberOfCardsPerScreen}
-              showOneCardForWidthLower={state.showOneCardForWidthLower}
-              slideshowContainerMaxWidth={state.slideshowContainerMaxWidth}
-              cardsContainerJustify={state.cardsContainerJustify}
-              cardWidth={state.cardWidth}
-              cardHeight={state.cardHeight}
-              cardMarginX={state.cardMarginX}
-              cardMarginY={state.cardMarginY}
-            />
+            </section>
           </ContainerBase>
+          <footer>
+            <div className={classes.divider} />
+            <BoxBase display="flex" justifyContent="center" alignItems="center">
+              <StackOverflowIcon
+                className={clsx(classes.icon, classes.iconStackOverflow)}
+              />
+              <GitHubIcon className={clsx(classes.icon, classes.iconGitHub)} />
+              <LinkedInIcon
+                className={clsx(classes.icon, classes.iconLinkedIn)}
+              />
+            </BoxBase>
+          </footer>
         </BoxBase>
         <DrawerMenuContainer
           openDrawer={state.openDrawer}
@@ -378,12 +402,7 @@ export default function HomePage() {
           cardMarginX={state.cardMarginX}
           cardMarginY={state.cardMarginY}
         />
-      </section>
-      <footer>
-        <BoxBase maxWidth="90%" margin="auto">
-          <div className={classes.divider} />
-        </BoxBase>
-      </footer>
+      </div>
     </>
   );
 }
