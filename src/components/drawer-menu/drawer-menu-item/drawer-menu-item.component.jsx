@@ -103,7 +103,7 @@ export default function DrawerMenuItem({
       <DividerBase className={classes.marginY} />
       <Select
         boxText="For width lower than this, it shows only one card per screen (default: md):"
-        menuItemValue={[false, "xs", "sm", "md", "lg", "xl"]}
+        menuItemValue={["xs", "sm", "md", "lg", "xl"]}
         value={showOneCardForWidthLower}
         onChange={handleDrawerItemChange("showOneCardForWidthLower")}
         inputProps={{ "aria-label": "Dropdown menu" }}

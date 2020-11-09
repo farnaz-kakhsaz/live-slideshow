@@ -47,18 +47,98 @@ export const useStyles = makeStyles((theme) => ({
     height: 1,
   },
   icon: {
-    fill: "currentColor",
-    width: "3rem",
-    height: "3rem",
-    margin: theme.spacing(3),
+    width: 200,
+    height: 200,
   },
   iconStackOverflow: {
-    // width: "2.5rem",
-    // height: "2.5rem",
+    "&:hover": {
+      "& .stack-overflow-rect": {
+        fill: "#FFB74D",
+      },
+      "& .stack-overflow-polygon": {
+        fill: "#CFD8DC",
+      },
+    },
+    "& .stack-overflow-rect": {
+      fill: "transparent",
+      WebkitTransition: "all 0.5s ease-in-out",
+      MozTransition: "all 0.5s ease-in-out",
+      OTransition: "all 0.5s ease-in-out",
+      transition: "all 0.5s ease-in-out",
+    },
+    "& .stack-overflow-polygon": {
+      fill: "transparent",
+      WebkitTransition: "all 0.5s ease-in-out",
+      MozTransition: "all 0.5s ease-in-out",
+      OTransition: "all 0.5s ease-in-out",
+      transition: "all 0.5s ease-in-out",
+    },
+    "& .stack-overflow-path": {
+      fill: "#455A64",
+    },
   },
-  iconGitHub: {},
+  iconGitHub: {
+    "&:hover": {
+      "& .git-hub-circle": {
+        fill: "#FFFFFF",
+      },
+      "& .git-hub-path-white": {
+        fill: "#FFFFFF",
+      },
+      "& .git-hub-path-blue": {
+        fill: "#80D8FF",
+      },
+    },
+    "& .git-hub-path": {
+      fill: "#455A64",
+    },
+    "& .git-hub-circle": {
+      fill: "transparent",
+      WebkitTransition: "all 0.5s ease-in-out",
+      MozTransition: "all 0.5s ease-in-out",
+      OTransition: "all 0.5s ease-in-out",
+      transition: "all 0.5s ease-in-out",
+    },
+    "& .git-hub-path-blue": {
+      fill: "transparent",
+      WebkitTransition: "all 0.5s ease-in-out",
+      MozTransition: "all 0.5s ease-in-out",
+      OTransition: "all 0.5s ease-in-out",
+      transition: "all 0.5s ease-in-out",
+    },
+    "& .git-hub-path-white": {
+      fill: "transparent",
+      WebkitTransition: "all 0.5s ease-in-out",
+      MozTransition: "all 0.5s ease-in-out",
+      OTransition: "all 0.5s ease-in-out",
+      transition: "all 0.5s ease-in-out",
+    },
+  },
   iconLinkedIn: {
-    width: "3.9rem",
-    height: "3.9rem",
+    "&:hover": {
+      "& .linked-in-path-blue": {
+        fill: "#80D8FF",
+      },
+      "& .linked-in-path-white": {
+        fill: "#FFFFFF",
+      },
+    },
+    "& .linked-in-path": {
+      fill: "#455A64",
+    },
+    "& .linked-in-path-blue": {
+      fill: "transparent",
+      WebkitTransition: "all 0.5s ease-in-out",
+      MozTransition: "all 0.5s ease-in-out",
+      OTransition: "all 0.5s ease-in-out",
+      transition: "all 0.5s ease-in-out",
+    },
+    "& .linked-in-path-white": {
+      fill: "transparent",
+      WebkitTransition: "all 0.5s ease-in-out",
+      MozTransition: "all 0.5s ease-in-out",
+      OTransition: "all 0.5s ease-in-out",
+      transition: "all 0.5s ease-in-out",
+    },
   },
 }));
