@@ -19,6 +19,7 @@ export default function Slideshow({
   showDots,
   showNumbers,
   showArrows,
+  enableMouseEvents,
   slideshowContainerMaxWidth,
   paginationMarginTop,
   autoPlay,
@@ -51,6 +52,8 @@ export default function Slideshow({
             <AutoPlaySwipeableViews
               index={activeStep}
               onChangeIndex={handleStepChange}
+              enableMouseEvents={enableMouseEvents}
+              style={{ cursor: enableMouseEvents ? "e-resize" : "default" }}
               {...rest}
             >
               {childrenArray
@@ -63,6 +66,8 @@ export default function Slideshow({
             <SwipeableViews
               index={activeStep}
               onChangeIndex={handleStepChange}
+              enableMouseEvents={enableMouseEvents}
+              style={{ cursor: enableMouseEvents ? "e-resize" : "default" }}
               {...rest}
             >
               {childrenArray
@@ -117,6 +122,7 @@ Slideshow.propTypes = {
   showDots: PropTypes.bool,
   showNumbers: PropTypes.bool,
   showArrows: PropTypes.bool,
+  enableMouseEvents: PropTypes.bool,
   slideshowContainerMaxWidth: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.bool,

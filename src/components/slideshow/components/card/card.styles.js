@@ -7,7 +7,6 @@ export const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     borderRadius: theme.shape.borderRadius * 3,
-    cursor: "e-resize",
   },
   typography: {
     marginTop: theme.spacing(0.5),
