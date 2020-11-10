@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 510;
 
@@ -40,7 +40,7 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: 1,
   },
   fabWithAnimation: {
-    animation: "$pulse 3s infinite",
+    animation: "$pulse 2s infinite",
   },
   marginY: {
     margin: theme.spacing(1, 2),
