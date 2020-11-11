@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 // Components
 import PaginationNumber from "./pagination-number/pagination-number";
@@ -26,6 +26,14 @@ export default function Slideshow({
   ...rest
 }) {
   const [activeStep, setActiveStep] = useState(0);
+
+  // To not show an empty screen
+  useEffect(() => {
+    if (activeStep >= options.length) {
+      const step = activeStep + 1 > options.length - 1 ? 0 : activeStep + 1;
+      setActiveStep(step);
+    }
+  }, [options.length]);
 
   function handleStepChange(step) {
     setActiveStep(step);
