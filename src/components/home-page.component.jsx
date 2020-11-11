@@ -252,7 +252,8 @@ export default function HomePage() {
     <>
       <div className={classes.root}>
         <BoxBase
-          my={4}
+          mt={4}
+          mb={{ xs: 9, sm: 4 }}
           textAlign="center"
           className={clsx(classes.content, {
             [classes.contentShift]: state.openDrawer,
@@ -372,12 +373,7 @@ export default function HomePage() {
           <ContainerBase>
             <footer>
               <div className={classes.divider} />
-              <BoxBase
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                mt={5}
-              >
+              <BoxBase mt={5}>
                 <StackOverflowIcon />
                 <GitHubIcon />
                 <LinkedIcon />

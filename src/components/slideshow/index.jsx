@@ -108,7 +108,13 @@ SlideshowWithPagination.propTypes = {
   enableMouseEvents: PropTypes.bool,
   numberOfCardsPerScreen: PropTypes.number,
   showOneCardForWidthLower: PropTypes.string,
+  slideshowContainerMaxWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
   cardsContainerJustify: PropTypes.string,
+  cardWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  cardHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   cardMarginX: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -118,12 +124,6 @@ SlideshowWithPagination.propTypes = {
     PropTypes.number,
     PropTypes.string,
     PropTypes.object,
-  ]),
-  cardWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  cardHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  slideshowContainerMaxWidth: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.bool,
   ]),
   paginationMarginTop: PropTypes.oneOfType([
     PropTypes.number,

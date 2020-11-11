@@ -41,11 +41,11 @@ function DrawerMenuContainer({
         <ContainerBase>
           <BoxBase
             color="text.secondary"
-            fontSize={{ xs: 20, sm: 26 }}
+            fontSize={{ xs: 20, sm: 23 }}
             fontWeight="fontWeightMedium"
             textAlign="center"
-            my={{ xs: 2, lg: 1 }}
-            mx={{ lg: 3 }}
+            my={{ xs: 2, lg: 1.8 }}
+            mx={{ lg: 6 }}
           >
             You can customize almost anything about this Slideshow
           </BoxBase>
