@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 // Material-UI
 import Link from "@material-ui/core/link";
 
-export default function LinkBase(props) {
-  return <Link {...props} />;
+export default function LinkBase({ children, ...rest }) {
+  return <Link {...rest}>{children}</Link>;
 }
 
 LinkBase.propTypes = {
-  props: PropTypes.any,
+  children: PropTypes.node,
+  rest: PropTypes.any,
 };

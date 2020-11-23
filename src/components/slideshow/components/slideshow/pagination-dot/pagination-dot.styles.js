@@ -3,9 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme) => ({
   dot: {
     "&:hover": {
-      background: theme.palette.grey[700],
+      background: (props) => props.darkColorBtn,
     },
-    backgroundColor: theme.palette.grey[400],
+    backgroundColor: (props) => props.lightColorBtn,
     width: theme.spacing(2),
     height: theme.spacing(2),
     marginRight: theme.spacing(0.5),
@@ -17,6 +17,6 @@ export const useStyles = makeStyles((theme) => ({
     transition: "all 0.5s ease-in-out",
   },
   activeDot: {
-    backgroundColor: theme.palette.grey[700],
+    backgroundColor: (props) => props.darkColorBtn,
   },
 }));

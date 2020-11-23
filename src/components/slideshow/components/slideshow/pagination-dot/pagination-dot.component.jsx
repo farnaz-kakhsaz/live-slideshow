@@ -4,8 +4,14 @@ import clsx from "clsx";
 // Styles
 import { useStyles } from "./pagination-dot.styles";
 
-export default function PaginationDot({ activeDot, index, handleDotClick }) {
-  const classes = useStyles();
+export default function PaginationDot({
+  activeDot,
+  index,
+  lightColorBtn,
+  darkColorBtn,
+  handleDotClick,
+}) {
+  const classes = useStyles({ lightColorBtn, darkColorBtn });
 
   return (
     <div
@@ -18,5 +24,7 @@ export default function PaginationDot({ activeDot, index, handleDotClick }) {
 PaginationDot.propTypes = {
   activeDot: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
+  lightColorBtn: PropTypes.string.isRequired,
+  darkColorBtn: PropTypes.string.isRequired,
   handleDotClick: PropTypes.func.isRequired,
 };

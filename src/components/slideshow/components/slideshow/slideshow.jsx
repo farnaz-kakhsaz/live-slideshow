@@ -22,6 +22,8 @@ export default function Slideshow({
   enableMouseEvents,
   slideshowContainerMaxWidth,
   textColor,
+  lightColorBtn,
+  darkColorBtn,
   paginationMarginTop,
   autoPlay,
   ...rest
@@ -55,7 +57,13 @@ export default function Slideshow({
   return (
     <>
       <BoxBase position="relative" maxWidth="100%">
-        {showArrows && <Arrow handleArrowClick={handleArrowClick} />}
+        {showArrows && (
+          <Arrow
+            lightColorBtn={lightColorBtn}
+            darkColorBtn={darkColorBtn}
+            handleArrowClick={handleArrowClick}
+          />
+        )}
         <ContainerBase maxWidth={slideshowContainerMaxWidth} disableGutters>
           {autoPlay ? (
             <AutoPlaySwipeableViews
@@ -101,6 +109,8 @@ export default function Slideshow({
                 activeDot={index === activeStep}
                 index={index}
                 handleDotClick={handleDotClick}
+                lightColorBtn={lightColorBtn}
+                darkColorBtn={darkColorBtn}
                 key={index}
               />
             ))}
@@ -138,6 +148,8 @@ Slideshow.propTypes = {
     PropTypes.bool,
   ]),
   textColor: PropTypes.string,
+  lightColorBtn: PropTypes.string,
+  darkColorBtn: PropTypes.string,
   paginationMarginTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,

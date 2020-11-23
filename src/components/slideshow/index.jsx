@@ -25,6 +25,8 @@ function SlideshowWithPagination({
   cardMarginX = 0,
   cardMarginY = 0,
   textColor = "rgba(0, 0, 0, 0.87)",
+  lightColorBtn = "#bdbdbd",
+  darkColorBtn = "#616161",
   paginationMarginTop = 3,
   interval = 5000,
   springConfig = {
@@ -60,6 +62,8 @@ function SlideshowWithPagination({
       autoPlay={autoPlay}
       enableMouseEvents={enableMouseEvents}
       textColor={textColor}
+      lightColorBtn={lightColorBtn}
+      darkColorBtn={darkColorBtn}
       paginationMarginTop={paginationMarginTop}
       interval={interval}
       springConfig={springConfig}
@@ -130,6 +134,8 @@ SlideshowWithPagination.propTypes = {
     PropTypes.object,
   ]),
   textColor: PropTypes.string,
+  lightColorBtn: PropTypes.string,
+  darkColorBtn: PropTypes.string,
   paginationMarginTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,
