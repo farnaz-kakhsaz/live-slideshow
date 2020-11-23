@@ -24,6 +24,7 @@ function SlideshowWithPagination({
   cardHeight = 245,
   cardMarginX = 0,
   cardMarginY = 0,
+  textColor = "rgba(0, 0, 0, 0.87)",
   paginationMarginTop = 3,
   interval = 5000,
   springConfig = {
@@ -56,9 +57,10 @@ function SlideshowWithPagination({
       }
       childrenArray={children}
       slideshowContainerMaxWidth={slideshowContainerMaxWidth}
-      paginationMarginTop={paginationMarginTop}
       autoPlay={autoPlay}
       enableMouseEvents={enableMouseEvents}
+      textColor={textColor}
+      paginationMarginTop={paginationMarginTop}
       interval={interval}
       springConfig={springConfig}
       {...rest}
@@ -75,6 +77,7 @@ function SlideshowWithPagination({
                   cardHeight={cardHeight}
                   cardMarginX={cardMarginX}
                   cardMarginY={cardMarginY}
+                  textColor={textColor}
                   showOneCard
                 />
               </Suspense>
@@ -89,6 +92,7 @@ function SlideshowWithPagination({
                       cardHeight={cardHeight}
                       cardMarginX={cardMarginX}
                       cardMarginY={cardMarginY}
+                      textColor={textColor}
                     />
                   </Suspense>
                 ))}
@@ -125,6 +129,7 @@ SlideshowWithPagination.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]),
+  textColor: PropTypes.string,
   paginationMarginTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,

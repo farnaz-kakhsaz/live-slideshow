@@ -21,6 +21,7 @@ export default function Slideshow({
   showArrows,
   enableMouseEvents,
   slideshowContainerMaxWidth,
+  textColor,
   paginationMarginTop,
   autoPlay,
   ...rest
@@ -115,6 +116,7 @@ export default function Slideshow({
             <PaginationNumber
               totalNumber={options.length}
               activeStep={activeStep + 1}
+              textColor={textColor}
             />
           )}
         </BoxBase>
@@ -135,6 +137,7 @@ Slideshow.propTypes = {
     PropTypes.string,
     PropTypes.bool,
   ]),
+  textColor: PropTypes.string,
   paginationMarginTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.object,

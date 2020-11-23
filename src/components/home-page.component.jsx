@@ -334,6 +334,7 @@ export default function HomePage() {
                 cardHeight={state.cardHeight}
                 cardMarginX={state.cardMarginX}
                 cardMarginY={state.cardMarginY}
+                textColor="#bdbdbd"
               />
             </section>
           </ContainerBase>

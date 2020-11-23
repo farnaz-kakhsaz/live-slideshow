@@ -13,12 +13,14 @@ export default function Card({
   cardHeight,
   cardMarginX,
   cardMarginY,
+  textColor,
   showOneCard,
 }) {
   const classes = useStyles({
     cardWidth,
     cardHeight,
     showOneCard,
+    textColor,
     image,
   });
 
@@ -41,17 +43,20 @@ export default function Card({
 Card.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  cardWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  cardHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  cardWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    .isRequired,
+  cardHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    .isRequired,
   cardMarginX: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
     PropTypes.object,
-  ]),
+  ]).isRequired,
   cardMarginY: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
     PropTypes.object,
-  ]),
+  ]).isRequired,
+  textColor: PropTypes.string.isRequired,
   showOneCard: PropTypes.bool,
 };

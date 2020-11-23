@@ -9,6 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: theme.shape.borderRadius * 3,
   },
   typography: {
+    color: (props) => props.textColor,
     marginTop: theme.spacing(0.5),
   },
 }));
