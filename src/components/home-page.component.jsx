@@ -181,70 +181,33 @@ export default function HomePage() {
 
   const handleDrawerItemChange = (name) => (event, newValue) => {
     const { value } = event.target;
+    const switchBtn = name === "enableMouseEvents" || name === "autoPlay";
+    const sliderBtn =
+      name === "numberOfCardsPerScreen" ||
+      name === "cardWidth" ||
+      name === "cardHeight" ||
+      name === "cardMarginX" ||
+      name === "cardMarginY";
+    const dropdownMenu =
+      name === "showOneCardForWidthLower" ||
+      name === "slideshowContainerMaxWidth" ||
+      name === "cardsContainerJustify";
 
-    switch (name) {
-      case "autoPlay":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: !prevState[name],
-        }));
-        break;
-      case "enableMouseEvents":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: !prevState[name],
-        }));
-        break;
-      case "numberOfCardsPerScreen":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: newValue,
-        }));
-        break;
-      case "cardWidth":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: newValue,
-        }));
-        break;
-      case "cardHeight":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: newValue,
-        }));
-        break;
-      case "showOneCardForWidthLower":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: value,
-        }));
-        break;
-      case "slideshowContainerMaxWidth":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: value,
-        }));
-        break;
-      case "cardsContainerJustify":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: value,
-        }));
-        break;
-      case "cardMarginX":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: newValue,
-        }));
-        break;
-      case "cardMarginY":
-        setState((prevState) => ({
-          ...prevState,
-          [name]: newValue,
-        }));
-        break;
-      default:
-        console.error("Value didn't match in handleDrawerItemChange!");
+    if (switchBtn) {
+      setState((prevState) => ({
+        ...prevState,
+        [name]: !prevState[name],
+      }));
+    } else if (sliderBtn) {
+      setState((prevState) => ({
+        ...prevState,
+        [name]: newValue,
+      }));
+    } else if (dropdownMenu) {
+      setState((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
     }
   };
 
