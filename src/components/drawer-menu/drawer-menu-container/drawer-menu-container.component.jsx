@@ -11,6 +11,7 @@ import ZoomBase from "../../items-base/zoom-base/zoom-base";
 import BoxBase from "../../items-base/box-base/box-base";
 import ButtonBase from "../../items-base/button-base/button-base";
 import GrowBase from "../../items-base/grow-base/grow-base";
+import LinkBase from "../../items-base/link-base/link-base";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
 import EditIcon from "@material-ui/icons/Edit";
@@ -59,13 +60,13 @@ function DrawerMenuContainer({
             my={2}
           >
             And so much more &nbsp;
-            <a
+            <LinkBase
               href="https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination"
               target="_blank"
               rel="noopener noreferrer"
             >
               here
-            </a>
+            </LinkBase>
             .
           </BoxBase>
           <BoxBase display="flex" justifyContent="space-evenly" mt={2} mb={3}>

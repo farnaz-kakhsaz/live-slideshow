@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
+import GitInfo from "react-git-info/macro";
 // Components
 import SlideshowWithPagination from "./slideshow";
 import DrawerMenuContainer from "./drawer-menu/drawer-menu-container/drawer-menu-container.component";
@@ -9,6 +10,7 @@ import ContainerBase from "./items-base/container-base/container-base";
 import BoxBase from "./items-base/box-base/box-base";
 import CheckboxBase from "./items-base/checkbox-base/checkbox-base.component";
 import GrowBase from "./items-base/grow-base/grow-base";
+import LinkBase from "./items-base/link-base/link-base";
 import StackOverflowIcon from "./icons/stack-overflow-icon/stack-overflow-icon.component";
 import GitHubIcon from "./icons/git-hub-icon/git-hub-icon.component";
 import LinkedIcon from "./icons/linked-in-icon/linked-in-icon.component";
@@ -17,6 +19,7 @@ import { removeItem } from "../helper/removeItem";
 import { isEqual } from "../helper/isEqual";
 // Constants
 import CARDS_DETAILS from "../constants/card-details";
+import { repository } from "../../package.json";
 // Styles
 import { useStyles } from "./home-page.styles";
 
@@ -51,6 +54,7 @@ export default function HomePage() {
   });
   const scrollToBottom = useRef(null);
   const classes = useStyles();
+  const gitInfo = GitInfo();
 
   // Change title name & Scroll to bottom
   useEffect(() => {
@@ -340,6 +344,33 @@ export default function HomePage() {
                 <StackOverflowIcon />
                 <GitHubIcon />
                 <LinkedIcon />
+              </BoxBase>
+              <BoxBase fontSize="caption.fontSize" mt={2}>
+                This page was built and deployed from the commit:&nbsp;
+                <LinkBase
+                  href={`${repository.url}/commit/${gitInfo.commit.hash}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {gitInfo.commit.shortHash}
+                </LinkBase>
+                &nbsp;and the tag version:&nbsp;
+                <LinkBase
+                  href={`${repository.url}/releases/tag/${gitInfo.tags[0]}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {gitInfo.tags[0]}
+                </LinkBase>
+                <br />
+                You can fork this repository on&nbsp;
+                <LinkBase
+                  href={repository.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </LinkBase>
               </BoxBase>
             </footer>
           </ContainerBase>
