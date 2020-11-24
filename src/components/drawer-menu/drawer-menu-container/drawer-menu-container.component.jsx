@@ -41,59 +41,66 @@ function DrawerMenuContainer({
       >
         <ContainerBase>
           <BoxBase
-            color="text.secondary"
-            fontSize={{ xs: 20, sm: 23 }}
-            fontWeight="fontWeightMedium"
-            textAlign="center"
-            my={{ xs: 2, lg: 1.8 }}
-            mx={{ lg: 6 }}
+            height="100vh"
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
           >
-            You can customize almost anything about this Slideshow
-          </BoxBase>
-          <DividerBase variant="middle" className={classes.marginY} />
-          <DrawerMenuItem {...rest} />
-          <DividerBase variant="middle" className={classes.marginY} />
-          <BoxBase
-            color="text.secondary"
-            fontWeight="fontWeightMedium"
-            textAlign="center"
-            my={2}
-          >
-            And so much more &nbsp;
-            <LinkBase
-              href="https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination"
-              target="_blank"
-              rel="noopener noreferrer"
+            <BoxBase
+              color="text.secondary"
+              fontSize={{ xs: 20, sm: 23 }}
+              fontWeight="fontWeightMedium"
+              textAlign="center"
+              my={{ xs: 2, lg: 1.8 }}
+              mx={{ lg: 6 }}
             >
-              here
-            </LinkBase>
-            .
-          </BoxBase>
-          <BoxBase display="flex" justifyContent="space-evenly" mt={2} mb={3}>
-            <ButtonBase
-              type="button"
-              variant="contained"
-              color="inherit"
-              onClick={handleDrawerOpen}
-              className={classes.doneButton}
-              fullWidth
+              You can customize almost anything about this Slideshow
+            </BoxBase>
+            <DividerBase variant="middle" className={classes.marginY} />
+            <DrawerMenuItem {...rest} />
+            <DividerBase variant="middle" className={classes.marginY} />
+            <BoxBase
+              color="text.secondary"
+              fontWeight="fontWeightMedium"
+              textAlign="center"
+              my={2}
             >
-              Done
-            </ButtonBase>
-            {showDrawerResetBtn && (
-              <GrowBase in={showDrawerResetBtn} timeout={1500}>
-                <ButtonBase
-                  type="button"
-                  variant="contained"
-                  color="secondary"
-                  onClick={handleResetDrawerItem}
-                  className={classes.resetButton}
-                  fullWidth
-                >
-                  reset
-                </ButtonBase>
-              </GrowBase>
-            )}
+              And so much more &nbsp;
+              <LinkBase
+                href="https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                here
+              </LinkBase>
+              .
+            </BoxBase>
+            <BoxBase display="flex" justifyContent="space-evenly" mt={2} pb={3}>
+              <ButtonBase
+                type="button"
+                variant="contained"
+                color="inherit"
+                onClick={handleDrawerOpen}
+                className={classes.doneButton}
+                fullWidth
+              >
+                Done
+              </ButtonBase>
+              {showDrawerResetBtn && (
+                <GrowBase in={showDrawerResetBtn} timeout={1500}>
+                  <ButtonBase
+                    type="button"
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleResetDrawerItem}
+                    className={classes.resetButton}
+                    fullWidth
+                  >
+                    reset
+                  </ButtonBase>
+                </GrowBase>
+              )}
+            </BoxBase>
           </BoxBase>
         </ContainerBase>
       </DrawerBase>
