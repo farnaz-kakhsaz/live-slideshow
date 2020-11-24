@@ -4,11 +4,11 @@ import GitInfo from "react-git-info/macro";
 // Components
 import HeaderSection from "./header-section";
 import ImagePreviewAndUploadSection from "./image-preview-and-upload-section";
+import CheckboxSection from "./checkbox-section";
 import SlideshowWithPagination from "../slideshow";
 import DrawerMenuContainer from "../drawer-menu/drawer-menu-container/drawer-menu-container.component";
 import ContainerBase from "../items-base/container-base/container-base";
 import BoxBase from "../items-base/box-base/box-base";
-import CheckboxBase from "../items-base/checkbox-base/checkbox-base.component";
 import LinkBase from "../items-base/link-base/link-base";
 import StackOverflowIcon from "../icons/stack-overflow-icon/stack-overflow-icon.component";
 import GitHubIcon from "../icons/git-hub-icon/git-hub-icon.component";
@@ -243,30 +243,12 @@ export default function HomePage() {
               />
             </section>
             <section>
-              <BoxBase
-                textAlign="center"
-                mt={{ xs: 5, sm: 7 }}
-                mb={{ xs: 3, sm: 4 }}
-              >
-                <CheckboxBase
-                  checked={state.numbers}
-                  name="numbers"
-                  label="Slideshow with Numbers"
-                  onChange={handleCheckboxChange}
-                />
-                <CheckboxBase
-                  checked={state.dots}
-                  name="dots"
-                  label="Slideshow with Dots"
-                  onChange={handleCheckboxChange}
-                />
-                <CheckboxBase
-                  checked={state.arrows}
-                  name="arrows"
-                  label="Slideshow with Arrows"
-                  onChange={handleCheckboxChange}
-                />
-              </BoxBase>
+              <CheckboxSection
+                numbers={state.numbers}
+                dots={state.dots}
+                arrows={state.arrows}
+                handleCheckboxChange={handleCheckboxChange}
+              />
               <div ref={scrollToBottom} />
               <BoxBase
                 fontSize={{ xs: 26, sm: 36, md: 46 }}
