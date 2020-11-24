@@ -3,14 +3,12 @@ import clsx from "clsx";
 import GitInfo from "react-git-info/macro";
 // Components
 import HeaderSection from "./header-section";
+import ImagePreviewAndUploadSection from "./image-preview-and-upload-section";
 import SlideshowWithPagination from "../slideshow";
 import DrawerMenuContainer from "../drawer-menu/drawer-menu-container/drawer-menu-container.component";
-import ImagePreviewContainer from "../image-preview/image-preview-container/image-preview-container.component";
-import UploadImage from "../upload-image/upload-image.component";
 import ContainerBase from "../items-base/container-base/container-base";
 import BoxBase from "../items-base/box-base/box-base";
 import CheckboxBase from "../items-base/checkbox-base/checkbox-base.component";
-import GrowBase from "../items-base/grow-base/grow-base";
 import LinkBase from "../items-base/link-base/link-base";
 import StackOverflowIcon from "../icons/stack-overflow-icon/stack-overflow-icon.component";
 import GitHubIcon from "../icons/git-hub-icon/git-hub-icon.component";
@@ -232,44 +230,17 @@ export default function HomePage() {
               <HeaderSection />
             </header>
             <section>
-              <BoxBase
-                display="flex"
-                flexDirection={{ xs: "column", lg: "row" }}
-                alignItems="center"
-                justifyContent="center"
-                mt={8}
-              >
-                <BoxBase display="flex" flexDirection="column">
-                  <ImagePreviewContainer
-                    cards={state.oneCardPerScreen}
-                    shakeIt={
-                      state.showError && state.shakeAnimationEnd ? true : false
-                    }
-                    whichImageFade={state.whichImageFade}
-                    handleRemoveItem={handleRemoveItem}
-                    handleShakeAnimation={handleShakeAnimation}
-                  />
-                  {state.showError && (
-                    <GrowBase in={state.showError} timeout={700}>
-                      <BoxBase
-                        color="error.main"
-                        letterSpacing="1px"
-                        fontSize="0.86rem"
-                        component="p"
-                        mt={3}
-                        mb={0}
-                      >
-                        Can't contain less than 4 items!
-                      </BoxBase>
-                    </GrowBase>
-                  )}
-                </BoxBase>
-                <UploadImage
-                  handleAddImage={handleAddImage}
-                  handleResetImagePreview={handleResetImagePreview}
-                  showImagePreviewResetBtn={state.showImagePreviewResetBtn}
-                />
-              </BoxBase>
+              <ImagePreviewAndUploadSection
+                oneCardPerScreen={state.oneCardPerScreen}
+                shakeAnimationEnd={state.shakeAnimationEnd}
+                whichImageFade={state.whichImageFade}
+                showError={state.showError}
+                showImagePreviewResetBtn={state.showImagePreviewResetBtn}
+                handleRemoveItem={handleRemoveItem}
+                handleShakeAnimation={handleShakeAnimation}
+                handleAddImage={handleAddImage}
+                handleResetImagePreview={handleResetImagePreview}
+              />
             </section>
             <section>
               <BoxBase
