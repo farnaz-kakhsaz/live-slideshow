@@ -1,7 +1,7 @@
 import React from "react";
 // Components
 import { theme } from "./theme/theme";
-import HomePage from "./components/home-page.component";
+import HomePage from "./components/home-page/home-page.component";
 // Material-UI
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";

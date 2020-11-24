@@ -2,24 +2,25 @@ import React, { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import GitInfo from "react-git-info/macro";
 // Components
-import SlideshowWithPagination from "./slideshow";
-import DrawerMenuContainer from "./drawer-menu/drawer-menu-container/drawer-menu-container.component";
-import ImagePreviewContainer from "./image-preview/image-preview-container/image-preview-container.component";
-import UploadImage from "./upload-image/upload-image.component";
-import ContainerBase from "./items-base/container-base/container-base";
-import BoxBase from "./items-base/box-base/box-base";
-import CheckboxBase from "./items-base/checkbox-base/checkbox-base.component";
-import GrowBase from "./items-base/grow-base/grow-base";
-import LinkBase from "./items-base/link-base/link-base";
-import StackOverflowIcon from "./icons/stack-overflow-icon/stack-overflow-icon.component";
-import GitHubIcon from "./icons/git-hub-icon/git-hub-icon.component";
-import LinkedIcon from "./icons/linked-in-icon/linked-in-icon.component";
-import { handleTitle } from "../helper/handleTitle";
-import { removeItem } from "../helper/removeItem";
-import { isEqual } from "../helper/isEqual";
+import HeaderSection from "./header-section";
+import SlideshowWithPagination from "../slideshow";
+import DrawerMenuContainer from "../drawer-menu/drawer-menu-container/drawer-menu-container.component";
+import ImagePreviewContainer from "../image-preview/image-preview-container/image-preview-container.component";
+import UploadImage from "../upload-image/upload-image.component";
+import ContainerBase from "../items-base/container-base/container-base";
+import BoxBase from "../items-base/box-base/box-base";
+import CheckboxBase from "../items-base/checkbox-base/checkbox-base.component";
+import GrowBase from "../items-base/grow-base/grow-base";
+import LinkBase from "../items-base/link-base/link-base";
+import StackOverflowIcon from "../icons/stack-overflow-icon/stack-overflow-icon.component";
+import GitHubIcon from "../icons/git-hub-icon/git-hub-icon.component";
+import LinkedIcon from "../icons/linked-in-icon/linked-in-icon.component";
+import { handleTitle } from "../../helper/handleTitle";
+import { removeItem } from "../../helper/removeItem";
+import { isEqual } from "../../helper/isEqual";
 // Constants
-import CARDS_DETAILS from "../constants/card-details";
-import { repository } from "../../package.json";
+import CARDS_DETAILS from "../../constants/card-details";
+import { repository } from "../../../package.json";
 // Styles
 import { useStyles } from "./home-page.styles";
 
@@ -228,19 +229,7 @@ export default function HomePage() {
         >
           <ContainerBase maxWidth={false}>
             <header>
-              <BoxBase
-                display="inline-block"
-                fontSize={{ xs: 32, sm: 42, md: 52 }}
-                fontWeight="fontWeightBold"
-                component="h1"
-                borderBottom="3px solid"
-                my="0"
-              >
-                Go ahead and add or remove photos
-                <span role="img" aria-label="winking face">
-                  &#128521;
-                </span>
-              </BoxBase>
+              <HeaderSection />
             </header>
             <section>
               <BoxBase
