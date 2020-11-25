@@ -21,7 +21,7 @@ export default function FooterSection({ classes }) {
         <GitHubIcon />
         <LinkedIcon />
       </BoxBase>
-      <BoxBase fontSize="caption.fontSize" mt={2}>
+      <BoxBase fontSize="caption.fontSize" mt={3}>
         This page was built and deployed from the commit:&nbsp;
         <LinkBase
           href={`${repository.url}/commit/${gitInfo.commit.hash}`}

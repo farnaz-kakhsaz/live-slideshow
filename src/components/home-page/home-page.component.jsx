@@ -213,7 +213,7 @@ export default function HomePage() {
       <div className={classes.root}>
         <BoxBase
           mt={4}
-          mb={{ xs: 9, sm: 4 }}
+          mb={{ xs: 10, sm: 5 }}
           textAlign="center"
           className={clsx(classes.content, {
             [classes.contentShift]: state.openDrawer,
