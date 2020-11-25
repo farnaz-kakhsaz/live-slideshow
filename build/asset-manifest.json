@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.js": "/live-slideshow/static/js/main.70f4b2c4.chunk.js",
+    "main.js.map": "/live-slideshow/static/js/main.70f4b2c4.chunk.js.map",
+    "runtime-main.js": "/live-slideshow/static/js/runtime-main.7f1a7828.js",
+    "runtime-main.js.map": "/live-slideshow/static/js/runtime-main.7f1a7828.js.map",
+    "static/js/2.54c0bc16.chunk.js": "/live-slideshow/static/js/2.54c0bc16.chunk.js",
+    "static/js/2.54c0bc16.chunk.js.map": "/live-slideshow/static/js/2.54c0bc16.chunk.js.map",
+    "static/js/3.be5f4823.chunk.js": "/live-slideshow/static/js/3.be5f4823.chunk.js",
+    "static/js/3.be5f4823.chunk.js.map": "/live-slideshow/static/js/3.be5f4823.chunk.js.map",
+    "static/js/4.e124b24a.chunk.js": "/live-slideshow/static/js/4.e124b24a.chunk.js",
+    "static/js/4.e124b24a.chunk.js.map": "/live-slideshow/static/js/4.e124b24a.chunk.js.map",
+    "index.html": "/live-slideshow/index.html",
+    "static/js/2.54c0bc16.chunk.js.LICENSE.txt": "/live-slideshow/static/js/2.54c0bc16.chunk.js.LICENSE.txt",
+    "static/media/Dosis-Bold.da853f58.ttf": "/live-slideshow/static/media/Dosis-Bold.da853f58.ttf",
+    "static/media/Dosis-Book.d4d759f9.ttf": "/live-slideshow/static/media/Dosis-Book.d4d759f9.ttf",
+    "static/media/Dosis-Light.02196afb.ttf": "/live-slideshow/static/media/Dosis-Light.02196afb.ttf",
+    "static/media/Dosis-Medium.50346366.ttf": "/live-slideshow/static/media/Dosis-Medium.50346366.ttf",
+    "static/media/Dosis-Semibold.3580e72c.ttf": "/live-slideshow/static/media/Dosis-Semibold.3580e72c.ttf",
+    "static/media/image-1.d934345b.jpg": "/live-slideshow/static/media/image-1.d934345b.jpg",
+    "static/media/image-10.7323b14d.jpg": "/live-slideshow/static/media/image-10.7323b14d.jpg",
+    "static/media/image-11.225c7a12.jpg": "/live-slideshow/static/media/image-11.225c7a12.jpg",
+    "static/media/image-12.6af6b1bb.jpg": "/live-slideshow/static/media/image-12.6af6b1bb.jpg",
+    "static/media/image-2.f2df3b70.jpg": "/live-slideshow/static/media/image-2.f2df3b70.jpg",
+    "static/media/image-3.c3142c97.jpg": "/live-slideshow/static/media/image-3.c3142c97.jpg",
+    "static/media/image-4.8097c7a9.jpg": "/live-slideshow/static/media/image-4.8097c7a9.jpg",
+    "static/media/image-5.58ed078d.jpg": "/live-slideshow/static/media/image-5.58ed078d.jpg",
+    "static/media/image-6.f8da1d9a.jpg": "/live-slideshow/static/media/image-6.f8da1d9a.jpg",
+    "static/media/image-7.ca8867b5.jpg": "/live-slideshow/static/media/image-7.ca8867b5.jpg",
+    "static/media/image-8.ef5ed4ed.jpg": "/live-slideshow/static/media/image-8.ef5ed4ed.jpg",
+    "static/media/image-9.26d9c3cd.jpg": "/live-slideshow/static/media/image-9.26d9c3cd.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7f1a7828.js",
+    "static/js/2.54c0bc16.chunk.js",
+    "static/js/main.70f4b2c4.chunk.js"
+  ]
+}
