@@ -42,7 +42,7 @@ function SlideshowWithPagination({
   );
 
   useEffect(() => {
-    if (options) {
+    if (options.length) {
       setOneCardPerScreen(options);
       setMultipleCardPerScreen(splitToChunks(options, numberOfCardsPerScreen));
     }
