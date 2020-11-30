@@ -20,7 +20,7 @@ export default function Slider({
 }) {
   return (
     <>
-      <BoxBase color="text.secondary" fontWeight="fontWeightMedium" mb={1}>
+      <BoxBase color="text.secondary" fontWeight="fontWeightMedium">
         {boxText}
         {FormHelperTextText && (
           <FormHelperTextBase disabled>{FormHelperTextText}</FormHelperTextBase>

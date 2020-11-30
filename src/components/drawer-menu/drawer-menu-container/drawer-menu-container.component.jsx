@@ -42,7 +42,7 @@ function DrawerMenuContainer({
         <ContainerBase>
           <BoxBase
             height="100vh"
-            display="flex"
+            display={{ lg: "flex" }}
             flexDirection="column"
             justifyContent="space-between"
           >
@@ -75,7 +75,7 @@ function DrawerMenuContainer({
               </LinkBase>
               .
             </BoxBase>
-            <BoxBase display="flex" justifyContent="space-evenly" mt={2} pb={3}>
+            <BoxBase display="flex" justifyContent="space-evenly" pb={3}>
               <ButtonBase
                 type="button"
                 variant="contained"
