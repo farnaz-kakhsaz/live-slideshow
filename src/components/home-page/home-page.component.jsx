@@ -247,6 +247,7 @@ export default function HomePage() {
               <BoxBase
                 fontSize={{ xs: 26, sm: 36, md: 46 }}
                 letterSpacing="1px"
+                lineHeight={1}
                 textAlign="center"
                 component="h2"
                 fontWeight="fontWeightMedium"
