@@ -1,6 +1,6 @@
 # Live Slideshow
 
-> This project was created based on my other library [react-slideshow-with-pagination](https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination) to show its potential in action.
+> This project was created based on my other library [react-slideshow-with-pagination](https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination) to show its potentials in action.
 
 ![Slideshow Screenshots](https://user-images.githubusercontent.com/37678729/100906760-c5274000-34de-11eb-9660-8c6f96c89676.png)
 
