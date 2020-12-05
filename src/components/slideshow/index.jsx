@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 // Components
 import Slideshow from "./components/slideshow/slideshow";
 import GridBase from "./components/items-base/grid-base/grid-base";
-import CircularProgress from "../items-base/circular-progress-base/circular-progress-base";
+import CircularProgress from "./components/items-base/circular-progress-base/circular-progress-base";
 import { splitToChunks } from "./helper/splitToChunks";
 // Material-UI
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
