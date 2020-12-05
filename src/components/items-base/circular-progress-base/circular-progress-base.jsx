@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Components
-import BoxBase from "../../slideshow/components/items-base/box-base/box-base";
+import BoxBase from "../box-base/box-base";
 // Material-UI
 import CircularProgress from "@material-ui/core/CircularProgress";
 
