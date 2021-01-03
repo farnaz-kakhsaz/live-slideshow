@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/live-slideshow/static/js/main.dbd3ccba.chunk.js",
-    "main.js.map": "/live-slideshow/static/js/main.dbd3ccba.chunk.js.map",
+    "main.js": "/live-slideshow/static/js/main.697ca2b4.chunk.js",
+    "main.js.map": "/live-slideshow/static/js/main.697ca2b4.chunk.js.map",
     "runtime-main.js": "/live-slideshow/static/js/runtime-main.f45bc496.js",
     "runtime-main.js.map": "/live-slideshow/static/js/runtime-main.f45bc496.js.map",
-    "static/js/2.696494ee.chunk.js": "/live-slideshow/static/js/2.696494ee.chunk.js",
-    "static/js/2.696494ee.chunk.js.map": "/live-slideshow/static/js/2.696494ee.chunk.js.map",
+    "static/js/2.0ea38fdf.chunk.js": "/live-slideshow/static/js/2.0ea38fdf.chunk.js",
+    "static/js/2.0ea38fdf.chunk.js.map": "/live-slideshow/static/js/2.0ea38fdf.chunk.js.map",
     "static/js/3.bed87678.chunk.js": "/live-slideshow/static/js/3.bed87678.chunk.js",
     "static/js/3.bed87678.chunk.js.map": "/live-slideshow/static/js/3.bed87678.chunk.js.map",
     "index.html": "/live-slideshow/index.html",
-    "static/js/2.696494ee.chunk.js.LICENSE.txt": "/live-slideshow/static/js/2.696494ee.chunk.js.LICENSE.txt",
+    "static/js/2.0ea38fdf.chunk.js.LICENSE.txt": "/live-slideshow/static/js/2.0ea38fdf.chunk.js.LICENSE.txt",
     "static/media/Dosis-Bold.da853f58.ttf": "/live-slideshow/static/media/Dosis-Bold.da853f58.ttf",
     "static/media/Dosis-Book.d4d759f9.ttf": "/live-slideshow/static/media/Dosis-Book.d4d759f9.ttf",
     "static/media/Dosis-Light.02196afb.ttf": "/live-slideshow/static/media/Dosis-Light.02196afb.ttf",
@@ -30,7 +30,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f45bc496.js",
-    "static/js/2.696494ee.chunk.js",
-    "static/js/main.dbd3ccba.chunk.js"
+    "static/js/2.0ea38fdf.chunk.js",
+    "static/js/main.697ca2b4.chunk.js"
   ]
 }
