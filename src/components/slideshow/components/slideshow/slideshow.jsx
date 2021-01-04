@@ -36,7 +36,7 @@ export default function Slideshow({
       const step = activeStep + 1 > options.length - 1 ? 0 : activeStep + 1;
       setActiveStep(step);
     }
-  }, [options.length]);
+  }, [activeStep, options.length]);
 
   function handleStepChange(step) {
     setActiveStep(step);
