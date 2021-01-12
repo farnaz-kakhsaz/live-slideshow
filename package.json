@@ -1,11 +1,12 @@
 {
   "name": "live-slideshow",
+  "version": "1.5.0",
+  "description": "This Live Slideshow project was created to show the capability of my other library the react-slideshow-with-pagination.",
   "author": {
     "name": "Farnaz Kakhsaz",
     "email": "farnaz.kakhsaz@gmail.com",
     "url": "https://github.com/farnaz-kakhsaz"
   },
-  "version": "1.5.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.1",
@@ -16,6 +17,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
+    "react-slideshow-with-pagination": "^1.0.1",
     "react-swipeable-views": "^0.13.9",
     "web-vitals": "^1.0.1"
   },
