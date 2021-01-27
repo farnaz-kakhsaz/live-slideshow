@@ -16,6 +16,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   btn: {
     [theme.breakpoints.up("sm")]: {
+      "&:first-child": {
+        marginRight: 20,
+      },
       width: 190,
     },
   },
