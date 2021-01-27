@@ -9,6 +9,8 @@ import BoxBase from "../items-base/box-base/box-base";
 // Material-UI
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+// Styles
+import { useStyles } from "./slideshow.styles.js";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -29,6 +31,7 @@ export default function Slideshow({
   ...rest
 }) {
   const [activeStep, setActiveStep] = useState(0);
+  const classes = useStyles({ cursor: enableMouseEvents });
 
   // To not show an empty screen
   useEffect(() => {
@@ -70,7 +73,7 @@ export default function Slideshow({
               index={activeStep}
               onChangeIndex={handleStepChange}
               enableMouseEvents={enableMouseEvents}
-              style={{ cursor: enableMouseEvents ? "e-resize" : "default" }}
+              className={classes.autoPlaySwipeableViews}
               {...rest}
             >
               {childrenArray
@@ -84,7 +87,7 @@ export default function Slideshow({
               index={activeStep}
               onChangeIndex={handleStepChange}
               enableMouseEvents={enableMouseEvents}
-              style={{ cursor: enableMouseEvents ? "e-resize" : "default" }}
+              className={classes.autoPlaySwipeableViews}
               {...rest}
             >
               {childrenArray
