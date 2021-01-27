@@ -18,13 +18,17 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   drawer: {
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
+    },
+    [theme.breakpoints.up("lg")]: {
+      // To hide drawer shadow that affects items on the screen
+      zIndex: (props) => props.zIndex,
     },
     width: "90%",
   },
   drawerPaper: {
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
     },
     width: "90%",

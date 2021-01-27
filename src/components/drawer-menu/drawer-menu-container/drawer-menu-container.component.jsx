@@ -27,7 +27,7 @@ function DrawerMenuContainer({
   handleResetDrawerItem,
   ...rest
 }) {
-  const classes = useStyles();
+  const classes = useStyles({ zIndex: openDrawer ? "auto" : "-1" });
 
   return (
     <>
