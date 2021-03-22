@@ -33,12 +33,12 @@ export default function FooterSection({ classes }) {
         &nbsp;and the tag version:&nbsp;
         <LinkBase
           //  href={`${repository.url}/releases/tag/${gitInfo.tags[0]}`}
-          href={`${repository.url}/releases/tag/v1.5.0`}
+          href={`${repository.url}/releases/tag/v1.6.0`}
           target="_blank"
           rel="noopener noreferrer"
         >
           {/* {gitInfo.tags[0]} */}
-          v1.5.0
+          v1.6.0
         </LinkBase>
         <br />
         You can fork this repository on&nbsp;
