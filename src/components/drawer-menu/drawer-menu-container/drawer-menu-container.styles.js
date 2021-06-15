@@ -42,6 +42,8 @@ export const useStyles = makeStyles((theme) => ({
     right: theme.spacing(5),
     bottom: theme.spacing(4),
     zIndex: 1,
+    width: 70,
+    height: 70,
   },
   fabWithAnimation: {
     animation: "$pulse 2s infinite",
