@@ -67,7 +67,7 @@ function DrawerMenuContainer({
             >
               And so much more &nbsp;
               <LinkBase
-                href="https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination#react-slideshow-with-pagination"
+                href="https://github.com/farnaz-kakhsaz/react-slideshow-with-pagination#the-react-slideshow-with-pagination-api"
                 target="_blank"
                 rel="noopener noreferrer"
               >
